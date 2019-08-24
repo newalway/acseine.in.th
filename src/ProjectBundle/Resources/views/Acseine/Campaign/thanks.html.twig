@@ -1,0 +1,50 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block html_description %}ขอบคุณที่ร่วมตอบแบบสอบถาม | ตอบคำถามกับ ACSEINE ลุ้นรับ Tester ACSEINE 50 รางวัล !!{% endblock %}
+
+{% block header %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_header_register.html.twig" %}
+{% endblock %}
+
+{% block body_class %}body-sunshield body-nopad{% endblock %}
+
+{% block content %}
+    <section class="regis-tk">
+        <div class="container">
+            <div class="pad">
+                <img src="{{asset('/acseine_campaign/images/thanks/tk2-1.png')}}" alt="THANK YOU VERY MUCH" style="margin-bottom:0;" />
+                <h1 class="text-red">ขอบคุณที่ร่วมตอบแบบสอบถาม</h1>
+                {#<h3>
+                    ผู้โชคดี 50 ท่านที่ได้รับ Tester ACSEINE อย่าลืมถ่ายรูป<br />
+                    พร้อมรีวิวและโพสต์ลง FB/IG และติด #ACSEINETH มาด้วยนะคะ
+                </h3>#}
+
+                <a href="{{path('acseine_campaign_index')}}" class="button red js_waveBtn">ปิด</a>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block shoplist %}{% endblock %}
+
+{% block footer %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_footer_register.html.twig" %}
+{% endblock %}
+
+{% block javascripts_footer %}
+    {{ parent() }}
+    <!-- Event snippet for Acceint Leads conversion page -->
+    <script>
+        gtag('event', 'conversion', {'send_to': 'AW-962259952/r1FLCNfClYsBEPDX68oD'});
+    </script>
+
+    <script>
+        fbq('track', 'Lead');
+    </script>
+
+    <!-- Event snippet for Acseine Thailand conversion page -->
+    <script>
+        gtag('event', 'conversion', {'send_to': 'AW-858158932/JxoaCP26vIsBENTumZkD'});
+    </script>
+{% endblock %}

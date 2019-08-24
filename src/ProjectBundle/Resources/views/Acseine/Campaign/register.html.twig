@@ -1,0 +1,299 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block html_description %}ตอบคำถามกับ ACSEINE ลุ้นรับ Tester ACSEINE 50 รางวัล !!{% endblock %}
+
+{% block header %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_header_register.html.twig" %}
+{% endblock %}
+
+{% block body_class %}body-sunshield body-nopad{% endblock %}
+
+{% block content %}
+    <section class="regis-section" ng-app="registerApp" ng-controller="registerController">
+        <div class="container">
+            <div class="pad">
+                <div class="regis-title">
+                    เชิญสาว ๆ  ลุ้นรับ Tester  ACSEINE  ไปใช้แบบฟรี  ๆ 50 รางวัล เพียงตอบคำถาม
+                </div>
+                <form ng-submit="processForm()" autocomplete="off">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                            <div class="form-group">
+                                <label for="first_name">ชื่อ</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control" ng-model="formData.param.first_name">
+                                <div class="ng-cloak" ng-if="errors.first_name" ng-class="errors.first_name?'error':''">{{'{{errors.first_name}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="last_name">นามสกุล</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control" ng-model="formData.param.last_name">
+                                <div class="ng-cloak" ng-if="errors.last_name" ng-class="errors.last_name?'error':''">{{'{{errors.last_name}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="instagram_user">ชื่อ Instagram สำหรับตรวจสอบ</label>
+                                <input type="text" name="instagram_user" id="instagram_user" class="form-control" ng-model="formData.param.instagram_user">
+                                <div class="ng-cloak" ng-if="errors.instagram_user" ng-class="errors.instagram_user?'error':''">{{'{{errors.instagram_user}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="facebook_user">ชื่อ Facebook สำหรับตรวจสอบ</label>
+                                <input type="text" name="facebook_user" id="facebook_user" class="form-control" ng-model="formData.param.facebook_user">
+                                <div class="ng-cloak" ng-if="errors.facebook_user" ng-class="errors.facebook_user?'error':''">{{'{{errors.facebook_user}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="salary">รายได้</label>
+                                <div class="answers">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <div class="checked-container">
+                                                    <input type="radio" name="salary[]" id="salary1" value="ต่ำกว่า 20,000" ng-model="formData.param.salary">
+                                                    <span class="radiobtn"></span>
+                                                </div>
+                                                ต่ำกว่า 20,000
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <div class="checked-container">
+                                                    <input type="radio" name="salary[]" id="salary2" value="20,001 – 35,000" ng-model="formData.param.salary">
+                                                    <span class="radiobtn"></span>
+                                                </div>
+                                                20,001 – 35,000
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <div class="checked-container">
+                                                    <input type="radio" name="salary[]" id="salary3" value="35,001 – 50,000" ng-model="formData.param.salary">
+                                                    <span class="radiobtn"></span>
+                                                </div>
+                                                35,001 – 50,000
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>
+                                                <div class="checked-container">
+                                                    <input type="radio" name="salary[]" id="salary4" value="มากกว่า 50,000" ng-model="formData.param.salary">
+                                                    <span class="radiobtn"></span>
+                                                </div>
+                                                มากกว่า 50,000
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ng-cloak" ng-if="errors.salary" ng-class="errors.salary?'error':''">{{'{{errors.salary}}'}}</div>
+                            </div>
+
+                            <div class="form-group age">
+                                <label for="age">อายุ</label>
+                                <div>
+                                    <input type="number" name="age" id="age" min="1" max="150" class="form-control" ng-model="formData.param.age"> ปี
+                                </div>
+                                <div class="ng-cloak" ng-if="errors.age" ng-class="errors.age?'error':''">{{'{{errors.age}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">ที่อยู่</label>
+                                <textarea name="address" id="address" rows="4" class="form-control" ng-model="formData.param.address"></textarea>
+                                <div class="ng-cloak" ng-if="errors.address" ng-class="errors.address?'error':''">{{'{{errors.address}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">เบอร์โทรศัพท์</label>
+                                <input type="tel" name="phone" id="phone" class="form-control" ng-model="formData.param.phone">
+                                <div class="ng-cloak" ng-if="errors.phone" ng-class="errors.phone?'error':''">{{'{{errors.phone}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">อีเมล์</label>
+                                <input type="email" name="email" id="email" class="form-control" ng-model="formData.param.email">
+                                <div class="ng-cloak" ng-if="errors.email" ng-class="errors.email?'error':''">{{'{{errors.email}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers1_1">1. ผลิตภัณฑ์บำรุงผิวที่ท่านชอบและเลือกใช้เป็นประจำ (3 แบรนด์)</label>
+                                <input type="text" name="answers1[]" id="answers1_0" class="form-control mb-5" placeholder="แบรนด์..." ng-model="formData.param.answers1[0]">
+                                <input type="text" name="answers1[]" id="answers1_1" class="form-control mb-5" placeholder="แบรนด์..." ng-model="formData.param.answers1[1]">
+                                <input type="text" name="answers1[]" id="answers1_2" class="form-control" placeholder="แบรนด์..." ng-model="formData.param.answers1[2]">
+                                <div class="ng-cloak" ng-if="errors.answers1" ng-class="errors.answers1?'error':''">{{'{{errors.answers1}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers2">2. โปรโมชั่นใดที่น่าดึงดูดที่สุดในการซื้อผลิตภัณฑ์บำรุงผิวหน้า</label><br />
+                                <div class="answers">
+                                    <label for="answers21">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers2[]" id="answers21" value="โปรโมชั่นส่วนลด (Discount 5 - 15%)" ng-model="formData.param.answers2">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        โปรโมชั่นส่วนลด (Discount 5 - 15%)
+                                    </label><br />
+                                    <label for="answers22">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers2[]" id="answers22" value="แถมสินค้าขนาดพกพาหลายชิ้น" ng-model="formData.param.answers2">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        แถมสินค้าขนาดพกพาหลายชิ้น
+                                    </label><br />
+                                    <label for="answers23">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers2[]" id="answers23" value="แถมสินค้ารุ่น Limited Edition ไม่มีจำหน่ายทั่วไป" ng-model="formData.param.answers2">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        แถมสินค้ารุ่น Limited Edition ไม่มีจำหน่ายทั่วไป
+                                    </label>
+                                    <label for="answers24">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers2[]" id="answers24" value="ซื้อเป็นเซ็ตในราคาพิเศษ" ng-model="formData.param.answers2">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        ซื้อเป็นเซ็ตในราคาพิเศษ
+                                    </label>
+                                    <label for="answers25">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers2[]" id="answers25" value="ได้สะสมแต้มเพื่อแลกสินค้าพรีเมี่ยมหรือสินค้ารุ่นใหม่ในอนาคต" ng-model="formData.param.answers2">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        ได้สะสมแต้มเพื่อแลกสินค้าพรีเมี่ยมหรือสินค้ารุ่นใหม่ในอนาคต
+                                    </label>
+                                </div>
+                                <div class="ng-cloak" ng-if="errors.answers2" ng-class="errors.answers2?'error':''">{{'{{errors.answers2}}'}}</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers3">3. เหตุใดถึงต้องการทดลองใช้เวชสำอางจากญี่ปุ่น ACSEINE</label>
+                                <textarea name="answers3" id="answers3" class="form-control" ng-model="formData.param.answers3"></textarea>
+                                <div class="ng-cloak" ng-if="errors.answers3" ng-class="errors.answers3?'error':''">* กรุณาตอบ</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers4">4. คุณสนใจกันแดดตัวใดที่สุด</label><br />
+                                <div class="answers">
+                                    <label for="answers41">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers4[]" id="answers41" value="Super Sunshield EX" ng-model="formData.param.answers4">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        Super Sunshield EX
+                                    </label><br />
+                                    <label for="answers42">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers4[]" id="answers42" value="Super Sunshield Bright Veil" ng-model="formData.param.answers4">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        Super Sunshield Bright Veil
+                                    </label><br />
+                                    <label for="answers43">
+                                        <div class="checked-container">
+                                            <input type="radio" name="answers4[]" id="answers43" value="Super Sunshield Bright FIT" ng-model="formData.param.answers4">
+                                            <span class="radiobtn"></span>
+                                        </div>
+                                        Super Sunshield Bright FIT
+                                    </label>
+                                </div>
+                                <div class="ng-cloak" ng-if="errors.answers4" ng-class="errors.answers4?'error':''">* กรุณาตอบ</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers5">5. จากข้อ 4 สนใจเพราะอะไร</label><br />
+                                <textarea name="answers5" id="answers5" class="form-control" ng-model="formData.param.answers5"></textarea>
+                                <div class="ng-cloak" ng-if="errors.answers5" ng-class="errors.answers5?'error':''">* กรุณาตอบ</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers6">6. บอกชื่อผลิตภัณฑ์อื่นๆ ของ ACSEINE ที่คุณสนใจรับขนาดทดลอง</label><br />
+                                <textarea name="answers6" id="answers6" class="form-control" ng-model="formData.param.answers6"></textarea>
+                                <div class="ng-cloak" ng-if="errors.answers6" ng-class="errors.answers6?'error':''">* กรุณาตอบ</div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answers7">7. นอกเหนือจากกันแดด ACSEINE คุณรู้จักผลิตภัณฑ์อื่น ของ ACSEINE อื่นๆ ตัวใดบ้าง?</label><br />
+                                <textarea name="answers7" id="answers7" rows="4" class="form-control" ng-model="formData.param.answers7"></textarea>
+                                <div class="ng-cloak" ng-if="errors.answers7" ng-class="errors.answers7?'error':''">* กรุณาตอบ</div>
+
+                                <br /><br />
+                                <div class="form-footer">
+                                    <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw ng-cloak" ng-show="getDataLoading()"></i>
+                                    <button type="submit" class="button red js_waveBtn" ng-hide="getDataLoading()">ส่งข้อมูล</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block shoplist %}{% endblock %}
+
+{% block footer %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_footer_register.html.twig" %}
+{% endblock %}
+
+{% block javascripts_footer %}
+    {{ parent() }}
+    <script>
+        var registerApp = angular.module('registerApp', []);
+
+        registerApp.factory('register_data', ['$http', function register_data($http){
+            return {
+                create: function(dataObj){console.log(dataObj);
+                    return $http({
+                        method:'POST',
+                        url: 'https://api.what-zap.com/api/v1/acseineregisters',
+                        // url: 'http://localhost:9134/app_dev.php/api/v1/acseineregisters',//local sara
+                        data: $.param(dataObj),
+                        headers: {
+                            'Authorization':'Bearer YmE1NjFmYmUyOTdlMGY0YWQ4ZjYxMTc3YTY2ZjJhMmVhMTBhM2EwMjY2YzA1YmEzMjcwOGExYTU5MmI4MjYzMw',
+                            // 'Authorization':'Bearer N2RmNGEyMTlhZTMyNTcyZmE4M2Q2NzViOTlkM2Y5M2M3YjQzYTFhYzk3OWRhZjFlNzkyOWMyYmM1Y2VjODAyNw',//local sara
+                            'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+                        }
+                    });
+                }
+            }
+        }]);
+
+        registerApp.controller('registerController', ['$scope', '$sce', '$window', 'register_data', function($scope, $sce, $window, register_data) {
+            $scope.getDataLoading = function() {
+                return $scope.data_loaded;
+            };
+            $scope.setDataLoading = function(value) {
+                $scope.data_loaded = value;
+            };
+
+            $scope.processForm = function() {
+                $scope.setDataLoading(true);
+
+                register_data.create($scope.formData).then(function onSuccess(response) {
+                    var data = response.data;
+                    if (!data.success) {
+                        $scope.message = data.message;
+                        $scope.errors = data.error_message;
+                    } else {
+                        $scope.message = data.message;
+                        $scope.errors = data.error_message;
+                        $window.location.href = '{{path('acseine_campaign_thanks')}}';
+                    }
+                    $scope.setDataLoading(false);
+                }).catch(function onError(response) {
+                    $scope.setDataLoading(false);
+                });
+            };
+
+            $scope.formData = {};
+            $scope.errors = {};
+            $scope.message = null;
+            $scope.setDataLoading(false);
+
+        }]);
+
+    </script>
+{% endblock %}

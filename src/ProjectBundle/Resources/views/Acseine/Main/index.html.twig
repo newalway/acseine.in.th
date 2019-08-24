@@ -1,0 +1,87 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.toppage.title{% endtrans %}{% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.toppage.html_description{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.toppage.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+<section id ="mainpage" class="mainpage" ng-app="imgBanner">
+  	<div class="slide">
+		<div class="container">
+			{% if banners|length > 0 %}
+			<ul>
+				{% for banner in banners %}
+					<li>
+						<a {% if banner.getWebsite %}href="{{banner.getWebsite}}"{% endif %}>
+                            {# no filter #}
+							<img ng-src="{% if banner.getImageMobile %}{{asset(banner.getImageMobile)}}{% endif %}" {% if banner.getImage %}bh-src-responsive="[ [ '(min-width: 641px)', '{{asset(banner.getImage)}}' ] ]"{% endif %} alt="{{banner.getTitle}}" class="ng-cloak">
+                            {# //with filter <img ng-src="{% if banner.getImageMobile %}{{asset(banner.getImageMobile)|imagine_filter('img_w_480')}}{% endif %}" {% if banner.getImage %}bh-src-responsive="[ [ '(min-width: 641px)', '{{asset(banner.getImage)|imagine_filter('img_w_960')}}' ] ]"{% endif %} alt="{{banner.getTitle}}" class="ng-cloak">#}
+						</a>
+					</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+		</div>
+  	</div>
+	<div class="main-content container">
+		<div class="acseine no-sp" style="position:relative;">
+			<a href="{{path('about')}}">
+                {%  if (app.request.getLocale()) == 'en' %}
+					<img class="img-responsive" src="{{asset('acseine/original/images/top_acseine.jpg')}}" alt="To make skin beautiful, without frequent breakouts – that is ACSEINE's guiding principle">
+				{% elseif (app.request.getLocale()) == 'th'%}
+					<img class="img-responsive" src="{{asset('acseine/original/images/top_acseine_th.png')}}" alt="เพื่อผิวที่สวยกระจ่างใสดูสุขภาพดี - เป็นหน้าที่หลักของ ACSEINE ที่จะคอยให้คำปรึกษา">
+				{% endif %}
+				<h1 style="margin:0;"><span class="toppage-head" style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.head{% endtrans %}</span></h1>
+			</a>
+		</div>
+
+		<div class="product text-center">
+			<ul style="position:relative;">
+				{%  if (app.request.getLocale()) == 'en' %}
+					<li>
+						<a href="{{path('product')}}"><img src="{{asset('acseine/original/images/top_product_01_sp.jpg')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product_01_pc.jpg')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head1{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head1{% endtrans %}</span>
+					</li>
+					<li>
+						<a href="{{path('counseling')}}"><img src="{{asset('acseine/original/images/top_product_02_sp.jpg')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product_02_pc.jpg')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head2{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head2{% endtrans %}</span>
+					</li>
+					<li>
+						<a href="{{path('shop')}}"><img src="{{asset('acseine/original/images/top_product_03_sp.jpg')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product_03_pc.jpg')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head3{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head3{% endtrans %}</span>
+					</li>
+				{% elseif (app.request.getLocale()) == 'th'%}
+					<li>
+						<a href="{{path('product')}}"><img src="{{asset('acseine/original/images/top_product_01_sp_th.png')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product_01_pc_th.png')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head1{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head1{% endtrans %}</span>
+					</li>
+					<li>
+						<a href="{{path('counseling')}}"><img src="{{asset('acseine/original/images/top_product_02_sp_th.png')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product_02_pc_th.png')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head2{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head2{% endtrans %}</span>
+					</li>
+					<li>
+						<a href="{{path('shop')}}"><img src="{{asset('acseine/original/images/top_product03_sp_th.png')}}" bh-src-responsive="[ [ '(min-width: 641px)', '{{asset('acseine/original/images/top_product03_pc_th.png')}}' ] ]" alt="{% trans %}acseine.toppage.sub_head3{% endtrans %}"></a>
+						<span style="position: absolute; top: 10px;left: 10px;font-size: 1rem;z-index:-5;color:#fff;">{% trans %}acseine.toppage.sub_head3{% endtrans %}</span>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
+
+{% block javascripts_body %}
+    {{ parent() }}
+	<script src="{{ asset('acseine/original/js/slide.js') }}"></script>
+    <script>
+        angular.module('imgBanner', ['bhResponsiveImages']);
+    </script>
+{% endblock %}

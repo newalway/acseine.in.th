@@ -1,0 +1,74 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.skin_allergy_test.title{% endtrans %} {% trans %}acseine.breadcrumb.skin_allergy_test{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.skin_allergy_test.title{% endtrans %} {% trans %}acseine.skin_allergy_test.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.skin_allergy_test.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_allergy')}}"  class="active">{% trans %}acseine.breadcrumb.skin_allergy{% endtrans %} </a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.skin_allergy_test{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.skin_allergy_test.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="skin-allergy-test" class="skin-allergy-test">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.skin_allergy_test.head{% endtrans %}</h3>
+			<h4 class="title_h4" id="q1">{% trans %}acseine.skin_allergy_test.head_paragraph1{% endtrans %}</h4>
+			<div class="listItems skin_pimple_thumbList">
+				<div class="description">
+					<p class="text">{% trans %}acseine.skin_allergy_test.paragraph1{% endtrans %}</p>
+				</div>
+				<div class="thumbnail">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_test/thumbnail_01.png')}}" alt="Patch test back">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_test/thumbnail_01_th.png')}}" alt="ทดสอบเฉพาะจุด หลัง">
+					{% endif %}
+				</div>
+			</div>
+			<h4 class="title_h4" id="q2">{% trans %}acseine.skin_allergy_test.head_paragraph2{% endtrans %}</h4>
+			<div class="listItems skin_pimple_thumbList">
+				<div class="description">
+					<p class="text">{% trans %}acseine.skin_allergy_test.paragraph2{% endtrans %}</p>
+				</div>
+				<div class="thumbnail">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_test/thumbnail_02.png')}}" alt="Patch test Inner arm">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_test/thumbnail_02_th.png')}}" alt="ทดสอบเฉพาะจุด วงแขนด้านใน">
+					{% endif %}
+				</div>
+			</div>
+			<div class="listItems btn_back">
+				<a href="{{path('skin_allergy')}}"><img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_test/btn_back.png')}}" alt="Back"></a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.breadcrumb.skin_atopic_dermatitis_qa{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.skin_atopic_dermatitis_qa.title{% endtrans %} {% trans %}acseine.skin_atopic_dermatitis_qa.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.skin_atopic_dermatitis_qa.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_atopic_dermatitis')}}"  class="active">{% trans %}acseine.breadcrumb.skin_atopic_dermatitis{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.skin_atopic_dermatitis_qa{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.skin_atopic_dermatitis_qa.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="skin-atopy-qa" class="skin-atopy-qa">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.skin_atopic_dermatitis_qa.head{% endtrans %}</h3>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section1.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section1.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section2.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section2.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section3.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section3.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.question{% endtrans %}</li>
+					<li>
+						<h5>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.head_answer{% endtrans %}</h5>
+						<p>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.answer{% endtrans %}</p>
+
+						<h5>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.head_paragraph1{% endtrans %}</h5>
+						<p>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.paragraph1{% endtrans %}</p>
+
+						<h5>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.head_paragraph2{% endtrans %}</h5>
+						<p>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.paragraph2{% endtrans %}</p>
+
+						<h5>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.head_paragraph3{% endtrans %}</h5>
+						<p>{% trans %}acseine.skin_atopic_dermatitis_qa.section4.paragraph3{% endtrans %}</p>
+					</li>
+				</ul>
+			</div>
+			<div class="listItems btn_back">
+				<a href="{{path('skin_atopic_dermatitis')}}"><img src="{{asset('acseine/original/images/skin_problems/skin_atopy/skin_atopy_qa/btn_back.png')}}" alt="back"></a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

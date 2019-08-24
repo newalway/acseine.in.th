@@ -1,0 +1,130 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.skin_atopic_dermatitis.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %}{{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.skin_atopic_dermatitis.title{% endtrans %} {% trans %}acseine.skin_atopic_dermatitis.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.skin_atopic_dermatitis.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.skin_atopic_dermatitis{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.skin_atopic_dermatitis.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="skin-atopic-dermatitis" class="skin-atopic-dermatitis">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.skin_atopic_dermatitis.head{% endtrans %}</h3>
+			<div class="listItems skin_pimple_question">
+				<ul class="listQuestion">
+					<li><a href="#q1">{% trans %}acseine.skin_atopic_dermatitis.question1_title_main{% endtrans %}</a></li>
+					<li><a href="#q2">{% trans %}acseine.skin_atopic_dermatitis.question2_title_main{% endtrans %}</a></li>
+					<li><a href="#q3">{% trans %}acseine.skin_atopic_dermatitis.question3_title_main{% endtrans %}</a></li>
+				</ul>
+				<a class="btn_top" href="{{path('skin_atopic_dermatitis_qa')}}"><img src="{{asset('acseine/original/images/skin_problems/skin_atopy/btn_top.png')}}" alt="Q&amp;A for managing allergies"></a>
+			</div>
+			<h4 class="title_h4" id="q1">{% trans %}acseine.skin_atopic_dermatitis.question1.title{% endtrans %}</h4>
+			<div class="description">
+				<p class="text">{% trans %}acseine.skin_atopic_dermatitis.question1.paragraph1{% endtrans %}</p>
+				<div class="img_content">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/img_content_01.png')}}" alt="{% trans %}acseine.skin_atopic_dermatitis.question1.title{% endtrans %} Exacerbating factors">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/img_content_01_th.png')}}" alt="{% trans %}acseine.skin_atopic_dermatitis.question1.title{% endtrans %} ปัจจัยที่ก่อให้เกิดอาการ">
+					{% endif %}
+				</div>
+			</div>
+			<h4 class="title_h4" id="q2">{% trans %}acseine.skin_atopic_dermatitis.question2.title{% endtrans %}</h4>
+			<div class="listItems skin_pimple_thumbList">
+				<div class="description">
+					<p class="text">{% trans %}acseine.skin_atopic_dermatitis.question2.paragraph1{% endtrans %}</p>
+					<h5>{% trans %}acseine.skin_atopic_dermatitis.question2.head_paragraph2{% endtrans %}</h5>
+					<p class="text">{% trans %}acseine.skin_atopic_dermatitis.question2.paragraph2{% endtrans %}</p>
+				</div>
+				<div class="thumbnail">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/thumbnail_01.png')}}" alt="Petroleum jelly">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/thumbnail_01_th.png')}}" alt="ปิโตรเลียมเจล">
+					{% endif %}
+				</div>
+			</div>
+			<div class="description">
+				<h4 class="title_h4" id="q3">{% trans %}acseine.skin_atopic_dermatitis.question3.title{% endtrans %}</h4>
+				<p class="text">{% trans %}acseine.skin_atopic_dermatitis.question3.paragraph1{% endtrans %}</p>
+			</div>
+			<div class="listItems skin_pimple_step">
+				<div class="skin_pimple_stepItems">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_01.png')}}" alt="Cleansing">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_01_th.png')}}" alt="ดูแลทำความสะอาดผิวอย่างอ่อนโยน">
+					{% endif %}
+					<a href="{{path('skin_atopic_dermatitis_wash')}}"><img src="{{asset('acseine/original/images/skin_problems/skin_atopy/btn_step_01.png')}}" alt="Face washing that's gentle on the skin"></a>
+				</div>
+				<div class="skin_pimple_stepItems">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_02.png')}}" alt="Moisturizing">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_02_th.png')}}" alt="เติมความชุ่มชื้นให้ผิว">
+					{% endif %}
+				</div>
+				<div class="skin_pimple_stepItems">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_04.png')}}" alt="Makeup">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_04_th.png')}}" alt="การแต่งหน้า">
+					{% endif %}
+				</div>
+				<div class="skin_pimple_stepItems">
+					{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_03.png')}}" alt="UV ray care">
+					{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/step_03_th.png')}}" alt="ป้องกันรังสี UV">
+					{% endif %}
+				</div>
+			</div>
+			<div class="img_btn">
+				<a href="{{path('skin_atopic_dermatitis_qa')}}">
+					<img src="{{asset('acseine/original/images/skin_problems/skin_atopy/img_ads_01.png')}}" alt="Q&A for managing atopic dermatitis">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="listItems skin_pimple_listBtn">
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('skin_allergy')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_allergies{% endtrans %}</h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('skin_atopic_dermatitis')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_atopic{% endtrans %} </h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('adult_acne')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_adult{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('uv_rays_and_dryness')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i><h3> {% trans %}acseine.skin_problems.button_uv{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

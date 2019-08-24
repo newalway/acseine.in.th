@@ -1,0 +1,41 @@
+<div>
+    <div>
+        <h5 class="panel-heading panel-title"><b>
+        {% trans %}member.shipping.address{% endtrans %}
+        <a href="javascript:void(0)" id="selectShippingAddress" ng-click="selectShippingAddress()" ><span class="label label-sm label-default">{% trans %}cart.edit{% endtrans %}</span></a>
+      </b></h5>
+    </div>
+    <div ng-show="shipping_address.id">
+        <b>{{'{{shipping_address.firstName}}'}} {{'{{shipping_address.lastName}}'}} </b><br/>
+        <p>
+            <span ng-show="shipping_address.companyName">{{'{{shipping_address.companyName}}'}}<br/></span>
+            {{'{{shipping_address.address}}'}}, {{'{{shipping_address.district}}'}}, {{'{{shipping_address.amphure}}'}},
+            {{'{{shipping_address.province}}'}} {#, <span ng-show="shipping_address.countryCode"> {{'{{shipping_address.countryCode.country}}'}} </span>#}
+            {{'{{shipping_address.postCode}}'}}<br />
+            {{'{{shipping_address.phone}}'}}
+            <span ng-show="billing_address.id == shipping_address.id && shipping_address.taxPayerId"><br/> {% trans %}member.taxpayerid{% endtrans %} {{'{{shipping_address.taxPayerId}}'}} </span>
+        </p>
+    </div>
+</div>
+<div>
+    <div>
+        <h5 class="panel-heading panel-title">
+            <b>
+                {% trans %}member.billing.address{% endtrans %}<span ng-show="billing_address.id && billing_address.id == shipping_address.id">{% trans %}member.billing.same_address{% endtrans %}</span>
+                <a href="javascript:void(0)" id="selectBillingAddress" ng-click="selectBillingAddress()"><span class="label label-sm label-default">{% trans %}cart.edit{% endtrans %}</span></a>
+            </b>
+        </h5>
+    </div>
+
+    <div ng-show="billing_address.id && billing_address.id != shipping_address.id">
+        <b> {{'{{billing_address.firstName}}'}} {{'{{billing_address.lastName}}'}} </b><br/>
+        <p>
+            <span ng-show="billing_address.companyName">{{'{{billing_address.companyName}}'}}<br/></span>
+            {{'{{billing_address.address}}'}}, {{'{{billing_address.district}}'}}, {{'{{billing_address.amphure}}'}},
+            {{'{{billing_address.province}}'}} {#, <span ng-show="billing_address.countryCode"> {{'{{billing_address.countryCode.country}}'}} </span>#}
+            {{'{{billing_address.postCode}}'}}<br />
+            {{'{{billing_address.phone}}'}}
+            <span ng-show="billing_address.taxPayerId"><br/> {% trans %}member.taxpayerid{% endtrans %} {{'{{billing_address.taxPayerId}}'}} </span>
+        </p>
+    </div>
+</div>

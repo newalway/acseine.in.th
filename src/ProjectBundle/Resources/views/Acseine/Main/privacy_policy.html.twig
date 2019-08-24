@@ -1,0 +1,35 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.menu.privacy_policy{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.privacy_policy.sub_head1{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.privacy_policy.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.privacy_policy{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.breadcrumb.privacy_policy{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+	<section  id="privacy-policy" class="privacy-policy">
+		<div class="main-content container">
+			{{data.getContent|raw}}
+		</div>
+	</section>
+{% endblock %}

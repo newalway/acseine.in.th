@@ -1,0 +1,79 @@
+{#{{dump(arr_cart_data)}}#}
+
+<li class="shopping-cart">
+    <a class="button-icon" href="{{path('cart')}}">
+        <i class="cart_summary_item_count fa fa-shopping-cart">
+            {# <i class="fa-icon fa-icon-shopping-bag2" >
+            {% if arr_cart_data.summary|length > 0 %}
+                <span class="cart-item">
+                    {{arr_cart_data.summary.item_count}}
+                </span>
+            {% endif %} #}
+        </i>
+
+        <span class="text">{% trans %}cart.title{% endtrans %}
+            <text class="cart_summary_item_count_sub">
+                {# {% if arr_cart_data.summary|length > 0 %}
+                    ({{arr_cart_data.summary.item_count}})
+                {% endif %} #}
+            </text>
+        </span>
+    </a>
+</li>
+
+{#
+<li class="shopping-cart">
+    <div id="cart_list_products" class="megamenu shopping-cart-box">
+        <ul class="header-cart-box">
+            <div id="cart_list_products_item">
+               {% if arr_cart_data.products|length > 0 %}
+                    {% for product in arr_cart_data.products %}
+                        <li>
+                            <div class="img-box">
+                                {% if product.image_small %}
+                                    <img src="{{product.image_small}}" alt="{{product.title}}" />
+                                {% else %}
+                                    <img src="{{ asset('template/img/resources/header-cart-1.jpg')}}" alt="{{product.title}}" />
+                                {% endif %}
+                            </div>
+                            <div class="text-box">
+                                <a href="{{path('product_detail',{'id':product.product_id, 'slug':product.title|slug})}}">
+                                    <h3>{{product.title}}</h3>
+                                    {% if  product.variant_option|length > 0 %}
+                                        {{ product.variant_option|join(' · ')}}
+                                    {% endif %}
+                                </a>
+                                <span class="price">฿{{product.amount|number_format(0, '', ',')}}</span>
+                                <div class="review-box">
+                                    {% if product.quantity > 1 %}
+                                        <i>฿{{product.price|number_format(0, '', ',')}} (Qty: {{product.quantity}})</i>
+                                    {% endif %}
+                                    <!-- <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i> -->
+                                </div>
+                                <!-- <a href="#" class="remove-box"><i class="fa fa-times-circle"></i></a> -->
+                            </div>
+                        </li>
+                    {% endfor %}
+                {% endif %}
+            </div>
+
+            <li class="clearfix cart-bottom">
+                <div class="total-text pull-left">
+                    <span> Total -
+                        ฿<text id="cart_summary_total">
+                            {% if arr_cart_data.summary|length > 0 %}
+                                {{arr_cart_data.summary.total|number_format(0, '', ',')}}
+                            {% endif %}
+                        </text>
+                    </span>
+                </div>
+                <div class="checkout-btn pull-right">
+                    <a href="{{path('cart')}}" class="flip-flop-btn"><span data-hover="GO TO CART">GO TO CART<i class="fa fa-caret-right"></i></span></a>
+                    <a href="{{path('checkout')}}" class="flip-flop-btn"><span data-hover="Checkout">Checkout<i class="fa fa-caret-right"></i></span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</li>
+#}
+{# style="display: block;" #}

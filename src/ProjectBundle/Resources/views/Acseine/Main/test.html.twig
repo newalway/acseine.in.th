@@ -1,0 +1,181 @@
+{% extends 'ProjectBundle::base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block html_description %}{% endblock %}
+{% block html_keywords %}{% endblock %}
+
+{% block html_meta %}
+
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+{############################# original #############################################}
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+<link rel="stylesheet" href="{{asset('acseine/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/reset.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/global.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/module.css')}}">
+
+
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/original/css/slick.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/original/css/styles.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/stylesheets/bootstrap.min.css')}}">
+
+
+{##########################################################################}
+
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('acseine/images/favicon.ico')}}" />
+{% endblock %}
+
+{% block javascripts %}
+
+<script src="{{asset('acseine/original/common/js/jquery.min.js')}}"></script>
+<script src="{{asset('acseine/original/common/js/global.js')}}"></script>
+<script src="{{asset('acseine/original/js/slick.min.js')}}"></script>
+<script src="{{asset('acseine/original/js/custom.js')}}"></script>
+
+
+{% endblock %}
+
+{% block body %}
+<div id="wrapper" class="wrap">
+<header class="header">
+	<div class="container">
+		<div class="container header-top">
+			<h1><a href="./"><img src="{{asset('acseine/original/common/images/logo.png')}}" alt="logo"></a></h1>
+			<div class="header-right no-sp">
+				<div class="header-lang">
+					{% if app.request.getLocale() == 'en' %}
+						<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></span>
+					{% elseif app.request.getLocale() == 'th' %}
+						<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></span>
+					{% else %}
+						<span>Language</span>
+					{% endif %}
+					<ul class="ul-lang">
+						<li><a href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>
+						<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+						<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>
+					</ul>
+				</div>
+				<div class="header-social">
+					<a href="https://www.facebook.com/acseine.co.jp/"><img src="{{asset('acseine/original/common/images/facebook_icon.png')}}" alt=""></a>
+				</div>
+			</div>
+			<div class="header-btn-nav is-sp">
+				<div class="btn-icon">
+				  <span></span>
+				  <span></span>
+				  <span></span>
+				</div>
+			</div>
+		</div>
+		<div class="header-nav">
+		  <div class="header-nav-content">
+			<div class="header-nav-top">
+				<ul>
+						<li>
+							<a href="{{path('homepage')}}">{% trans %}acseine.menu.top{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('product')}}">{% trans %}acseine.menu.product{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('about')}}">{% trans %}acseine.menu.about{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('counseling')}}">{% trans %}acseine.menu.counseling{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('skin_problems_and_cosmetics')}}">{% trans %}acseine.menu.skincosmetics{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('shop')}}">{% trans %}acseine.menu.shoplist{% endtrans %}</a>
+						</li>
+					</ul>
+			</div>
+				<div class="header-nav-bottom is-sp">
+			<div class="header-lang">
+						{% if app.request.getLocale() == 'en' %}
+							<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></span>
+						{% elseif app.request.getLocale() == 'th' %}
+							<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></span>
+						{% else %}
+							<span>Language</span>
+						{% endif %}
+						<ul class="ul-lang">
+							<li><a href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>
+							<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+							<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>
+						</ul>
+					</div>
+					<div class="header-social">
+						<a href="https://www.facebook.com/acseine.co.jp/"><img src="{{asset('acseine/original/common/images/facebook_icon.png')}}" alt=""></a>
+					</div>
+				</div>
+		  </div>
+		</div>
+	</div>
+</header>
+
+
+<div class="main">
+	{% block breadcrumb %}{% endblock %}
+	{% block content %}{% endblock %}
+</div>{#end main#}
+
+
+	<footer class="footer">
+	  <div class="footer-nav-sp is-sp">
+		<ul class="nav01">
+			<li><a href="./series">Product series</a></li>
+			<li><a href="{{path('about')}}">About ACSEINE</a></li>
+			<li><a href="./counseling">Counseling</a></li>
+			<li><a href="./counseling_skin">Skin problems and cosmetics</a></li>
+		</ul>
+		<ul class=" nav02">
+			<li><a href="./about">Company profile</a></li>
+			<li><a href="./rules">Website terms of use</a></li>
+			<li><a href="http://www.acseine.co.jp/shop/pages/privacy.aspx">Privacy policy</a></li>
+			<li><a href="./sitemap">Site map</a></li>
+		</ul>
+	  </div>
+		<div class="container">
+			<div class="footer-top no-sp">
+				<img src="{{asset('acseine/original/common/images/footer_logo.png')}}" alt="footer logo">
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-nav no-sp">
+					<ul>
+						<li>
+							<a href="{{path('company_profile')}}">{% trans %}acseine.menu.company_profile{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('terms_of_use')}}">{% trans %}acseine.menu.web_terms_of_use{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="http://www.acseine.co.jp/shop/pages/privacy.aspx">{% trans %}acseine.menu.privacy_policy{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="./sitemap">{% trans %}acseine.menu.sitemap{% endtrans %}</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-copyright">
+				  <a href="#wrapper" class="is-sp"><img src="{{asset('acseine/original/common/images/to_topsp.png')}}" alt=""></a>
+					<p>© Copyright ACSEINE ALL rights reserved.</p>
+				</div>
+			</div>
+			<div class="footer-totop no-sp">
+				<a href="#wrapper"><img src="{{asset('acseine/original/common/images/to_top.png')}}" alt=""></a>
+			</div>
+		</div>
+	</footer>
+</div>{# end wraper#}
+{% endblock %}
+
+{% block javascripts_body %}
+	{{ parent() }}
+
+{% endblock %}

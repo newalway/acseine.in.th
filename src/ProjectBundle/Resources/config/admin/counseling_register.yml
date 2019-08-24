@@ -1,0 +1,25 @@
+admin_counseling_register:
+  path: /
+  defaults: {_controller: ProjectBundle:AdminCounselingRegister:index}
+  requirements:
+    _method: get
+
+admin_counseling_register_view:
+  path: /{id}/view
+  defaults: {_controller: ProjectBundle:AdminCounselingRegister:view}
+  requirements:
+    _method: get
+    id: \d+
+
+admin_counseling_register_delete:
+  path: /{id}/delete
+  defaults: {_controller: ProjectBundle:AdminCounselingRegister:delete}
+  requirements:
+    _method: get
+    id: \d+
+
+admin_counseling_register_group_delete:
+  path: /group-delete
+  defaults: {_controller: ProjectBundle:AdminCounselingRegister:group_delete}
+  requirements:
+    _method: post

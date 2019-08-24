@@ -1,0 +1,9 @@
+<div class="row row-2 row-order-now">
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now_social.html.twig" %}
+    <div class="col-sm-4 col">
+        <a href="{{path('product_series',{'id':id,'slug':slug})}}" target="_blank" class="web" title="สั่งซื้อสินค้าผ่านทางเว็บไซต์">
+            <img src="{{asset('/acseine_campaign/images/social/shop.png')}}" alt="Website" />
+            <span>ORDER NOW</span>
+        </a>
+    </div>
+</div>

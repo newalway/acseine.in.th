@@ -1,0 +1,84 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.skin_allergy_qa.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.skin_allergy_qa.title{% endtrans %} {% trans %}acseine.skin_allergy_qa.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.skin_allergy_qa.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_allergy')}}"  class="active">  {% trans %}acseine.breadcrumb.skin_allergy{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.skin_allergy_qa{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.skin_allergy_qa.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="skin-allergy-qa" class="skin-allergy-qa">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.skin_allergy_qa.head{% endtrans %}</h3>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_allergy_qa.section1.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_allergy_qa.section1.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_highlight">
+				<p class="text">{% trans %}acseine.skin_allergy_qa.section1.also{% endtrans %}</p>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_allergy_qa.section2.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_allergy_qa.section2.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_highlight">
+				<p class="text">{% trans %}acseine.skin_allergy_qa.section2.also{% endtrans %}</p>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_allergy_qa.section3.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_allergy_qa.section3.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<div class="listItems skin_pimple_highlight">
+				<p class="text">{% trans %}acseine.skin_allergy_qa.section3.also{% endtrans %}</p>
+			</div>
+			<div class="listItems skin_pimple_listQA">
+				<ul>
+					<li>{% trans %}acseine.skin_allergy_qa.section4.question{% endtrans %}</li>
+					<li>{% trans %}acseine.skin_allergy_qa.section4.answer{% endtrans %}</li>
+				</ul>
+			</div>
+			<p class="text author">
+				{% trans %}acseine.skin_allergy_qa.author{% endtrans %}
+			</p>
+			<div class="listItems btn_back">
+				<a href="{{path('skin_allergy')}}"><img src="{{asset('acseine/original/images/skin_problems/skin_allergy/skin_allergy_qa/btn_back.png')}}" alt="back"></a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

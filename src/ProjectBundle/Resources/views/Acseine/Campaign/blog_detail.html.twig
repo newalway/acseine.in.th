@@ -1,0 +1,78 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block title %}{% if data %}{{data.title}} | {% endif %}{% trans %}acseine.blog.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block blog_active %}active{% endblock %}
+{% block m_blog_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{asset('/fancybox/dist/jquery.fancybox.min.css')}}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{asset('/fancybox/dist/jquery.fancybox.min.js')}}"></script>
+{% endblock %}
+
+{% block content %}
+<section id="blog">
+    <div class="container">
+        <div class="pad">
+            <div class="section-title">
+				<h1>Blog</h1>
+			</div>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 blog-detail">
+                    <div class="detail">{{data.description|raw}}</div>
+
+                    {% if data_image|length > 0 %}
+                    <div class="row row-5 blog-gallery">
+                        {% for gal in data_image %}
+                        <div class="col-xs-6 col-sm-4 col-md-3 col {% if loop.index0 is divisible by(2) %}xs-clear{% endif %} {% if loop.index0 is divisible by(3) %}sm-clear{% endif %} {% if loop.index0 is divisible by(4) %}md-clear lg-clear{% endif %}">
+                            <a href="javascript:;" data-fancybox="images" data-src="{{asset(gal.image) | imagine_filter('img_w_1000')}}" data-animation-duration="700">
+                                <img src="{{asset(gal.image) | imagine_filter('img_480x270')}}" />
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+
+                    <a href="{{path('acseine_campaign_blog')}}" class="button gray button-back">Back</a>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        {% if recent_blogs %}
+        <div class="pad">
+            <div class="section-title">
+                <h1>RELATED BLOG</h1>
+            </div>
+            <div class="row blog-list">
+                {% for recent in recent_blogs %}
+                <div class="col-sm-6 col-md-4 {% if loop.index0 is divisible by(2) %}sm-clear{% endif %} {% if loop.index0 is divisible by(3) %}md-clear lg-clear{% endif %}">
+                    <div class="item">
+                        <a href="{{path('acseine_campaign_blog_detail',{'id':recent.id,'slug':recent.title|slug})}}">
+                            {% if recent.image %}
+                                <img src="{{asset(recent.image) | imagine_filter('blog_640x360')}}" alt="{{recent.title}}" />
+                            {% endif %}
+                            <div class="box">
+                                <div class="detail">
+                                    <h4>{{recent.title}}</h4>
+                                    <p>{{recent.shortDesc}}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <hr />
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

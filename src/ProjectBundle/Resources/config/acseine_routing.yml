@@ -1,0 +1,7 @@
+acseine_campaign_routes:
+    resource: '@ProjectBundle/Resources/config/acseine_campaign.yml'
+    prefix:     /campaign
+
+project_homepage:
+    path:     /
+    defaults: { _controller: ProjectBundle:Acseine:index }

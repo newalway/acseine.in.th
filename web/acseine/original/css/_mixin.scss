@@ -1,0 +1,45 @@
+// Breadpoint
+// ------------------------
+@mixin mqLg {
+    @media only screen and (max-width: $widthLg + px) {
+        @content;
+    }
+}
+@mixin mqMd {
+    @media only screen and (max-width: $widthMd + px) {
+        @content;
+    }
+}
+@mixin mqSm {
+    @media only screen and (max-width: $widthSm + px) {
+        @content;
+    }
+}
+// Get font-size
+// ------------------------
+@function get_vw($size, $viewport: ($widthDes/2)) {
+    $rate: 100 / $viewport;
+    @return $rate * $size * 1vw * 10;
+}
+
+@mixin fontSize($sizeValue, $type: pc) {
+    @if $type == 'pc' {
+        // font-size: ($sizeValue * 10) + px;
+        font-size: $sizeValue + rem;
+    } @else if $type == 'sp' {
+        font-size: $sizeValue * 10px;
+        font-size: get_vw($sizeValue);
+    }
+}
+// vw計算
+// ------------------------
+@function calcVw($number) {
+    @return ($number / $widthDes * 100) + vw;
+}
+// トランジション
+// ------------------------
+@mixin transition($property) {
+    transition-property: $property;
+    transition-duration: 0.8s;
+    transition-timing-function: $ease-easeOut;
+}

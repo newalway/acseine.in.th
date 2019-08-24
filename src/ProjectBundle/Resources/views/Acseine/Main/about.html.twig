@@ -1,0 +1,56 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.about.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.about.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.about.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.about{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.about.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="about" class="about">
+			<!-- /title_table -->
+<div class="main-content container">
+	<div class="acseine">
+		<h3>
+			{% trans %}acseine.about.head{% endtrans %}
+		</h3>
+		<p class="txt01">{% trans %}acseine.about.sub_head1{% endtrans %}</p>
+		<p class="txt02">{% trans %}acseine.about.sub_head2{% endtrans %}</p>
+		<div class="item">
+			<div class="item-left"><img src="{{asset('acseine/original/images/about/acs.jpg')}}" alt="ACS Allergen Control System"></div>
+			<div class="item-right">
+				<p>{% trans %}acseine.about.paragraph1{% endtrans %}</p>
+			</div>
+		</div>
+		<p class="txt03">
+			{% trans %}acseine.about.paragraph2{% endtrans %}
+		</p>
+		<div class="history-btn">
+			{#<img src="{{asset('acseine/original/images/about/history_btn.png')}}" alt="">#}
+			<a href="{{path('history')}}"><button class="button_gray" href="#"><i class="icon center-right-btn-history right"></i> {% trans %}acseine.about.history_btn{% endtrans %}</button></a>
+		</div>
+	</div>
+</div>
+</section>
+
+{% endblock %}

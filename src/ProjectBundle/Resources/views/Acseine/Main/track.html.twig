@@ -1,0 +1,451 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}track.my.order{% endtrans %} {{ parent() }}{% endblock %}
+{% block track_active %}active{% endblock %}
+{% block m_track_active %}active{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}track.my.order{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}track.my.order{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h2>{% trans %}track.my.order{% endtrans %}</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<section class="track  sidebar-pages pb0 track-section" ng-app="trackApp" ng-controller="trackCtrl" ng-init="init('{{app.request.get('no')}}')">
+    <div class="main-content container">
+        <div class="row section-padding">
+            <div class="col-sm-8">&nbsp;</div>
+            <div class="col-sm-4 text-center">
+                <form name='input' action='{{path('track')}}' method='get'>
+                <div class="input-group">
+                    <span class="input-group-addon">{% trans %}payment.find{% endtrans %}</span>
+                    <input type="text" class="form-control" placeholder="{% trans %}payment.orderno{% endtrans %}" name="no" ng-model="search_data.orderSearch" value="{{app.request.get('no')}}">
+                    <span class="input-group-btn">
+                        <button type="submit" {# ng-click="searchOrder()"#} class="form-control btn-marathon"><i class="fa fa-search"></i></button>
+                    </span>
+                </div>
+                </form>
+            </div>
+        </div>
+
+		{% if (app.request.get('no'))%}
+			{% if (customerOrder)%}
+	        	{% set  order = customerOrder[0] %}
+	            <div class="row"><p>&nbsp;</p></div>
+	            <div class="row mb-20">
+	                <div class="col-sm-6">
+	                    {% trans %}order.txt{% endtrans %} #{{order.orderNumber}}<br />
+	                    {% trans %}order.placed.on{% endtrans %} {{ order.orderDate|date("d") }} {{ order.orderDate|date("F")|trans }} {{ order.orderDate|date("Y") }}
+	                </div>
+	                <div class="col-sm-6 text-right">
+						{% if order.shipDate %}
+							{% trans %}order.delivered.on{% endtrans %}
+							{{ order.shipDate|date("d") }} {{ order.shipDate|date("F")|trans }} {{ order.shipDate|date("Y") }}
+						{% endif %}
+
+						{% if order.cancelled == 0 or order.failed == 0 %}
+							{% if order.fulfilled == 1 %}
+								<br/><span class="label label-success" style="letter-spacing: 1px;font-weight: normal;">{{payment_status_shipped|trans}}</span>
+							{% else %}
+								<br/><span class="label label-warning" style="letter-spacing: 1px;font-weight: normal;">{{payment_status_processing|trans}}</span>
+							{% endif %}
+						{% endif %}
+	                </div>
+	            </div>
+	            <div class="row">
+	                <div class="col-md-8">
+	                    <div class="sidebar-page-content">
+	                        <div class="inner-page-wrapper section-padding workout-schedules-area workout-v2 pt0 white-bg">
+	                            <br>
+	                            <div class="table-responsive">
+		                            <table class="table table-striped track-orders">
+		                                <div class="tr">
+		                                    <th class="th"></th>
+		                                    <th class="th">{% trans %}order.items{% endtrans %}</th>
+		                                    <th class="th text-right">{% trans %}order.price{% endtrans %}</th>
+		                                    <th class="th text-center">{% trans %}order.qty{% endtrans %}</th>
+		                                    <th class="th text-right">{% trans %}cart.total{% endtrans %}</th>
+		                            	</div>
+			                            <tbody class="tbody">
+
+			                                {% for orderItems in order.customerOrderItems %}
+			                                    {% set price = orderItems.price   %}
+			                                    {% set qty = orderItems.quantity %}
+			                                    {% set sub_total = orderItems.amount %}
+			                                    <tr>
+			                                        <td class="valign">
+														{% if orderItems.product %}
+															{% if  orderItems.skuTitle|length > 0 %}
+		                                                        {% set str_variant = orderItems.skuTitle|join('-') %}
+		                                                        {% set link_product_detail = path('product_detail', {'id':orderItems.product.id, 'slug':orderItems.product.getTitle|slug, 'v':str_variant }) %}
+		                                                    {% else %}
+		                                                        {% set link_product_detail = path('product_detail', {'id':orderItems.product.id, 'slug':orderItems.product.getTitle|slug}) %}
+		                                                    {% endif %}
+
+						                                    <a href="{{link_product_detail}}">{% if orderItems.image %}<img src="{{orderItems.image|imagine_filter('img_thumb')}}" alt="">{% endif %}</a>
+						                                {% else %}
+															{% if orderItems.image %}<img src="{{orderItems.image|imagine_filter('img_thumb')}}" alt="">{% endif %}
+														{% endif %}
+			                                        </td>
+			                                        <td class="valign">
+														{{orderItems.productTitle}}
+														{% if orderItems.skuTitle %}
+															<br/><small>{{ orderItems.skuTitle|join(' · ') }}</small>
+														{% endif %}
+													</td>
+			                                        <td class="valign text-right">฿{{price|number_format(2, '.', ',') }}</td>
+			                                        <td class="valign text-center">{{qty|number_format(0, '', ',') }}</td>
+			                                        <td class="valign text-right">฿{{sub_total|number_format(2, '.', ',') }}</td>
+			                                    </tr>
+			                                {% endfor %}
+			                            </tbody>{# end tbody #}
+		                            </table>{# end tb tb-100 track-orders#}
+		                        </div>
+
+								<div class="col-md-6">
+									<h4>{% trans %}payment.method.title{% endtrans %}</h4>
+									{% if order.paymentOption == payment_bank_transfer_code %}
+										<div class="panel panel-default">
+											<div class="panel-body text-center">
+												<h5>{{order.paymentOptionTitle|trans}}</h5>
+												{% if order.cancelled == 1  %}
+													{% if order.refunded == 1 %}
+	                                                    <h3 class="text-warning">{{payment_status_refunded|trans}}</h3>
+	                                                {% else %}
+	                                                	<h3 class="text-warning">{{payment_status_cancelled|trans}}</h3>
+													{% endif %}
+	                                            {% else %}
+													{% if order.paid == 0 %}
+														<h3 class="text-warning">{{payment_status_awaiting_payment|trans}}</h3>
+													{% else %}
+														<h3 class="text-success">{{payment_status_paid|trans}}</h3>
+													{% endif %}
+												{% endif %}
+											</div>
+										</div>
+									{% endif %}
+
+									{% if order.paymentOption == payment_omise_code %}
+										<!-- CRDT -->
+										{% set payment_omise = order.customerPaymentOmise %}
+										<div class="panel panel-default">
+											<div class="panel-body text-center">
+												{########## futuer must be edit in this section ############}
+												<h5>{{order.paymentOptionTitle|trans}}</h5>
+												{% if order.cancelled == 1  %}
+													{% if order.refunded == 1 %}
+	                                                    <h3 class="text-warning">{{payment_status_refunded|trans}}</h3>
+	                                                {% else %}
+	                                                	<h3 class="text-warning">{{payment_status_cancelled|trans}}</h3>
+													{% endif %}
+												{% elseif order.failed == 1  %}
+			                                        <h3 class="text-warning">{{payment_status_failed|trans}}</h5>
+			                                    {% else %}
+													{% if order.paid == 0 %}
+														<h3 class="text-warning">{{payment_status_awaiting_payment|trans}}</h3>
+													{% else %}
+														<h3 class="text-success">{{payment_status_paid|trans}}</h3>
+													{% endif %}
+												{% endif %}
+											</div>
+										</div>
+									{% endif %}
+								</div>
+
+	                            <div class="col-md-6">
+	                                <h4>{% trans %}cart.order_summary{% endtrans %}</h4>
+	                                {% set discount = order.discountAmount %}
+	                                {% set shipping = order.shippingCost %}
+	                                {% set subTotalFinal = order.subTotal %}
+	                                {% set total = order.totalPrice %}
+	                                <table class="table table-striped">
+	                                    <tbody class="tbody">
+	                                        <tr class="tr">
+	                                            <td class="td">{% trans %}cart.subtotal{% endtrans %}</td>
+	                                            <td class="td text-right">฿{{subTotalFinal|number_format(2, '.', ',') }}</td>
+	                                        </tr>
+	                                        <tr class="tr">
+	                                            <td class="td">{% trans %}cart.shipping_free{% endtrans %}</td>
+	                                            <td class="td text-right">฿{{shipping|number_format(2, '.', ',') }}</td>
+	                                        </tr>
+	                                        {% if discount > 0 %}
+	                                        <tr class="tr">
+	                                            <td class="td">Discount</td>
+	                                            <td class="td text-right">฿{{discount|number_format(2, '.', ',') }}</td>
+	                                        </tr>
+	                                        {% endif %}
+	                                        <tr class="tr">
+	                                            <td class="td">{% trans %}cart.grand_total_vat_incl{% endtrans %}</td>
+	                                            <td class="td text-right"><h4>฿{{total|number_format(2, '.', ',') }}</h4></td>
+	                                        </tr>
+	                                    </tbody>{#end tbody#}
+	                                </table>{# end tb tb-100 #}
+	                            </div>{# end track-total-sum#}
+
+
+								{% if is_granted('IS_AUTHENTICATED_FULLY') and ( is_granted('ROLE_CUSTOMER') or is_granted('ROLE_CLIENT') ) %}
+
+									{% if order.paymentOption == payment_bank_transfer_code %}
+
+										{% if payment_bank_transfer %}
+											<div class="col-md-12">
+												<h4>{% trans %}order.confirm_payment_detail{% endtrans %}</h4>
+											</div>
+
+											<div class="col-md-6">
+												{% for customer_payment in payment_bank_transfer %}
+													<table  class="table tabel-striped">
+														<tbody>
+															<tr>
+																<td class="text-left" width="150px"><b>{% trans %}payment.name{% endtrans %} :</b></td>
+																<td>{{customer_payment.firstName}} {{customer_payment.lastName}}</td>
+															</tr>
+															<tr>
+																<td class="text-left"><b>{% trans %}member.personal.phone{% endtrans %} :</b></td>
+																<td>{{customer_payment.phone}}</td>
+															</tr>
+															<tr>
+																<td class="text-left"><b>{% trans %}payment.amount{% endtrans %} :</b></td>
+																<td>฿{{customer_payment.amount|number_format(2, '.', ',')}}</td>
+															</tr>
+															<tr>
+																<td class="text-left"><b>{% trans %}payment.date{% endtrans %} :</b></td>
+																<td>{{customer_payment.dateTransfer|date('d M Y')}}</td>
+															</tr>
+															<tr>
+																<td class="text-left"><b>{% trans %}payment.time{% endtrans %} :</b></td>
+																<td>{{customer_payment.timeTransfer|date('H:i')}}</td>
+															</tr>
+														</tbody>
+													</table>
+												{% endfor %}
+											</div>
+										{% endif %}
+
+										{% if (order.paid != 1) %}
+											<div class="col-md-12">
+												<h3>{% trans %}order.how_to_pay_bt{% endtrans %}</h3>
+				                                <p>- {% trans %}order.how_to_pay_bt_desc1{% endtrans %}</p>
+				                                <p>- {% trans %}order.how_to_pay_bt_desc2{% endtrans %}</p>
+												<div class="table-responsive">
+													<table class="table table-striped">
+														<th>#</th>
+														<th colspan="2">{% trans %}payment.bank{% endtrans %}</th>
+														<th>{% trans %}payment.bank.acc_number{% endtrans %}</th>
+														<th>{% trans %}payment.bank.acc_name{% endtrans %}</th>
+														<th>{% trans %}payment.bank.acc_branch{% endtrans %}</th>
+														{% for bank in bankAccount %}
+															<tr>
+																<td width = "10">{{ loop.index }}.</td>
+																<td width = "50">
+																	{% if bank.image %}
+																		<img src="{{bank.image|imagine_filter('img_small_thumb')}}" alt="">
+																	{% endif %}
+																</td>
+																<td>{{ bank.title }}</td>
+																<td>{{ bank.accountNumber }}</td>
+																<td>{{ bank.accountName }}</td>
+																<td>{{ bank.branch }}</td>
+															</tr>
+														{% endfor %}
+													</table>
+												</div>{#table responsive#}
+											</div>
+
+											<div class="col-md-12 text-center">
+												<form action="{{path('confirm_payment',{'orderId': order.orderNumber})}}" method="post">
+													<button class="btn acseine-btn">{% trans %}menu.confirm.payment{% endtrans %}</button>
+												</form>
+											</div>
+										{% endif %}
+
+
+									{% elseif order.paymentOption == payment_omise_code %}
+										<!-- CRDT -->
+										{% if payment_omise.tokenId %}
+											<h4>Payment Information</h4>
+											<table class="table tabel-striped">
+												<tbody class="tbody">
+													<tr class="tr">
+														<td class="td text-left" width="150px"><b>Card Name :</b></td>
+														<td class="td">{{payment_omise.cardName}}</td>
+													</tr>
+													<tr class="tr">
+														<td class="td text-left" width="150px"><b>Card Number :</b></td>
+														<td class="td">**** **** **** {{payment_omise.cardLastDigits}}</td>
+													</tr>
+													<tr class="tr">
+														<td class="td text-left"><b>Card Issuer :</b></td>
+														<td class="td">{{payment_omise.cardBank}}</td>
+													</tr>
+													<tr class="tr">
+														<td class="td text-left"><b>Brand :</b></td>
+														<td class="td">{{payment_omise.cardBrand}}</td>
+													</tr>
+													{#
+													<tr class="tr">
+														<td class="td text-left"><b>Amount :</b></td>
+														<td class="td">
+															{% if payment_omise.amount %}
+					                                            {% if payment_omise.currency|upper == 'THB' %}฿{% else %}{{payment_omise.currency}} {% endif %}{{payment_omise.amount|number_format(2, '.', ',')}}
+					                                        {% endif %}
+														</td>
+													</tr>
+													#}
+
+													{% if payment_omise.status == 'failed' %}
+														<tr class="tr">
+															<td class="td text-left"><b>Decision :</b></td>
+															<td class="td">{{payment_omise.status|capitalize}}</td>
+														</tr>
+														<tr class="tr">
+															<td class="td" colspan="2">
+					                                            {{payment_omise.failureMessage|capitalize}}
+															</td>
+														</tr>
+													{% endif %}
+												</tbody>
+											</table>
+										{% endif %}
+									{% endif %}
+
+	                        	{% endif %}
+
+	                            <hr/>
+	                        </div>{#end inner-page-wrapper#}
+	                    </div>{#end sidebar-page-content#}
+	                </div>{#end col-md-8#}
+
+					<div class="col-md-4">
+	                    <div class="row">
+	                        {% for orderDeliverys in order.customerOrderDeliverys %}
+
+								{% if  is_granted('IS_AUTHENTICATED_FULLY') and (is_granted('ROLE_CUSTOMER') or is_granted('ROLE_CLIENT') ) %}
+			                        {% if orderDeliverys.addressType == 1 %}
+				                        <div class="col-sm-6 col-md-12">
+				                            <div class="single-sidebar search-widget">
+				                                <div class="title">
+				                                    <h3>{% trans %}cart.shipping_address{% endtrans %}</h3>
+				                                </div>
+				                                <!-- /.title -->
+				                                <h4>{{orderDeliverys.firstName}} {{orderDeliverys.lastName}}
+				                                    {% if orderDeliverys.companyName %} <br/>{{orderDeliverys.companyName}}{% endif %}
+				                                    {% if orderDeliverys.headOffice %}&nbsp;&nbsp;({{orderDeliverys.headOffice}}){% endif %}
+				                                </h4>
+				                                <p>
+													{{orderDeliverys.address}}, {{orderDeliverys.district}}, {% if orderDeliverys.amphure %}{{orderDeliverys.amphure}},{% endif %}
+				                                    {{orderDeliverys.province}} {#,{{orderDeliverys.country}}#}
+				                                    {{orderDeliverys.postCode}}<br />{{orderDeliverys.phone}}
+				                                </p>
+				                            </div>
+				                        </div>
+			                        {% endif %}{# end if addressType == 1 #}
+
+									{% if orderDeliverys.addressType == 2 %}
+				                        <div class="col-sm-6 col-md-12">
+				                            <div class="single-sidebar search-widget">
+				                                <div class="title">
+				                                    <h3>{% trans %}cart.billing_address{% endtrans %}</h3>
+				                                </div>
+				                                <!-- /.title -->
+				                                <h4>{{orderDeliverys.firstName}} {{orderDeliverys.lastName}}
+				                                    {% if orderDeliverys.companyName %} <br/>{{orderDeliverys.companyName}}{% endif %}
+				                                    {% if orderDeliverys.headOffice %}&nbsp;&nbsp;({{orderDeliverys.headOffice}}){% endif %}
+				                                </h4>
+				                                <p>{{orderDeliverys.address}}, {{orderDeliverys.district}}, {% if orderDeliverys.amphure %}{{orderDeliverys.amphure}},{% endif %}
+				                                    {{orderDeliverys.province}} {#,{{orderDeliverys.country}}#}
+				                                    {{orderDeliverys.postCode}}<br />{{orderDeliverys.phone}}
+													{% if orderDeliverys.taxPayerId %}
+	                                                    <br/>{% trans %}member.taxpayerid{% endtrans %} {{orderDeliverys.taxPayerId}}
+	                                                {% endif %}
+				                                </p>
+				                            </div>
+				                        </div>
+			                        {% endif %}{# end if addressType == 2 #}
+
+								{% else %}
+		                            {% if loop.index == 1 %}
+		                                <!-- Please login to show this data -->
+		                                ข้อมูลถูกปิดกั้น. กรุณาเข้าสู่ระบบ
+		                            {% endif %}
+		                        {% endif %}{# end if login checked#}
+
+	                        {% else %}{# else for no data in for loop #}
+	                            No data
+	                        {% endfor %}
+
+							{% if arr_tracking_numbers %}
+	                            <div class="col-sm-6 col-md-12">
+	                                <div class="single-sidebar search-widget">
+	                                    <div class="title">
+	                                        <h3>{% trans %}track.your_order{% endtrans %}</h3>
+	                                    </div>
+	                                    {% for tracking_number in arr_tracking_numbers %}
+	                                        <p>
+												{% trans %}track.shipment_by{% endtrans %}: {{tracking_number.shippingCarrierName}}<br/>
+												{% trans %}track.tracking_number{% endtrans %}: <a href="{{getTrackingURL(tracking_number.trackingUrl, tracking_number.trackingNumber)}}" target="_blank">{{tracking_number.trackingNumber}}</a>
+											</p>
+	                                    {% endfor %}
+	                                </div>
+	                            </div>
+	                        {% endif %}
+	                    </div>
+	                </div>{#end col-md-4 #}
+	            </div>{#end row top#}
+			{% else %}
+				<div class="col-sm-6 col-md-12 mb-20 text-center"><br><br>ไม่พบข้อมูล. กรุณาลองใหม่อีกครั้ง!!</div>
+	        {% endif %}
+
+		{% endif %}
+    </div>{#end div contianer#}
+</section>
+{% endblock %}
+
+{% block javascripts_body %}
+{{ parent() }}
+<script type="text/javascript">
+    var app = angular.module('trackApp', []);
+	app.controller('trackCtrl', function($scope, $http, $location) {
+		$scope.init = function(no){
+			$scope.no = no;
+			$scope.search_data = {
+				orderSearch: no
+			};
+		}
+
+		// var url=$location.absUrl();
+
+		// console.log(url);
+		// var newString= url.replace("/","");
+
+		/*
+		$scope.searchOrder = function() {
+			$http({
+				method: 'GET',
+				url: Routing.generate('track',{no:$scope.orderSearch}),
+				headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+			}).then(function successCallback(response) {
+				//console.log(response.customerOrder);
+				//$scope.id = response['_id'];
+			}, function errorCallback(response) {
+
+			});
+		};
+		*/
+	});
+</script>
+{% endblock %}

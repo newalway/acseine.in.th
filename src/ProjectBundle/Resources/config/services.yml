@@ -1,0 +1,74 @@
+services:
+#    project.example:
+#        class: ProjectBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+    utilities:
+          class: ProjectBundle\Utils\Utilities
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'
+              - '@translator'
+
+    collections:
+          class: ProjectBundle\Utils\Collections
+          public: true
+          arguments:
+              - '@kernel'
+              - '@mailer'
+              - '@router'
+
+    app.product:
+          class: ProjectBundle\Utils\Products
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'
+
+    app.form.admin_user:
+         class: ProjectBundle\Form\Type\AdminUserType
+         public: true
+         arguments: ["@security.token_storage"]
+         tags: [form.type]
+
+    app.form.admin_product:
+         class: ProjectBundle\Form\Type\AdminProductType
+         arguments: ["@request_stack"]
+         tags: [form.type]
+
+    project.password_resetting:
+        class: ProjectBundle\EventListener\PasswordResettingListener
+        arguments: ['@router']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    exportexcel:
+          class: ProjectBundle\Utils\ExportExcel
+          #arguments: ['@phpexcel']
+          arguments:
+              - '@kernel'
+              - '@translator'
+          public: true
+
+    app.omise:
+          class: ProjectBundle\Utils\Omise
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'
+
+    app.linepay:
+          class: ProjectBundle\Utils\LinePay
+          public: true
+          arguments:
+              - '@kernel'
+              - '@security.encoder_factory'
+              - '@mailer'
+              - '@router'

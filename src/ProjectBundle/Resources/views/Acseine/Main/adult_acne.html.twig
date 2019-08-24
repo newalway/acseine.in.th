@@ -1,0 +1,157 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.adult_acne.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %}{{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.adult_acne.title{% endtrans %} {% trans %}acseine.adult_acne.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.adult_acne.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.adult_acne{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.adult_acne.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="adult-acne" class="adult-acne">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.adult_acne.head{% endtrans %}</h3>
+			<div class="listItems skin_pimple_question">
+				<ul class="listQuestion">
+					<li><a href="#q1">{% trans %}acseine.adult_acne.question1_title_main{% endtrans %}</a></li>
+					<li><a href="#q2">{% trans %}acseine.adult_acne.question2_title_main{% endtrans %}</a></li>
+					<li><a href="#q3">{% trans %}acseine.adult_acne.question3_title_main{% endtrans %}</a></li>
+					<li><a href="#q4">{% trans %}acseine.adult_acne.question4_title_main{% endtrans %}</a></li>
+				</ul>
+				<a class="btn_top" href="{{path('adult_acne_advice')}}"><img src="{{asset('acseine/original/images/skin_problems/adult_acne//btn_top.png')}}" alt="Skin care & makeup advice"></a>
+			</div>
+			<h4 class="title_h4" id="q1">{% trans %}acseine.adult_acne.question1.title{% endtrans %}</h4>
+			<div class="description">
+				<p class="text">{% trans %}acseine.adult_acne.question1.paragraph1{% endtrans %}</p>
+				<div class="img_content">
+					{%  if (app.request.getLocale()) == 'en' %}
+						<img src="{{asset('acseine/original/images/skin_problems/adult_acne//img_01_pc.png')}}" alt="Due to active oxygen(UV rays),dryness, etc.The stratum corneum's barrier function declines Irritants enter pores, dead skin thickens Pores get blocked Sebum accumulates in pores Acne bacteria reproduce Inflammation = acne (pimple)">
+					{% elseif (app.request.getLocale()) == 'th'%}
+						<img src="{{asset('acseine/original/images/skin_problems/adult_acne//img_01_pc_th.png')}}" alt="Due to active oxygen(UV rays),dryness, etc.The stratum corneum's barrier function declines Irritants enter pores, dead skin thickens Pores get blocked Sebum accumulates in pores Acne bacteria reproduce Inflammation = acne (pimple)">
+					{% endif %}
+				</div>
+			</div>
+			<h4 class="title_h4" id="q2">{% trans %}acseine.adult_acne.question2.title{% endtrans %}</h4>
+			<div class="description">
+				<p class="text">{% trans %}acseine.adult_acne.question1.paragraph1{% endtrans %}</p>
+			</div>
+			<h4 class="title_h4" id="q3">{% trans %}acseine.adult_acne.question3.title{% endtrans %}</h4>
+			<div class="description">
+				<div class="listItems skin_pimple_reply">
+					<div class="content">
+						<h5>{% trans %}acseine.adult_acne.question3.head_paragraph1{% endtrans %}</h5>
+						<p class="text">{% trans %}acseine.adult_acne.question3.paragraph1{% endtrans %}</p>
+					</div>
+					<div class="thumbnail">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_01.png')}}" alt="Bath">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_01_th.png')}}" alt="Bath">
+						{% endif %}
+					</div>
+				</div>
+				<div class="listItems skin_pimple_reply">
+					<div class="content">
+						<h5>{% trans %}acseine.adult_acne.question3.head_paragraph2{% endtrans %}</h5>
+						<p class="text">{% trans %}acseine.adult_acne.question3.paragraph2{% endtrans %}</p>
+					</div>
+					<div class="thumbnail">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_02.png')}}" alt="Sleep">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_02_th.png')}}" alt="Sleep">
+						{% endif %}
+					</div>
+				</div>
+				<div class="listItems skin_pimple_reply">
+					<div class="content">
+						<h5>{% trans %}acseine.adult_acne.question3.head_paragraph3{% endtrans %}</h5>
+						<p class="text">{% trans %}acseine.adult_acne.question3.paragraph3{% endtrans %}</p>
+					</div>
+					<div class="thumbnail">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_03.png')}}" alt="UV care">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_03_th.png')}}" alt="UV care">
+						{% endif %}
+					</div>
+				</div>
+				<div class="listItems skin_pimple_reply">
+					<div class="content">
+						<h5>{% trans %}acseine.adult_acne.question3.head_paragraph4{% endtrans %}</h5>
+						<p class="text">{% trans %}acseine.adult_acne.question3.paragraph4{% endtrans %}</p>
+					</div>
+					<div class="thumbnail">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_04.png')}}" alt="Vegetables & fruit">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_04_th.png')}}" alt="Vegetables & fruit">
+						{% endif %}
+					</div>
+				</div>
+				<div class="listItems skin_pimple_reply">
+					<div class="content">
+						<h5>{% trans %}acseine.adult_acne.question3.head_paragraph5{% endtrans %}</h5>
+						<p class="text">{% trans %}acseine.adult_acne.question3.paragraph5{% endtrans %}</p>
+					</div>
+					<div class="thumbnail">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_05.png')}}" alt="Puff">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne//thumb_05_th.png')}}" alt="Puff">
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			<h4 class="title_h4" id="q4">{% trans %}acseine.adult_acne.question4.title{% endtrans %}</h4>
+			<div class="description">
+				<p class="text">{% trans %}acseine.adult_acne.question4.paragraph1{% endtrans %}</p>
+				<div class="img_btn">
+					<a href="{{path('adult_acne_advice')}}">
+						<img src="{{asset('acseine/original/images/skin_problems/adult_acne//img_ads_01.png')}}" alt="Skin care & makeup advice">
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="listItems skin_pimple_listBtn">
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<a href="{{path('skin_allergy')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_allergies{% endtrans %}</h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<a href="{{path('skin_atopic_dermatitis')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_atopic{% endtrans %} </h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<a href="{{path('adult_acne')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_adult{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+			</div>
+			<div class="col-xs-12 col-sm-6 col-md-6">
+				<a href="{{path('uv_rays_and_dryness')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i><h3> {% trans %}acseine.skin_problems.button_uv{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

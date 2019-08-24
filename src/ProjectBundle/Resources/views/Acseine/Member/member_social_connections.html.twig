@@ -1,0 +1,74 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_member.html.twig" %}
+
+{% block title %}{% trans %}member.social.connections{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %}{{ parent() }}{% endblock %}
+{% block member_social_connections_active %}active{% endblock %}
+{% block breadcrumb %}
+  {{ parent() }}
+  <div class="breadcrumb">
+      <div class="container breadcrumb_in">
+          <div class="breadcrumb_items">
+              <a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+          </div>
+          <div class="breadcrumb_items">
+              {% trans %}member.social.connections{% endtrans %}
+          </div>
+      </div>
+  </div><!-- /breadcrumb -->
+{% endblock %}
+
+{% block content_member %}
+
+    <div class="row panel panel-default member-social-connections">
+      <div class="panel-heading">
+          <h4 class="panel-title">
+            {% trans %}member.social.connections{% endtrans %}
+          </h4>
+      </div>
+      <div class="panel-body">
+        <div class="col-sm-6">
+            <div class="member-box text-center">
+            {% if app.user.oauth == 1 and app.user.servicename == 'facebook' %}
+                <a class="btn-social btn-facebook">
+                    <i class="fa fa-fw fa-facebook-official fa-2x"></i>
+                    Connected as {{ app.user.firstname }} {{ app.user.lastname }}
+                </a>
+            {% else %}
+                <a href="{{ hwi_oauth_login_url('facebook') }}" class="btn-social btn-facebook">
+                    <i class="fa fa-fw fa-facebook-official fa-2x"></i>
+                    {% trans %}member.social.connect.facebook{% endtrans %}
+                </a>
+                <div>{% trans %}member.social.connect.facebook_desc{% endtrans %}</div>
+            {% endif %}
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div class="member-box text-center">
+
+                {% if app.user.oauth == 1 and app.user.servicename == 'google' %}
+                    <a class="btn-social btn-google">
+                        <i class="fa fa-fw fa-google fa-2x"></i>
+                        Connected as {{ app.user.firstname }} {{ app.user.lastname }}
+                    </a>
+                {% else %}
+                    <a href="{{ hwi_oauth_login_url('google') }}" class="btn-social btn-google">
+                        <i class="fa fa-fw fa-google fa-2x"></i>
+                        {% trans %}member.social.connect.google{% endtrans %}
+                    </a>
+                    <div>{% trans %}member.social.connect.google_desc{% endtrans %}</div>
+                {% endif %}
+            </div>
+        </div>
+
+        {#<div class="col-sm-6 clear-both">
+            <div class="member-box text-center">
+                <form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+                    <input type="hidden" id="username" name="username" value="{{app.user.email}}"/>
+                    <button type="submit" id="_submit" name="_submit" class="thm-btn arrow-push-in-right btn-send-email"><span>{{ 'member.password.setpassword.submit'|trans() }} <i class="fa fa-caret-right"></i></span></button>
+                </form>
+            </div>
+        </div>#}
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,116 @@
+<div class="panel-body">
+    {#
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="first_name">{% trans %}member.address.title{% endtrans %} <span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.title, {'id' : 'title'})}}
+            <div class="red-text">{{form_errors(form.title)}}</div>
+        </div>
+    </div>
+    #}
+
+    <div class="form-group">
+        <label class="col-sm-5  control-label" for="first_name">{% trans %}member.personal.fname{% endtrans %} <span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.first_name, {'id' : 'first_name'})}}
+            <div class="red-text">{{form_errors(form.first_name)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="last_name">{% trans %}member.personal.lname{% endtrans %} <span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.last_name, {'id' : 'last_name'})}}
+            <div class="red-text">{{form_errors(form.last_name)}}</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="company_name">{% trans %}member.personal.company_name{% endtrans %} </label>
+        <div class="col-sm-7">
+            {{form_widget(form.company_name, {'id' : 'company_name'})}}
+            <div class="red-text">{{form_errors(form.company_name)}}</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="phone">{% trans %}member.personal.phone{% endtrans %}<span class="red-text"> *</span> </label>
+        <div class="col-sm-7">
+            {{form_widget(form.phone, {'id' : 'phone'})}}
+            <div class="red-text">{{form_errors(form.phone)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="address">{% trans %}member.address{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.address, {'id' : 'address'})}}
+            <div class="red-text">{{form_errors(form.address)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="district">{% trans %}member.district{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.district, {'id' : 'district', 'attr': {'autocomplete':'off'}})}}
+            <div class="red-text">{{form_errors(form.district)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="amphure">{% trans %}member.amphure{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.amphure, {'id' : 'amphure', 'attr': {'autocomplete':'off'}})}}
+            <div class="red-text">{{form_errors(form.amphure)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="province">{% trans %}member.province{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.province, {'id' : 'province', 'attr': {'autocomplete':'off'}})}}
+            <div class="red-text">{{form_errors(form.province)}}</div>
+        </div>
+    </div>
+
+    <div class="form-group hidden">
+        <label class="col-sm-5  control-label" for="countryCode">{% trans %}member.country{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.countryCode, {'id' : 'countryCode'})}}
+            <div class="red-text">{{form_errors(form.countryCode)}}</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-5  control-label" for="postcode">{% trans %}member.postcode{% endtrans %}<span class="red-text"> *</span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.postcode, {'id' : 'postcode', 'attr': {'autocomplete':'off'}})}}
+            <div class="red-text">{{form_errors(form.postcode)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="taxpayer_id">{% trans %}member.taxpayerid{% endtrans %}<span class="red-text"></span></label>
+        <div class="col-sm-7">
+            {{form_widget(form.taxpayer_id, {'id' : 'taxpayer_id'})}}
+            <div class="red-text">{{form_errors(form.taxpayer_id)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5 control-label" for="default_shipping">{% trans %}member.default.shipping{% endtrans %}</label>
+        <div class="col-sm-7">
+            {{form_widget(form.default_shipping, {'id' : 'default_shipping'})}}
+            <div class="red-text">{{form_errors(form.default_shipping)}}</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-5  control-label" for="default_tax">{% trans %}member.default.billing{% endtrans %}</label>
+        <div class="col-sm-7">
+            {{form_widget(form.default_tax, {'id' : 'default_tax'})}}
+            <div class="red-text">{{form_errors(form.default_tax)}}</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-10">
+            {{form_widget(form.save, {'id' : 'save', 'label': 'member.button.save'|trans({}, 'ProjectBundle'),'attr': {'class': 'btn btn-default arrow-push-in-right'} })}}
+            <a href="{{path('address')}}" class="btn btn-danger arrow-push-in-right btn-gray">
+                <span>{% trans %}member.button.close{% endtrans %}&nbsp;</span>
+            </a>
+        </div>
+    </div>
+</div>

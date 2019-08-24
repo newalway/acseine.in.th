@@ -1,0 +1,2552 @@
+section.mainpage{
+    background: url(../images/top_mainvisual_bg.jpg) no-repeat center top;
+
+    html {min-width: 1060px;}
+    .acseine {text-align: center;}
+    .product {margin-top: 15px;}
+    .product ul {display: flex;justify-content: space-between;flex-wrap: wrap;}
+    .product ul li {width: 32.7%;}
+
+    @media only screen and (max-width: 640px) {
+        html {min-width: 100%;}
+        .main {background: transparent;}
+        .slide {margin-top: -20px;border-bottom: 1px solid #dcdcdc;}
+        .slide .container {width: 100%;margin-left: 0;margin-right: 0;}
+        // .slick-next.slick-arrow {
+        //     border: 0px;
+        //     width: 8px;
+        //     height: 15px;
+        //     background: url(../images/slide_btn2_sp.png);
+        //     position: absolute;
+        //     top: 100%;
+        //     right: 2.5%;
+        //     margin-top: -27px;
+        //     background-repeat: no-repeat;
+        // }
+        // .slick-prev.slick-arrow {
+        //     border: 0px;
+        //     width: 5px;
+        //     height: 15px;
+        //     background: url(../images/slide_btn1_sp.png);
+        //     position: absolute;
+        //     top: 100%;
+        //     left: 2.5%;
+        //     margin-top: -27px;
+        //     background-repeat: no-repeat;
+        // }
+        ul.slick-dots {margin-top: 4px;}
+        .product ul li {width: 100%;}
+        .product ul li:not(:last-child) {margin-bottom: 10px;}
+    }
+}
+/************end style index page **************/
+
+section.company-profile{
+  // .main-content {margin-top: 2rem; }
+  .table_about {color: #000;margin-top: 3.5rem; }
+  .table_about_group_table {margin-top: 1.5rem; }
+  .table_about_group_table .shoplist_content {margin-bottom: 5rem; }
+  .table_about_table table {width: 100%;margin-bottom: 1px; }
+  .table_about_table td {
+    vertical-align: top;
+    border-top: 1px solid #d7d7d7;
+    border-bottom: 1px solid #d7d7d7;
+    font-size: 1.4rem;
+    padding: 1.2rem 1.5rem;
+    line-height: 1.8rem;
+  }
+
+  @media only screen and (max-width: 640px) {
+    .table_about_table td {
+      border: 0;
+      display: block;
+      height: initial;
+      padding: 1.7rem 2rem;
+      font-size: 1.5rem;
+      line-height: 2.4rem; } }
+    .table_about_table td:first-child {font-weight: bold;width: 23rem;background: #f4f4f4;
+    .table_about_table td:first-child {
+        border-top: 1px solid #d7d7d7;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%;
+        padding: .8rem 2rem;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+  }
+
+}
+/************end style company-profile page **************/
+
+section.terms-of-use{
+    // .main-content{margin-top: 2rem;}
+    .news:not(:last-child) {padding-bottom: 4.5rem;}
+    .news_content {font-size: 1.4rem;line-height: 2rem;padding-left: 2rem; }
+    .news_content p:not(:last-child) {padding-bottom: 2rem;}
+
+    @media only screen and (max-width: 640px) {
+        .news_content {font-size: 1.2rem;padding-top: 2.5rem;line-height: 2.4rem; }
+    }
+
+}
+
+/************end style terms-of-use page **************/
+
+section.about{
+  // .main-content{margin-top: 2rem;}
+  .acseine {padding-left: 10px;}
+  h3 {font-size: 1.8rem;line-height: 1.2;font-weight: bold;margin-bottom: 2rem;}
+  p {font-size: 1.4rem;line-height: 1.4;margin-bottom: 2rem;}
+  .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      padding: 2.5rem 0;
+  }
+  .item:before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      top: 0;
+      left: 1px;
+      background: url('../../original/images/about/border.png');
+      background-repeat: no-repeat;
+      position: absolute;
+  }
+  .item:after {
+      content: '';
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 1px;
+      background: url('../../original/images/about/border.png');
+      background-repeat: no-repeat;
+      position: absolute;
+  }
+  .item p {margin-bottom: 0;}
+  .item-left {width: 135px;text-align: center;padding: 20px;}
+  .item-right {width: 825px}
+  .history-btn {text-align: right;margin-top: 8.5rem;}
+  .button_gray{
+      position: relative;
+      border:1px solid #E1E1E1;
+      -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+      -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+      box-shadow: #FFFFFF 100px 100px 100px ;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      font-size:15px;
+      padding: 9px 45px 9px 45px;
+      text-decoration:none;
+      display:inline-block;
+      color: #404040;
+      background-color: #F9F9F9;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+      background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+      background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+      background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+      background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+      background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+  }
+
+  .button_gray:hover{
+      border:px solid #FFFFFF;
+      background-color: #F9F9F9;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+      background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+      background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+      background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+      background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+      background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+      filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+  }
+  .center-right-btn-history {
+      position: absolute;
+      top: 40%;
+      // transform: translate(0%, -50%);
+      left: 10px;
+  }
+
+  @media only screen and (max-width: 640px) {
+    .acseine {padding-left: 0;}
+    h3 {font-size: 1.5rem;}
+    p {font-size: 1.2rem;}
+    .item {
+        background: url('../../original/images/about/border_sp.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        width: 100%;
+        display: inline-block;
+        background-size: 100%;
+        margin-top: 1rem;
+        margin-bottom: 0;
+        padding: 3rem 0;
+    }
+    .item:before,.item:after {display: none;}
+    .item-left {width: 100%;margin-bottom: 3rem;padding: 0px;}
+    .item-right {width: 100%;}
+    .txt03 {
+        padding-top: 3rem;
+        background: url('../../original/images/about/border_sp.png');
+        background-repeat: no-repeat;
+        background-position: top center;
+        width: 100%;
+        display: inline-block;
+        background-size: 100%;
+    }
+    // .history-btn {text-align: center;margin-top: 5rem;}
+    // .history-btn img { max-width: 40%;}
+  }
+}
+/************end style about page **************/
+section.history{
+    .main-content {margin-top: 2rem; }
+    .history_items {display: -webkit-box;display: -ms-flexbox;display: flex;padding: 1.5rem 0;position: relative; }
+    .history_items:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background: url("../../original/images/history/line_bottom.png") center;
+        bottom: 0;
+        left: 0;
+    }
+    .history_items .number {padding-top: .5rem;padding-left: 1rem;width: 12.5rem;font-size:18px}
+    .history_items .description {font-size: 1.4rem;line-height: 2rem;width: calc(100% - 12.5rem);}
+    .table_history {color: #000;margin-top: 3.5rem; }
+    .table_history_group_table {margin-top: 1.5rem; }
+    .table_history_group_table .shoplist_content {margin-bottom: 5rem; }
+    .table_history_table table {width: 100%;margin-bottom: 1px; }
+    .table_history_table td {vertical-align: top;font-size: 1.4rem;padding: 1.5rem 1.5rem;line-height: 1.8rem; }
+    .table_history_table td:first-child {font-weight: bold;width: 12.5rem;padding: 2rem 1.5rem; }
+
+    @media only screen and (max-width: 640px) {
+        .history_items .number {width: 10rem;padding-right: 1rem;}
+        .history_items .description {/*font-size: 1.8rem;*/font-size: 1.2rem;line-height: 2.4rem;width: calc(100% - 1.5rem);}
+        .table_history_table td {
+            border: 0;
+            display: block;
+            height: initial;
+            padding: 1.7rem 2rem;
+            font-size: 1.8rem;
+            line-height: 2.4rem;
+        }
+        .table_history_table td:first-child {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+            padding: .8rem 2rem;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+        }
+        .history_items {padding: 0.5rem 0; }
+        .history_items .number {width: 7rem;font-size: 1.35rem;}
+    }
+}
+/************end style history page **************/
+
+
+section.counseling{
+    .main-content {margin-top: 2rem;}
+    .counseling {padding-left: 10px;}
+    h3 {font-size: 1.8rem;line-height: 1.2;font-weight: bold;margin-bottom: 2rem;}
+    p {font-size: 1.4rem;line-height: 1.4;margin-bottom: 2rem;}
+    .box01 {width: 100%;display: inline-block;}
+    .box01 li {	width: 50%;float: left;}
+    .box02 {display: inline-block;margin: 0 auto;}
+    .box02 li {float: left;}
+    .box02 li:first-child {margin-right: 4rem;}
+    .counseling-bottom {	text-align: center;margin-top: 3rem;}
+    .font-btn-counseling{
+      font-size: 1.4em !important;
+      margin-top: 15px;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+    .containers {
+        position: relative;
+        margin-top: 15px;
+        // padding:18px 0px 18px 10px;
+        width: 100%;
+        height: 100px;
+        color: #404040;
+        border:1px solid #E1E1E1;
+    }
+    .top-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    .centered {
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    @media only screen and (max-width: 640px) {
+	      .counseling {padding-left: 0;}
+ 	      h3 {font-size: 1.5rem;}
+	      p {font-size: 1.2rem;}
+        .font-btn-counseling{font-size: 1.2rem !important;}
+	      .box01 li {width: 100%;}
+	      .box01 li:last-child {text-align: center;}
+	      .box02 li:first-child {	margin-right: 0rem;margin-bottom: 2rem;}
+    }
+    @media (min-width: 641px) {
+      .font-btn-counseling{
+        font-size: 1.3em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 768px) {
+      .font-btn-counseling{
+        font-size: 1.3em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 992px) {
+      .font-btn-counseling{
+        font-size: 1.1em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 1200px) {
+      .font-btn-counseling{
+        font-size: 1.5em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+}
+/************end style counseling page **************/
+
+section.in-shop-counseling{
+    .main-content {margin-top: 2rem; }
+    .title_h3 {font-size: 1.8rem;padding: 2.2rem 2rem 1.5rem; }
+    .mv_top {padding-left: 1rem;padding-bottom: 2rem; }
+    .mv_top_h3 {font-size: 1.8rem;line-height: 2.2rem;padding-bottom: 2rem; }
+    .mv_top_txt {font-size: 1.4rem;line-height: 2rem; }
+    .mv_top .avatar {padding-left: 2rem;position: relative;top: 1rem;}
+    .avatar{margin: 0 auto;}
+    .shop_nav {padding-bottom: 2rem; }
+    .shop_nav .listItems {padding-left: 1rem; }
+    .shop_nav .listItems li {cursor: pointer; }
+    .shop_nav .listItems li:not(:first-child) {margin-left: 6.5rem; }
+    .shop_listStep {width: 98%;margin: 0 auto; }
+    .shop_listStep_items {
+        background-image: -moz-linear-gradient(90deg, #ffe3e2 0%, #feffff 100%);
+        background-image: -webkit-linear-gradient(90deg, #ffe3e2 0%, #feffff 100%);
+        background-image: -ms-linear-gradient(90deg, #ffe3e2 0%, #feffff 100%);
+        border: 1px solid #e8d8d9;
+        border-radius: 5px;
+        padding: 3rem;
+        margin-bottom: 8.5rem;
+        position: relative;
+    }
+    .font-btn-counseling{
+      font-size: 1.4em !important;
+      margin-top: 15px;
+      margin-left: 25px;
+      font-weight: 600;
+    }
+    .shop_listStep_items:after {
+        content: "";
+        background: url("../../original/images/counseling/in_shop/counseling_shop_step_bg_btm.png") no-repeat bottom;
+        position: absolute;
+        width: calc(100% + 2px);
+        height: 16.1rem;
+        left: -1px;
+        right: -1px;
+        bottom: -5rem;
+    }
+    .shop_listStep_items:last-child:after {
+        content: "";
+        background: url("../../original/images/counseling/in_shop/counseling_shop_step_bg_btm_02.png") no-repeat bottom;
+        position: absolute;
+        width: calc(100% + 2px);
+        height: 11.5rem;
+        left: -1px;
+        right: -1px;
+        bottom: -2.5rem;
+    }
+    .shop_listStep_items .avatar {
+        max-width: 32rem;
+        max-height: 213px;
+        position: relative;
+        z-index: 9;
+        -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#dcdcdc)";
+        -webkit-box-shadow: 1px 1px 3px #dcdcdc;
+        box-shadow: 1px 1px 3px #dcdcdc;
+        filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color=#dcdcdc);
+    }
+    .shop_listStep_items .description {position: relative;z-index: 9;max-width: calc(100% - 32rem);padding-left: 3rem;width: 100%;}
+    .shop_btn {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: end;
+        -ms-flex-pack: end;
+        justify-content: flex-end;
+        padding-right: 6rem;
+    }
+    .shop_listStep_items .text {padding-top: 0.5rem;font-size: 1.4rem;line-height: 2rem; }
+    .containers {
+        position: relative;
+        margin-top: 15px;
+        // padding:18px 0px 18px 10px;
+        width: 100%;
+        height: 100px;
+        color: #404040;
+        border:1px solid #E1E1E1;
+    }
+    .top-right {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+    }
+    .centered {
+        position: absolute;
+        text-align: left;
+        top: 50%;
+        transform: translate(0%, -50%);
+    }
+
+    @media only screen and (max-width: 640px) {
+        .mv_top_h3 {font-size: 1.5rem;line-height: 2.8rem; }
+        .mv_top {display: block; }
+        .mv_top_txt {font-size: 1.2rem;line-height: 2.4rem; }
+        .mv_top .avatar {padding: 2rem 0 8rem;text-align: center; }
+        .shop_nav .listItems {padding-left: 0; }
+        .shop_nav .listItems li {width: 50%;margin-bottom: 2rem; }
+        .shop_nav .listItems li:not(:first-child) {margin-left: 0; }
+        .shop_listStep {width: 100%; }
+        .shop_listStep_items {display: block;margin-bottom: 4rem; }
+        .shop_listStep_items:after {content: none; }
+        .shop_listStep_items:last-child:after {content: none; }
+        .shop_listStep_items .avatar {display: none; }
+        .shop_listStep_items .description {padding-left: 0;max-width: 100%; }
+        .shop_btn {-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;padding-right: 0;}
+        .shop_btn a {width: 70%; }
+        .font-btn-counseling{font-size: 1.2rem !important;}
+    }
+    @media (min-width: 641px) {
+      .font-btn-counseling{
+        font-size: 1.3em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 768px) {
+      .font-btn-counseling{
+        font-size: 1.3em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 992px) {
+      .font-btn-counseling{
+        font-size: 1.1em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+    @media (min-width: 1200px) {
+      .font-btn-counseling{
+        font-size: 1.5em !important;
+        margin-top: 15px;
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+}
+/************end style in-shop-counseling page **************/
+
+section.shop{
+    @import "variable";
+    @import "mixin";
+    .main-content {margin-top: 2rem;}
+    .title_h3 {
+      font-size: 1.8rem;
+      padding: 2.2rem 2rem 1.5rem;
+      @include mqSm {font-size: 1.5rem;};
+    }
+    .mv_top {
+        padding-left: 1rem;padding-bottom: 5rem;
+  	    @include mqSm {display: block;};
+  	    &_h3 {
+            font-size: 1.5rem;
+            line-height: 2.2rem;
+            padding-bottom: 2rem;
+  	        @include mqSm {font-size: 1.2rem;line-height: 2.4rem;};
+  	    }
+  	    &_txt {
+  		      font-size: 1.4rem;
+  		      line-height: 2rem;
+  		      @include mqSm {font-size: 1.2rem;line-height: 2.4rem;};
+  	    }
+  	    .avatar {
+  		      padding-left: 2rem;
+  		      position: relative;
+  		      bottom: -5rem;
+  		      @include mqSm {padding: 2rem 0 8rem;text-align: center;};
+  	    }
+    }
+    .shoplist {
+  	    color: #000;
+  	    margin-top: 3.5rem;
+  	    .title_table {
+  		      position: relative;
+  		      border: 1px solid #e2e2e2;
+  		      border-radius: 5px;
+  	        background-image: -moz-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(248,248,248) 47%, rgb(254,254,254) 50%, rgb(250,250,250) 100%);
+  	        background-image: -webkit-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(248,248,248) 47%, rgb(254,254,254) 50%, rgb(250,250,250) 100%);
+  	        background-image: -ms-linear-gradient( 90deg, rgb(248,248,248) 0%, rgb(248,248,248) 47%, rgb(254,254,254) 50%, rgb(250,250,250) 100%);
+  		      font-size: 1.4rem;
+  		      font-weight: normal;
+  		      padding: 1.2rem 2rem;
+  		      cursor: pointer;
+  		      @include mqSm {font-size: 2rem;};
+  		  &:after {
+  			    content: "";
+  			    position: absolute;
+  			    top: 1.7rem;
+  			    right: 2rem;
+  			    background: url('../images/arrow_down.png') no-repeat;
+  			    width: 7px;
+  			    height: 3px;
+  		  }
+  	  }
+  	  &_content {
+  		    display: none;
+  		    &.active {display: block;}
+  	  }
+  	  &_group_table {
+  		    margin-top: 1.5rem;
+  		    .shoplist_content{margin-bottom: 5rem;}
+  	  }
+  	  &_table {
+  		    table {width: 100%;margin-bottom: 1px;}
+  		    .tag {
+  			      background: #f4f4f4;
+  			      display: inline-block;
+  			      padding: 8px 14px;
+  			      margin-right: 3rem;
+  			      min-width: 16.6rem;
+  			      @include mqSm {min-width: 20.6rem;margin-right: 0;padding: 3px 1.4rem;margin-bottom: .5rem;}
+  		    }
+  		    .logo_table {
+              padding-top: .8rem;
+  			      @include mqSm {padding-top: 0;};
+  		    }
+  		    .row_td {
+  			      display: flex;
+  			      align-items: baseline;
+  			      padding-bottom: 0.3rem;
+  			      @include mqSm {display: block;margin-bottom: 2rem;};
+  		    }
+  		    .info_01, .info_02 {
+  			      line-height: 2rem;
+  			      @include mqSm {display: block;padding: 0 1.4rem;};
+  		    }
+  		    a {margin-left: 4rem;display: inline-block;color: #0087b8;font-weight: bold;}
+  		    td {
+  			      border-top: 1px solid #d7d7d7;
+  			      border-bottom: 1px solid #d7d7d7;
+  			      font-size: 1.4rem;
+  			      height: 11.7rem;
+  			      padding: 28px 20px;
+  			      line-height: 1.6rem;
+  			      @include mqSm {display: block;height: initial;padding: 18px 0px 0px;font-size: 1.4rem;line-height: 2.4rem;};
+  			  &:first-child {
+  				    font-weight: bold;
+  				    width: 228px;
+  				    background: #f4f4f4;
+  				    @include mqSm {display: flex;width: 100%;padding: 8px 15px;align-items: center;justify-content: space-between;};
+  			  }
+  		  }/*td */
+  	  }/*&_table*/
+    }/*.shoplist*/
+}
+/************end style shop page **************/
+section.skin-problems-and-cosmetics{
+    .main-content {margin-top: 2rem;}
+    .counseling-skin {padding-left: 10px;}
+    h3 {font-size: 1.8rem;line-height: 1.2;font-weight: bold;margin-bottom: 2rem;}
+    p {font-size: 1.4rem;line-height: 1.4;margin-bottom: 2rem;}
+    .box01 {width: 100%;display: inline-block;}
+    .box01 li {width: 50%;float: left;}
+    .box02 {display: inline-block;margin: 0 auto;}
+    .box02 li {float: left;}
+    .box02 li:first-child {margin-right: 4rem;}
+    .counseling-skin-bottom {text-align: center;margin-top: 3rem;}
+    .list01 {margin-bottom: 2rem;}
+    .button_skin{
+        position: relative;
+        width: 100%;
+        height: 65px;
+        margin-top: 15px;
+        border:1px solid #E1E1E1;
+        -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+        -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+        box-shadow: #FFFFFF 100px 100px 100px ;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        font-size:15px;
+        // padding: 22px 131px 22px 131px;
+        text-decoration:none;
+        display:inline-block;
+        color: #404040;
+        background-color: #F9F9F9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+        background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+    }
+
+    .button_skin:hover{
+        border:px solid #FFFFFF;
+        background-color: #F9F9F9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+        background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+        filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+    }
+    .center-btn-history {
+        position: absolute;
+        top: 45%;
+        // transform: translate(0%, -50%);
+        left: 10px;
+    }
+    .center-right-btn-history {
+        position: absolute;
+        top: 45%;
+        // transform: translate(0%, -50%);
+        right: 10px;
+    }
+
+    @media only screen and (max-width: 640px) {
+	      .counseling-skin  {padding-left: 0;}
+ 	      h3 {font-size: 1.5rem;}
+	      p {font-size: 1.2rem;}
+        .box01 li {width: 100%;}
+	      .box01 li:last-child {text-align: center;}
+	      .box02 li:first-child {margin-right: 0rem;}
+	      .box02 {display: flex;justify-content: space-between;align-items: center;}
+	      .box02 li {width: 48.6%;}
+    }
+}
+/************end style skin-problems-and-cosmetics page **************/
+section.product-series{
+    .main-content {margin-top: 2rem;}
+    .mv {margin-left: 10px;}
+    .mv-txt01 {font-size: 1.8rem;line-height: 1.2;font-weight: bold;margin-bottom: 2rem;}
+    .mv-txt02 {font-size: 1.4rem;line-height: 1.4;margin-bottom: 2rem;}
+    .mv-txt03 {font-size: 1.4rem;line-height: 1.4;}
+    .mv-img {text-align: center;}
+    .style01 {margin-top: 7.8rem;}
+    .style01 h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        font-weight: bold;
+        border-bottom: 1px dotted #d6d6d0;
+        padding-bottom: 5px;
+        padding-left: 10px;
+    }
+    .style01 h3 {font-size: 1.3rem;line-height: 1.2;margin-bottom: 6px;font-weight: bold;color: #000;}
+    .style01 ul {display: flex;flex-wrap: wrap;}
+    .style01 ul li {
+        width: 290px;
+        margin-left: 15px;
+        margin-right: 15px;
+        background: url(../images/product_series/border_pc.png);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        padding-bottom: 17px;
+        margin-top: 3.5rem;
+    }
+    .style01 ul li a {display: flex;justify-content: space-between;align-items: center;}
+    .style01 p {font-size: 1.2rem;color: #000;}
+
+
+    @media only screen and (max-width: 640px) {
+	      .mv {margin-left: 0;}
+	      .mv-txt01 {font-size: 1.2rem;}
+	      .mv-txt02 {font-size: 1.2rem;}
+	      .mv-txt03 {font-size: 1.2rem;}
+	      .style01 {margin-top: 6rem;}
+	      .style01 h2 {font-size: 1.2rem;}
+	      .style01 h3 {font-size: 1.5rem;}
+	      .style01 ul li {
+            width: 100%;
+	          margin-left: 0;
+	          margin-right: 0;
+	          background: url(../images/product_series/border_sp.png);
+	          background-repeat: no-repeat;
+	          background-position: bottom right;
+	          padding-bottom: 3.5rem;
+	          margin-top: 3.5rem;
+	      }
+	      .style01 p {font-size: 1rem;}
+	      .style01-left {padding-left: 3rem;}
+	      .skin h2 {margin-bottom: 4rem;}
+	      .base.style01 {margin-top: 0;}
+	      .base.style01 h2 {display: none;}
+  }
+}
+/************end style product-series page **************/
+section.skin-allergy{
+    .main-content {margin-top: 2rem; }
+    .img_content {text-align: center;padding: 1rem 2rem 6.5rem; }
+    .img_btn {text-align: center;padding: 2rem 0 5rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {content: "";position: absolute;top: 0;left: -.4rem;background: url("../images/skin_problems/skin_allergy/ico_pin.png") no-repeat;background-size: contain;width: 8.1rem;height: 8.1rem; }
+    .skin_pimple_content .title_h3 {position: relative;padding-left: 2rem;font-size: 1.8rem;line-height: 2rem;padding-bottom: 1rem;margin-bottom: 1.8rem; }
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2; }
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_thumbList {-webkit-box-align: center;-ms-flex-align: center;align-items: center; }
+    .skin_pimple_thumbList .description {width: calc(100% - 25rem); }
+    .skin_pimple_thumbList .thumbnail {padding-right: 2rem;text-align: right;width: 25rem; }
+    .skin_pimple_highlight {margin-top: 2rem;margin-bottom: 2rem;background: #fcecee;padding: 3rem 2.2rem;-webkit-box-align: center;-ms-flex-align: center;align-items: center; }
+    .skin_pimple_highlight.gray {background: #eeeef4; }
+    .skin_pimple_highlight .text {padding-bottom: 0; }
+    .skin_pimple_highlight .avatar {width: 8.9rem; }
+    .skin_pimple_highlight .description {width: calc(100% - 8.9rem); }
+    .skin_pimple_question {-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;-webkit-box-align: center;-ms-flex-align: center;align-items: center;margin-bottom: 2rem; }
+    .skin_pimple_question .listQuestion li {position: relative;padding-left: 2rem; }
+    .skin_pimple_question .listQuestion li:after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 0.5rem);
+        left: 0;
+        background: url("../images/skin_problems/skin_allergy/arrow_right.png") no-repeat;
+        background-size: contain;
+        width: 0.7rem;
+        height: 1rem;
+    }
+    .skin_pimple_question .listQuestion a {color: #7788bc;font-size: 1.6rem;display: inline-block;padding: 0.5rem 0; }
+    .skin_pimple_reply {-webkit-box-align: end;-ms-flex-align: end;align-items: flex-end; }
+    .skin_pimple_reply .content {width: calc(100% - 24rem); }
+    .skin_pimple_reply .thumbnail {width: 24rem;text-align: center; }
+    .skin_pimple_listBtn {margin-top: 4.5rem;padding: 0 4rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between; }
+    .skin_pimple_listBtn .btn_items {margin-bottom: 2rem;width: calc(50% - 1rem); }
+    .button_skin{
+        position: relative;
+        width: 100%;
+        height: 65px;
+        margin-top: 15px;
+        border:1px solid #E1E1E1;
+        -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+        -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+        box-shadow: #FFFFFF 100px 100px 100px ;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        font-size:15px;
+        // padding: 22px 131px 22px 131px;
+        text-decoration:none;
+        display:inline-block;
+        color: #404040;
+        background-color: #F9F9F9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+        background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+        background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+    }
+
+    .button_skin:hover{
+        border:px solid #FFFFFF;
+        background-color: #F9F9F9;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+        background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+        background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+        filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+    }
+    .center-btn-history {
+        position: absolute;
+        top: 45%;
+        // transform: translate(0%, -50%);
+        left: 10px;
+    }
+    .center-right-btn-history {
+        position: absolute;
+        top: 45%;
+        // transform: translate(0%, -50%);
+        right: 10px;
+    }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.8rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.65rem; }
+        .skin_pimple_content .title_h4 {background: #9298cc;margin-bottom: 1rem;font-size: 1.5rem; }
+        .skin_pimple_thumbList .description {width: 100%; }
+        .skin_pimple_thumbList .thumbnail {display: none; }
+        .skin_pimple_highlight .description {padding-left: 2rem; }
+        .skin_pimple_question {display: block; }
+        .skin_pimple_question .listQuestion li {margin-bottom: 1rem;background: #eee; }
+        .skin_pimple_question .listQuestion li:after {left: 2rem; }
+        .skin_pimple_question .listQuestion a {padding: 1rem 2rem;display: block;font-size: 1.5rem; }
+        .skin_pimple_question .btn_top {display: block;margin: 2rem auto 0;width: 70%; }
+        .skin_pimple_reply .content {width: 100%; }
+        .skin_pimple_reply .thumbnail {display: none; }
+        .skin_pimple_listBtn {padding: 0; }
+        .skin_pimple_content .text {font-size: 1.2rem;}
+        .skin_pimple_highlight .description {width: 100%;}
+        .skin_pimple_highlight .avatar {margin-left: 42%;margin-bottom: 15px;}
+      }
+}
+/************end style skin-allergy page **************/
+section.skin-allergy-qa{
+    .main-content {margin-top: 2rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/skin_allergy/skin_allergy_qa/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {position: relative;padding-left: 2rem;font-size: 1.8rem;line-height: 2rem;padding-bottom: 1rem;margin-bottom: 0.5rem; }
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2; }
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_listQA {padding: 2rem 0 2.5rem; }
+    .skin_pimple_listQA li {position: relative;padding-left: 5rem; }
+    .skin_pimple_listQA li:after {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        background: url("../images/skin_problems/skin_allergy/skin_allergy_qa/ico_A.png") no-repeat;
+        background-size: contain;
+        width: 3.4rem;
+        height: 3rem;
+    }
+    .skin_pimple_listQA li:nth-child(odd) {font-weight: bold;margin-bottom: 1.5rem; }
+    .skin_pimple_listQA li:nth-child(odd):after {top: calc(50% - 1.5rem);background: url("../images/skin_problems/skin_allergy/skin_allergy_qa/ico_Q.png") no-repeat;background-size: contain; }
+    .skin_pimple_highlight {
+        margin-bottom: 2rem;
+        background: #fcecee;
+        padding: 4.2rem 2.2rem 3rem 2.5rem;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: relative;
+    }
+    .skin_pimple_highlight:after {
+        content: "";
+        position: absolute;
+        background: url("../images/skin_problems/skin_allergy/skin_allergy_qa/icon_items.png") no-repeat;
+        background-size: contain;
+        top: 1.1rem;
+        left: -0.5rem;
+        width: 8.8rem;
+        height: 2.9rem;
+    }
+    .skin_pimple_highlight .text {padding-bottom: 0; }
+    .skin_pimple .author {text-align: right; }
+    .skin_pimple .btn_back {margin: 2rem 0;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end; }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.3rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+    }
+}
+/************end style skin-allergy-qa page **************/
+section.skin-allergy-test{
+    .main-content {margin-top: 2rem; }
+    .img_content {text-align: center;padding: 1rem 2rem 6.5rem; }
+    .img_btn {text-align: center;padding: 2rem 0 5rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/skin_allergy/skin_allergy_test/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {position: relative;padding-left: 2rem;font-size: 1.8rem;line-height: 2rem;padding-bottom: 1rem;margin-bottom: 1.8rem; }
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2; }
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_thumbList {-webkit-box-align: center;-ms-flex-align: center;align-items: center; }
+    .skin_pimple_thumbList .description {width: calc(100% - 25rem); }
+    .skin_pimple_thumbList .thumbnail {padding-right: 2rem;text-align: right;width: 25rem; }
+    .skin_pimple .btn_back {margin-top: 4rem;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end; }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.3rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+        .skin_pimple_content .title_h4 {background: #9298cc;margin-bottom: 1rem; }
+        .skin_pimple_thumbList .description {width: 100%; }
+        .skin_pimple_thumbList .thumbnail {display: none; }
+    }
+}
+
+/************end style skin-allergy-test page **************/
+section.skin-atopic-dermatitis{
+    .main-content {margin-top: 2rem; }
+    .img_content {text-align: center; }
+    .img_btn {text-align: center;padding: 3rem 0 7rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/skin_atopy/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {position: relative;padding-left: 2rem;font-size: 1.8rem;line-height: 2rem;padding-bottom: 1rem;margin-bottom: 1.8rem; }
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2; }
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin-top: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_question {
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        margin-bottom: 7.5rem;
+    }
+    .skin_pimple_question .listQuestion li {position: relative;padding-left: 2rem; }
+    .skin_pimple_question .listQuestion li:after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 0.5rem);
+        left: 0;
+        background: url("../images/skin_problems/skin_atopy/arrow_right_bc.png") no-repeat;
+        background-size: contain;
+        width: 0.7rem;
+        height: 1rem;
+    }
+    .skin_pimple_question .listQuestion a {color: #7788bc;font-size: 1.6rem;display: inline-block;padding: 0.5rem 0; }
+    .skin_pimple_thumbList {-webkit-box-align: center;-ms-flex-align: center;align-items: center; }
+    .skin_pimple_thumbList .description {width: calc(100% - 25rem); }
+
+    .skin_pimple_thumbList .thumbnail {padding-right: 2rem;text-align: right;width: 25rem; }
+    .skin_pimple_step {-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;width: 70.2rem;margin: 7rem auto 0; }
+
+    .skin_pimple_stepItems {position: relative;margin-bottom: 4rem; }
+
+    .skin_pimple_stepItems:nth-child(1):after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1.2rem);
+        right: -4.4rem;
+        background: url("../images/skin_problems/skin_atopy/arrow_right.png") no-repeat;
+        background-size: contain;
+        width: 2.5rem;
+        height: 2.4rem;
+    }
+    .skin_pimple_stepItems:nth-child(3):after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 1.2rem);
+        right: -4.2rem;
+        background: url("../images/skin_problems/skin_atopy/arrow_left.png") no-repeat;
+        background-size: contain;
+        width: 2.5rem;
+        height: 2.4rem;
+    }
+    .skin_pimple_stepItems:nth-child(odd) {margin-right: 3rem; }
+    .skin_pimple_stepItems:nth-child(even) {margin-left: 3rem; }
+    .skin_pimple_stepItems:nth-child(4) {margin-top: -1.6rem; }
+    .skin_pimple_stepItems a {position: absolute;bottom: 3rem;left: 0;right: 0;text-align: center; }
+    .skin_pimple_listBtn {margin-top: 4.5rem;padding: 0 4rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between; }
+    .skin_pimple_listBtn .btn_items {margin-bottom: 2rem;width: calc(50% - 1rem); }
+    .button_skin{
+          position: relative;
+          width: 100%;
+          height: 65px;
+          margin-top: 15px;
+          border:1px solid #E1E1E1;
+          -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+          -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+          box-shadow: #FFFFFF 100px 100px 100px ;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          font-size:15px;
+          // padding: 22px 131px 22px 131px;
+          text-decoration:none;
+          display:inline-block;
+          color: #404040;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+      }
+
+      .button_skin:hover{
+          border:px solid #FFFFFF;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+          filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+      }
+      .center-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          left: 10px;
+      }
+      .center-right-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          right: 10px;
+      }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.2rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {padding-bottom: 2.2rem;font-size: 1.5rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h4 {background: #9298cc;margin-bottom: 1rem;font-size: 1.5rem; }
+        .skin_pimple_question {display: block;margin-bottom: 3rem; }
+        .skin_pimple_question .listQuestion li {background: #eee;margin-bottom: 1rem; }
+        .skin_pimple_question .listQuestion li:after {left: 2rem; }
+        .skin_pimple_question .btn_top {display: block;margin: 2rem auto 0;width: 70%; }
+        .skin_pimple_question .listQuestion a {padding: 1rem 2rem;display: block;font-size: 1.5rem; }
+        .skin_pimple_thumbList .description {  width: 100%; }
+        .skin_pimple_thumbList .thumbnail {display: none; }
+        .skin_pimple_step {width: 100%; }
+        .skin_pimple_stepItems {  margin-bottom: 8rem; }
+        .skin_pimple_stepItems:nth-child(1):after {
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            -webkit-transform: rotate(90deg);
+            -ms-transform: rotate(90deg);
+            transform: rotate(90deg);
+            top: initial;
+            bottom: -5rem;
+        }
+        .skin_pimple_stepItems:nth-child(3):after {
+            top: -5rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            -webkit-transform: rotate(-90deg);
+            -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+        .skin_pimple_stepItems:nth-child(3) {-webkit-box-ordinal-group: 3;  -ms-flex-order: 2;  order: 2; }
+        .skin_pimple_stepItems:nth-child(odd) {margin-left: auto;margin-right: auto; }
+        .skin_pimple_stepItems:nth-child(even) {margin-left: auto;margin-right: auto; }
+        .skin_pimple_listBtn {padding: 0; }
+    }
+}
+
+/************end style skin-atopic-dermatitis page **************/
+section.skin-atopy-qa{
+    .main-content {margin-top: 2rem; }
+    .breadcrumb_items:nth-child(3) {background: url("../images/skin_problems/skin_atopy/skin_atopy_qa/arrow_right.png") no-repeat 8px 11px, url("../images/skin_problems/skin_atopy/skin_atopy_qa/arrow_right.png") no-repeat 11px 11px; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width:100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/skin_atopy/skin_atopy_qa/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1.8rem;
+        line-height: 2rem;
+        padding-bottom: 1rem;
+        margin-bottom: 0.3rem;
+    }
+    .skin_pimple_content .title_h3:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: #b2b2b2;
+    }
+    .skin_pimple_content .title_h4 {
+      background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+      background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+      background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+      color: #fff;
+      padding: 0.5rem 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_listQA {padding: 2rem 0 2.5rem; }
+    .skin_pimple_listQA h5:not(:first-child) {padding-top: 1rem; }
+    .skin_pimple_listQA li {position: relative;padding-left: 5rem; }
+    .skin_pimple_listQA li:after {
+        content: "";
+        position: absolute;
+        top: 1.5rem;
+        left: 0;
+        background: url("../images/skin_problems/skin_atopy/skin_atopy_qa/ico_A.png") no-repeat;
+        background-size: contain;
+        width: 3.4rem;
+        height: 3rem;
+    }
+    .skin_pimple_listQA li:nth-child(odd) {font-weight: bold;margin-bottom: 1.5rem; }
+    .skin_pimple_listQA li:nth-child(odd):after {top: calc(50% - 1.5rem);background: url("../images/skin_problems/skin_atopy/skin_atopy_qa/ico_Q.png") no-repeat;background-size: contain; }
+    .skin_pimple .author {text-align: right; }
+    .skin_pimple .btn_back {margin: 2rem 0 0;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end; }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.2rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+    }
+}
+
+/************end style skin-atopy-qa page **************/
+section.skin-atopy-wash{
+    .main-content {margin-top: 2rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width:100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/skin_atopy/skin_atopy_wash/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1.8rem;
+        line-height: 2rem;
+        padding-bottom: 1rem;
+        margin-bottom: 3rem;
+    }
+    .skin_pimple_content .title_h3:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: #b2b2b2;
+    }
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text:not(:last-child) {padding-bottom: 2.2rem; }
+    .skin_pimple_highlight {
+        position: relative;
+        margin-top: 2rem;
+        background: #fcecee;
+        padding: 3rem 2.2rem;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    .skin_pimple_highlight .avatar {width: 8.9rem; }
+    .skin_pimple_highlight .description {width: calc(100% - 8.9rem); }
+    .skin_pimple_highlight .thumbnail {position: absolute;/*top: -1.5rem;*/right: 1rem; }
+    .skin_pimple_step {margin-top: 4.3rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between; }
+    .skin_pimple .btn_back {margin-top: 4rem;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end;}
+
+    @media only screen and (max-width: 640px) {
+      .skin_pimple_content {width: 100%;font-size: 1.2rem;line-height: 2.4rem; }
+      .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+      .skin_pimple_highlight .description {padding-left: 2rem; }
+      .skin_pimple_highlight .thumbnail {display: none; }
+      .skin_pimple_step {display: block; }
+      .skin_pimple_step .items {width: 32%; }
+      .skin_pimple_step .items:first-child {width: 24%; }
+      .skin_pimple_step .items {margin: 2rem auto;width: 80% !important; }
+      .skin_pimple .btn_back {margin-top: 4rem;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end; }
+
+    }
+}
+/************end style skin-atopy-wash page **************/
+section.adult-acne{
+    .main-content {margin-top: 2rem; }
+    .img_content {text-align: center;padding: 1rem 2rem 6.5rem; }
+    .img_btn {text-align: center;padding: 5rem 0 10rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width:100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/adult_acne/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {position: relative;padding-left: 2rem;font-size: 1.8rem;line-height: 2rem;padding-bottom: 1rem;margin-bottom: 1.8rem;}
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2;}
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text {padding-bottom: 2.2rem; }
+    .skin_pimple_question {-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;-webkit-box-align: center;-ms-flex-align: center;align-items: center;margin-bottom: 5rem; }
+    .skin_pimple_question .listQuestion li {position: relative;padding-left: 2rem; }
+    .skin_pimple_question .listQuestion li:after {
+        content: "";
+        position: absolute;
+        top: calc(50% - 0.5rem);
+        left: 0;
+        background: url("../images/skin_problems/adult_acne/arrow_right.png") no-repeat;
+        background-size: contain;
+        width: 0.7rem;
+        height: 1rem;
+    }
+    .skin_pimple_question .listQuestion a {color: #7788bc;font-size: 1.6rem;display: inline-block;padding: 0.5rem 0; }
+    .skin_pimple_reply {-webkit-box-align: end;-ms-flex-align: end;align-items: flex-end; }
+    .skin_pimple_reply .content {width: calc(100% - 24rem); }
+    .skin_pimple_listBtn { margin-top: 4.5rem;padding: 0 4rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between; }
+    .skin_pimple_listBtn .btn_items {margin-bottom: 2rem;width: calc(50% - 1rem); }
+    .button_skin{
+          position: relative;
+          width: 100%;
+          height: 65px;
+          margin-top: 15px;
+          border:1px solid #E1E1E1;
+          -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+          -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+          box-shadow: #FFFFFF 100px 100px 100px ;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          font-size:15px;
+          // padding: 22px 131px 22px 131px;
+          text-decoration:none;
+          display:inline-block;
+          color: #404040;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+      }
+
+      .button_skin:hover{
+          border:px solid #FFFFFF;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+          filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+      }
+      .center-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          left: 10px;
+      }
+      .center-right-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          right: 10px;
+      }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.2rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+        .skin_pimple_content .title_h4 {background: #9298cc;margin-bottom: 1rem; }
+        .skin_pimple_question {display: block; }
+        .skin_pimple_question .listQuestion li {margin-bottom: 1rem;background: #eee; }
+        .skin_pimple_question .listQuestion li:after {  left: 2rem; }
+        .skin_pimple_question .listQuestion a {padding: 1rem 2rem;display: block;font-size: 1.5rem; }
+        .skin_pimple_question .btn_top {display: block;margin: 2rem auto 0;width: 70%; }
+        .skin_pimple_reply .content {width: 100%; }
+        .skin_pimple_reply .thumbnail {width: 24rem;text-align: center; }
+        .skin_pimple_reply .thumbnail {display: none; }
+        .skin_pimple_listBtn {padding: 0; }
+    }
+}
+
+/************end style adult-acne page **************/
+section.adult-acne-advice{
+    .main-content {margin-top: 2rem; }
+    .skin_pimple_content {
+        position: relative;
+        // width: 92rem;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 3rem 2rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-image: -moz-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -webkit-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        background-image: -ms-linear-gradient(0deg, #f7f7f7 0%, white 50%, #f7f7f7 100%);
+        -webkit-box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+    }
+    .skin_pimple_content:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -.4rem;
+        background: url("../images/skin_problems/adult_acne/advice/ico_pin.png") no-repeat;
+        background-size: contain;
+        width: 8.1rem;
+        height: 8.1rem;
+    }
+    .skin_pimple_content .title_h3 {
+        position: relative;
+        padding-left: 2rem;
+        font-size: 1.8rem;
+        line-height: 2rem;
+        padding-bottom: 1rem;
+        margin-bottom: 1.8rem;
+    }
+    .skin_pimple_content .title_h3:after {content: "";position: absolute;width: 100%;height: 1px;bottom: 0;left: 0;background: #b2b2b2;}
+    .skin_pimple_content .title_h4 {
+        background-image: -moz-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -webkit-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        background-image: -ms-linear-gradient(0deg, #6a71c0 0%, #f8f8f8 100%);
+        color: #fff;
+        padding: 0.5rem 1rem;
+        margin-bottom: 0.5rem;
+    }
+    .skin_pimple_content h5 {font-weight: bold; }
+    .skin_pimple_content .text:not(:last-child) {padding-bottom: 2.2rem; }
+    .skin_pimple_highlight {margin-top: 4rem;background: #fcecee;padding: 3rem 2.2rem;-webkit-box-align: center;-ms-flex-align: center;align-items: center; }
+    .skin_pimple_highlight .avatar {width: 8.9rem; }
+    .skin_pimple_highlight .description {width: calc(100% - 8.9rem); }
+    .skin_pimple_step {margin-top: 4.3rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between;}
+    .skin_pimple_step .items {width: 32%; }
+    .skin_pimple_step .items:first-child {width: 24%; }
+    .skin_pimple .btn_back {margin-top: 4rem;-webkit-box-pack: end;-ms-flex-pack: end;justify-content: flex-end; }
+
+    @media only screen and (max-width: 640px) {
+        .skin_pimple_content {width: 100%;font-size: 1.2rem;line-height: 2.4rem; }
+        .skin_pimple_content .title_h3 {font-size: 1.5rem; }
+        .skin_pimple_content .title_h4 {background: #9298cc;margin-bottom: 1rem; }
+        .skin_pimple_highlight .description {padding-left: 2rem; }
+        .skin_pimple_step {margin-top: 4.3rem;-webkit-box-pack: justify;-ms-flex-pack: justify;justify-content: space-between; }
+        .skin_pimple_step {display: block; }
+        .skin_pimple_step .items {margin: 2rem auto;width: 80% !important; }
+    }
+}
+
+/************end style adult-acne-advice page **************/
+section.uv-rays-and-dryness{
+    @import "variable";
+    @import "mixin";
+    .main-content {margin-top: 2rem;}
+    .img_content {text-align: center;}
+    .button_skin{
+          position: relative;
+          width: 100%;
+          height: 65px;
+          margin-top: 15px;
+          border:1px solid #E1E1E1;
+          -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+          -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+          box-shadow: #FFFFFF 100px 100px 100px ;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          font-size:15px;
+          // padding: 22px 131px 22px 131px;
+          text-decoration:none;
+          display:inline-block;
+          color: #404040;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#E3E3E3));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: -o-linear-gradient(top, #F9F9F9, #E3E3E3);
+          background-image: linear-gradient(to bottom, #F9F9F9, #E3E3E3);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#E3E3E3);
+      }
+
+      .button_skin:hover{
+          border:px solid #FFFFFF;
+          background-color: #F9F9F9;
+          background-image: -webkit-gradient(linear, left top, left bottom, from(#F9F9F9), to(#D6D6D6));
+          background-image: -webkit-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -moz-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -ms-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: -o-linear-gradient(top, #F9F9F9, #D6D6D6);
+          background-image: linear-gradient(to bottom, #F9F9F9, #D6D6D6);
+          filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#F9F9F9, endColorstr=#D6D6D6);
+      }
+      .center-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          left: 10px;
+      }
+      .center-right-btn-history {
+          position: absolute;
+          top: 45%;
+          // transform: translate(0%, -50%);
+          right: 10px;
+      }
+    .img_btn {text-align: center;padding: 5rem 0 10rem;}
+    .skin_pimple {
+	      &_content {
+		        position: relative;
+		        // width: 92rem;
+            width: 100%;
+		        margin: 0 auto;
+		        padding: 3rem 3rem 2rem;
+		        font-size: 1.4rem;
+		        line-height: 2rem;
+		        background-image: -moz-linear-gradient(0deg, rgb(247,247,247) 0%, rgb(255,255,255) 50%, rgb(247,247,247) 100%);
+		        background-image: -webkit-linear-gradient(0deg, rgb(247,247,247) 0%, rgb(255,255,255) 50%, rgb(247,247,247) 100%);
+		        background-image: -ms-linear-gradient(0deg, rgb(247,247,247) 0%, rgb(255,255,255) 50%, rgb(247,247,247) 100%);
+		        box-shadow: 0 2px 4px 0 rgba(7, 0, 2, 0.15);
+		        @include mqSm {width: 100%;font-size: 1.2rem;line-height: 2.4rem;};
+		    &:after {
+			      content: "";
+			      position: absolute;
+			      top: 0;
+			      left: -.4rem;
+			      background: url('../images/skin_problems/uv_rays_and_dryness/ico_pin.png') no-repeat;
+			      background-size: contain;
+			      width: 8.1rem;
+			      height: 8.1rem;
+		    }
+		.title_h3 {
+			  position: relative;
+			  padding-left: 2rem;
+	      font-size: 1.8rem;
+			  line-height: 2rem;
+			  padding-bottom: 0.6rem;
+			  margin-bottom: 1.8rem;
+			  &:after {
+				    content: "";
+				    position: absolute;
+				    width: 100%;
+				    height: 1px;
+				    bottom: 0;
+				    left: 0;
+				    background: #b2b2b2;
+			  }
+			  @include mqSm {font-size: 1.5rem;};
+		}
+		.title_h4 {
+			  background-image: -moz-linear-gradient( 0deg, rgb(106,113,192) 0%, rgb(248,248,248) 100%);
+			  background-image: -webkit-linear-gradient( 0deg, rgb(106,113,192) 0%, rgb(248,248,248) 100%);
+			  background-image: -ms-linear-gradient( 0deg, rgb(106,113,192) 0%, rgb(248,248,248) 100%);
+			  color: #fff;
+			  padding: 0.5rem 1rem;
+			  margin-top: 3rem;
+			  margin-bottom: 0.5rem;
+        @include mqSm {font-size: 1.5rem;};
+		}
+		h5 {font-weight: bold;}
+		.text {padding-bottom: 2.2rem;}
+	  }
+	    &_question {
+		      justify-content: space-between;
+		      align-items: center;
+		  @include mqSm {display: block;};
+		      .listQuestion {
+			      li {
+				        position: relative;
+				        padding-left: 2rem;
+				        &:after {
+					          content: "";
+					          position: absolute;
+					          top: calc(50% - 0.5rem);
+					          left: 0;
+					          background: url('../images/skin_problems/uv_rays_and_dryness/arrow_right.png') no-repeat;
+					          background-size: contain;
+					          width: 0.7rem;
+					          height: 1rem;
+				        }
+				        @include mqSm {background: #eee;margin-bottom: 1rem;&:after {left: 2rem;}};
+			      }
+			      a {color: #7788bc;font-size: 1.6rem;display: inline-block;padding: 0.5rem 0;@include mqSm {padding: 1rem 2rem;display: block;font-size: 1.5rem;};}
+		      }
+	    }
+	  .thumbnail_items {
+		    background: #fff;
+		    border: 1px solid #c7c7c7;
+		    padding: 1.6rem 3.5rem 1rem 3rem;
+		    margin-bottom: 2rem;
+		    &_in {
+			      .content {
+				        // width: calc(100% - 20rem);
+				        padding-right: 2rem;
+			        	li {
+					          .text {
+						            margin-left: 1rem;
+						            position: relative;
+						            padding-bottom: 0;
+						            &:before {
+							            content: "・";
+							            position: absolute;
+							            left: -1.4rem;
+						            }
+                    }
+				        }
+			      }
+			  .avatar {width: 20rem;}
+		  }
+	  }
+	  &_reply {
+		    align-items: flex-end;
+		    .content {width: calc(100% - 24rem);@include mqSm {width: 100%;};}
+		     .thumbnail {width: 24rem;text-align: center;@include mqSm {display: none;};}
+	  }
+	  &_listBtn {
+		    margin-top: 4.5rem;
+		    padding: 0 4rem;
+		    justify-content: space-between;
+		    .btn_items {margin-bottom: 2rem;width: calc(50% - 1rem);
+		}
+		@include mqSm {padding: 0;};}
+  }
+}
+/************end style uv-rays-and-dryness page **************/
+section.product-series{
+.main-content {
+	margin-top: 2rem;
+}
+.mv {
+  margin-left: 10px;
+}
+.mv-txt01 {
+	font-size: 1.8rem;
+	line-height: 1.2;
+	font-weight: bold;
+	margin-bottom: 2rem;
+}
+.mv-txt02 {
+	font-size: 1.4rem;
+	line-height: 1.4;
+	margin-bottom: 2rem;
+}
+.mv-txt03 {
+	font-size: 1.4rem;
+	line-height: 1.4;
+}
+.mv-img {
+	text-align: center;
+}
+
+.style01 {
+	margin-top: 7.8rem;
+}
+.style01 h2 {
+	font-size: 1.8rem;
+  line-height: 1.2;
+  font-weight: bold;
+  border-bottom: 1px dotted #d6d6d0;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+.style01 h3 {
+	font-size: 1.3rem;
+	line-height: 1.2;
+	margin-bottom: 6px;
+	font-weight: bold;
+	color: #000;
+}
+.style01 ul {
+	display: flex;
+  flex-wrap: wrap;
+}
+.style01 ul li {
+	width: 290px;
+  margin-left: 15px;
+  margin-right: 15px;
+  background: url('../images/series/border_pc.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  padding-bottom: 17px;
+  margin-top: 3.5rem;
+}
+.style01 ul li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.style01 p {
+	font-size: 1.2rem;
+	color: #000;
+}
+
+@media only screen and (max-width: 640px) {
+	.mv {
+    margin-left: 0;
+	}
+	.mv-txt01 {
+		font-size: 1.2rem;
+	}
+	.mv-txt02 {
+		font-size: 1.2rem;
+	}
+	.mv-txt03 {
+		font-size: 1.2rem;
+	}
+	.style01 {
+		margin-top: 6rem;
+	}
+	.style01 h2 {
+		font-size: 1.6rem;
+	}
+	.style01 h3 {
+		font-size: 1.2rem;
+	}
+	.style01 ul li {
+		width: 100%;
+	  margin-left: 0;
+	  margin-right: 0;
+	  background: url('../images/series/border_sp.png');
+	  background-repeat: no-repeat;
+	  background-position: bottom right;
+	  padding-bottom: 3.5rem;
+	  margin-top: 3.5rem;
+	}
+	.style01 p {
+		font-size: 1.0rem;
+	}
+	.style01-left {
+		padding-left: 3rem;
+	}
+	.skin h2 {
+		margin-bottom: 4rem;
+	}
+	.base.style01 {
+		margin-top: 0;
+	}
+	.base.style01 h2 {
+		display: none;
+	}
+}
+
+
+.box-title {
+	font-size: 14px;
+	border-bottom: 1px dotted;
+	padding-bottom: 15px;
+	margin-bottom: 20px;
+	line-height: 20px;
+}
+
+.box-uv ul {
+	width: 100%;
+	display: inline-block;
+}
+.box-uv ul li {
+	width: 48%;
+	float: left;
+	margin-left: 1%;
+	margin-right: 1%;
+}
+.box-uv ul li .txt01 {
+	font-size: 14px;
+	line-height: 20px;
+	font-weight: bold;
+}
+.box-uv ul li p {
+	font-size: 12px;
+	line-height: 18px;
+	color: #7788bc;
+	min-height: 105px;
+}
+
+@media only screen and (max-width: 640px) {
+  .box-uv ul li {
+		width: 100%;
+		float: left;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.box-uv ul li:nth-child(1) {
+		margin-bottom: 2rem;
+	}
+	.box-uv ul li p {
+		min-height: 0;
+	}
+}
+}
+
+
+/************end style series page **************/
+section.product-detail{
+  .add-to-cart-box{padding-top: 20px;}
+  input{
+  &::-webkit-inner-spin-button{
+    opacity:1; // magic!
+  }
+  // height: 35px;
+  // width: 80px;
+  // font-size: 15px;
+}
+input {
+	  color: #777;
+	  width: 5em;
+	  font-size: 1.3em;
+	  // border-radius: 10px;
+	  border: 2px solid #ccc;
+	  padding: 5px;
+	  padding-left: 10px;
+	}
+	input[type=number]::-webkit-inner-spin-button {
+	  // -webkit-appearance: none;
+	  cursor: pointer;
+	  display: block;
+	  width: 10px;
+	  text-align: center;
+	  position: relative;
+	  background: transparent;
+	}
+	input[type=number]::-webkit-inner-spin-button::before,
+	input[type=number]::-webkit-inner-spin-button::after {
+	  content: "";
+	  position: absolute;
+	  right: 0;
+	  width: 0;
+	  height: 0;
+	  border-left: 7px solid transparent;
+	  border-right: 7px solid transparent;
+	  border-bottom: 10px solid #777;
+	}
+	input[type=number]::-webkit-inner-spin-button::before {
+	  top: 7px;
+	}
+	input[type=number]::-webkit-inner-spin-button::after {
+	  bottom: 7px;
+	  transform: rotate(180deg);
+	}
+// input[type=number] {
+//   height: 40px;
+//   font-size: 15px;
+//   margin-top:0px;
+//  }
+// input[type="number"]::-webkit-outer-spin-button,
+// input[type="number"]::-webkit-inner-spin-button {
+//     height: 40px;
+//     margin-top:0px;
+// }
+// input[type="number"]::-moz-inner-spin-button,
+// input[type="number"]::-moz-inner-spin-button {
+//     width: 120px;
+//
+//
+// }
+  // input[type='number'] {
+  //     -moz-appearance:textfield;
+  //
+  // }
+  // input[type=number]#spinner{
+  //   width: 30px;
+  // }
+  // Show number picker on focus
+// input[type=number]:focus::-webkit-inner-spin-button,
+// input[type=number]:focus::-webkit-outer-spin-button,
+// input[type=number]:hover::-webkit-inner-spin-button,
+// input[type=number]:hover::-webkit-outer-spin-button {
+//   -webkit-appearance: none;
+//   margin: 0;
+// }
+//
+//   input::-webkit-outer-spin-button,
+//   input::-webkit-inner-spin-button {
+//       -webkit-appearance: none;
+//       margin: 0;
+//   }
+
+.title_category {
+	display: block;
+}
+.box-top .title_category {
+	display: none;
+}
+.box-top {
+	width: 100%;
+	display: inline-block;
+	margin-bottom: 3rem;
+}
+.box-top > li {
+	float: left;
+}
+.box-top > li:first-child {
+	width: 330px;
+}
+.box-top > li:last-child {
+	width: 620px;
+}
+.box-top-txt ul li {
+	font-size: 1.4rem;
+    line-height: 2rem;
+    position: relative;
+    text-indent: 10px;
+}
+.box-top-txt ul li:before {
+	content: '';
+	width: 6px;
+	height: 6px;
+	border: 1px solid #8b8b8b;
+	background: #000;
+	position: absolute;
+	top: 6px;
+	left: 0;
+}
+.box-top-txt02 {
+	background: #f4f4f4;
+	padding: 10px;
+	margin-top: 20px;
+}
+/*
+.box-top-txt02 ul li:first-child {
+	margin-bottom: 10px;
+}
+*/
+.box-top-txt02 ul li {
+    margin-bottom: 10px;
+	font-size: 1.4rem;
+    line-height: 2rem;
+}
+.box-top-txt02 .txt01 {
+	// width: 85px;
+	border-right: 1px dotted;
+	display: inline-block;
+	padding-left: 10px;
+}
+.box-top-txt02 .txt02 {
+	// padding-left: 15px;
+}
+.box-item {
+	margin-bottom: 5rem;
+}
+.box-item h2 {
+	margin-bottom: 2.5rem;
+}
+.box-item p {
+	font-size: 1.4rem;
+    line-height: 2rem;
+    padding-left: 2rem;
+}
+.block-series-top {
+	margin-top: 9rem;
+}
+@media only screen and (max-width: 640px) {
+  .box-top {
+    margin-bottom: 4.5rem;
+	}
+	.box-top .title_category {
+    width: 100%;
+    margin-bottom: 2rem;
+    display: block;
+	}
+	.title_category {
+		display: none;
+	}
+	.box-top .title_category h2 {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+   .box-top > li:first-child {
+		width: 100%;
+	}
+	.box-top > li:last-child {
+		width: 100%;
+	}
+	.box-top h3,
+	.box-top p,
+	.box-top-txt,
+	.box-top-txt02 {
+		padding-left: 10px;
+	}
+
+	.box-top-txt ul li {
+    font-size: 2rem;
+    line-height: 1.2;
+    text-indent: 1.5rem;
+  }
+  .box-top-txt ul li:before {
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #8b8b8b;
+    background: #000;
+    position: absolute;
+    top: 0.6rem;
+    left: 0;
+  }
+  .box-top-txt02 {
+  	margin-top: 5rem;
+  }
+
+  .box-top-txt02 .txt01 {
+  	// width: 11rem;
+  }
+  .box-top-txt02 .txt02 {
+		// padding-left: 2rem;
+	}
+  .box-top-txt02 ul li {
+    font-size: 1.6rem;
+    line-height: 1.5;
+	}
+	.box-item p {
+    font-size: 2rem;
+    line-height: 1.2;
+    padding-left: 2rem;
+  }
+  .block-series-top {
+    margin-top: 13rem;
+	}
+}
+}
+/************end style product detail page **************/
+section.sitemap {
+    .main-content {
+  margin-top: 2rem; }
+
+.sitemap_list {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between; }
+
+.sitemap_items {
+  width: 470px;
+  font-size: 1.6rem;
+  padding-top: 3rem; }
+  @media only screen and (max-width: 640px) {
+    .sitemap_items {
+      width: 100%; } }
+  .sitemap_items ul {
+    padding-left: 2.5rem; }
+    .sitemap_items ul li {
+      position: relative;
+      padding: 1.2rem 1.4rem;
+      line-height: 2rem; }
+      .sitemap_items ul li:after {
+        content: "";
+        width: 3px;
+        height: 3px;
+        border-radius: 50px;
+        top: calc(50% - 1px);
+        left: 0;
+        background: #000;
+        position: absolute; }
+
+.sitemap_nav {
+  margin-top: 3.5rem;
+  font-size: 1.6rem; }
+  .sitemap_nav ul {
+    border: 1px solid #9f9f9f;
+    padding-left: 2.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between; }
+  .sitemap_nav li {
+    position: relative;
+    padding: 1.7rem 1.4rem 1.9rem;
+    line-height: 2rem; }
+    .sitemap_nav li:not(:first-child) {
+      margin-left: 15rem; }
+      @media only screen and (max-width: 640px) {
+        .sitemap_nav li:not(:first-child) {
+          margin-left: 1rem; } }
+    .sitemap_nav li:after {
+      content: "";
+      width: 3px;
+      height: 3px;
+      border-radius: 50px;
+      top: calc(50% - 1px);
+      left: 0;
+      background: #000;
+      position: absolute; }
+
+.title_category_site {
+  font-weight: normal;
+  position: relative;
+  font-size: 1.6rem;
+  padding: .3rem 0 .3rem 2.5rem; }
+  .title_category_site:before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.4rem);
+    left: 1rem;
+    // background: url("../images/arrow_right.png") no-repeat;
+    background-size: contain;
+    width: 0.7rem;
+    height: 1rem; }
+  .title_category_site:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #9f9f9f; }
+
+}
+
+/************end style sitemap page **************/
+
+section.privacy-policy{
+  .main-content {margin-top: 2rem; }
+}
+
+
+
+/************end style privacy-policy page **************/
+
+
+.icons.fa {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    padding: 0px;
+    margin: 5px 2px;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 1.8em;
+    border-radius: 27px;
+    -moz-border-radius:27px;
+    -webkit-border-radius:27px;
+}
+
+.fa:hover {opacity: 0.7;}
+
+.fa-facebook {background: #3B5998;color: white;}
+.fa-google {background: #dd4b39;color: white;}
+.fa-google-plus {background: #dd4b39;color: white;}
+ul > li.social-login{float: left;}
+.margin-radio{margin-left: 20px;padding-left: 15px;}
+ul.ul-lang{/*margin-top: 32px;*/}
+.flag-lang{width: 17px;margin-right: 5px}
+.flag-lang2{width: 17px;margin-right: 5px;margin-left: -15px;}
+.btn-flag {
+    display: inline-block;
+    // padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    /* border-radius: 4px; */
+}
+.btn-flag-color{color: #fff;background-color: transparent;border: 1px solid #a8a8a8;}
+.header-nav ul li a.text-flag {color: #404040;}
+
+
+
+.button_gray_gotop{
+    border:1px solid #E1E1E1;
+    -webkit-box-shadow: #FFFFFF 100px 100px 100px ;
+    -moz-box-shadow: #FFFFFF 100px 100px 100px ;
+    box-shadow: #FFFFFF 100px 100px 100px ;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-size:12px;
+    padding: 3px 24px 0px 18px;
+    text-decoration:none;
+    display:inline-block;
+    color: #404040;
+
+}
+
+.button_gray_gotop:hover{
+    border:px solid #FFFFFF;
+    background-color: #F9F9F9;
+}
+
+i.icon {border: solid black;border-width: 0 3px 3px 0;display: inline-block;padding: 3px;}
+i.icon-thin{border: solid black;border-width: 0 2px 2px 0;display: inline-block;padding: 3px;}
+i.icon-thin-sm{border: solid black;border-width: 0 1px 1px 0;display: inline-block;padding: 2px;}
+.right {transform: rotate(-45deg);-webkit-transform: rotate(-45deg);}
+.up-arrow {transform: rotate(-135deg);-webkit-transform: rotate(-135deg);}
+
+.member-section{margin-top: 2rem;}
+.member-header{margin-top: 20px;}
+.btn-logout-margin{margin-top: 10px;}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+    color:#fff !important;
+    background-color: #414141 !important;
+}
+.nav-pills>li>a {
+    color:#404040 !important;
+    border-radius: 0px !important;
+}
+.address-create{margin-top: -5px;}
+.cart-section{list-style: none;position: relative;}
+.shopping-cart{margin-top: 10px;}
+a.button-icon{color:#fff;cursor: pointer;text-decoration:none;}
+a.button-icon:hover,a.button-icon:focus{color:#fff;cursor: pointer;text-decoration:none;}
+.login-name-show{color:#fff;}
+.cart-section{margin-top: 5rem;}
+a.user-show{color:#fff;cursor: pointer;text-decoration:none;}
+a.user-show:hover,a.user-show:focus{color:#fff;cursor: pointer;text-decoration:none;}
+@media only screen and (max-width: 640px) {
+  .cart-section{list-style: none;position: relative;margin-top: 0px;}
+  ul.ul-lang{margin-top: 32px;}
+}
+///////////////// cart page ///////////////////////
+.btn-spin-width{width:150px;}
+input[type="radio"], input[type="checkbox"] {
+    margin: 1px 10px 0 !important;
+    margin-top: 1px \9;
+    line-height: normal;
+}
+/* Totals section */
+.totals .totals-item {
+  float: right;
+  clear: both;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.totals .totals-item label {
+  float: left;
+  clear: both;
+  // width: 79%;
+  width: 50%;
+  text-align: right;
+}
+.totals .totals-item .totals-value {
+  float: right;
+  width: 50%;
+  text-align: right;
+}
+.totals .totals-item-total {
+
+}
+
+
+/* Make more adjustments for phone  for cart page */
+@media screen and (max-width: 350px) {
+  .totals .totals-item label {
+    width: 60%;
+  }
+  .totals .totals-item .totals-value {
+    width: 40%;
+  }
+}
+/////////////////////// end cart page //////////////////
+
+.inputGroup  {
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+
+    label {
+      // padding: 12px 30px;
+      // width: 100%;
+      // margin-bottom: 0px;
+      // display: block;
+      // text-align: left;
+      // color: #3C454C;
+      // cursor: pointer;
+      // // position: relative;
+      // z-index: 2;
+      // transition: color 200ms ease-in;
+      // overflow: hidden;
+
+      &:before {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        content: '';
+        opacity: 0.7;
+        // background-color: #fff;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale3d(1, 1, 1);
+        transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+        opacity: 0;
+        z-index: -1;
+      }
+
+      &:after {
+        width: 32px;
+        height: 32px;
+        content: '';
+        border: 2px solid #D1D7DC;
+        // background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        right: 20px;
+        top: 5%;
+        transform: translateY(20%);
+        cursor: pointer;
+        transition: all 200ms ease-in;
+      }
+    }
+
+    label > .active  {
+
+
+      &:before {
+
+        transform: translate(-50%, -50%) scale3d(56, 56, 1);
+        opacity: 1;
+
+      }
+
+      &:after {
+        background-color: #404040;
+        border-color: #414141;
+        width: 32px;
+        height: 32px;
+        content: '';
+        border: 2px solid #D1D7DC;
+        // background-color: #fff;
+        background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+        background-repeat: no-repeat;
+        background-position: 2px 3px;
+        border-radius: 50%;
+        z-index: 2;
+        position: absolute;
+        right: 20px;
+        top: 5%;
+        transform: translateY(20%);
+        cursor: pointer;
+        transition: all 200ms ease-in;
+      }
+    }
+    .padding-title-payment{
+        padding: 10px;
+    }
+    // input {
+    //   width: 32px;
+    //   height: 32px;
+    //   order: 1;
+    //   z-index: 2;
+    //   position: absolute;
+    //   // right: 30px;
+    //   top: 50%;
+    //   transform: translateY(-50%);
+    //   cursor: pointer;
+    //   visibility: hidden;
+    // }
+
+  }
+///////////////////////// end  checkout page /////////////////////////////
+section.payment {
+  .main-content {margin-top: 2rem; }
+}
+///////////////////////// end  payment page /////////////////////////////
+section.track {
+  .main-content {margin-top: 2rem; }
+}
+///////////////////////// end  payment page /////////////////////////////
+.valign{
+  vertical-align: middle !important;
+}
+
+
+
+.stepper {
+    border-radius: 3px;
+    margin: 0 0 10px 0;
+    position: relative;
+    display: inline-flex;
+}
+
+// .stepper {
+//     border-radius: 3px;
+//     margin: 0 0 10px 0;
+//     position: relative;
+//     display: inline-flex;
+//     overflow: hidden;
+//     width: 60px;
+// }
+
+// .stepper .stepper-input { background: #F9F9F9; border: 1px solid #ccc; border-radius: 3px; color: #333; font-size: 13px; line-height: 1.2; margin: 0; overflow: hidden; padding: 9px 10px 10px; width: 100%; z-index: 49;
+//     -moz-appearance: textfield;
+// }
+
+.stepper .stepper-input::-webkit-inner-spin-button,
+.stepper .stepper-input::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+
+.stepper .stepper-input:focus { background-color: #fff; }
+.stepper .stepper-arrow { background: #eee url(../../images/jquery.fs.stepper-arrows.png) no-repeat; border: 1px solid #ccc; cursor: pointer; display: block; height: 50%; position: absolute; right: 0; text-indent: -99999px; width: 20px; z-index: 50; }
+.stepper .stepper-arrow.up { background-position: center top; border-bottom: none; top: 0; }
+.stepper .stepper-arrow.down { background-position: center bottom; bottom: 0; }
+.up {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+}
+@media screen and (min-width: 740px) {
+    .stepper:hover .stepper-input { background-color: #fff; }
+
+    .stepper .stepper-step:hover { background-color: #F9F9F9; }
+
+    .stepper.disabled .stepper-arrow { background: #fff; border-color: #eee; cursor: default; }
+}
+
+.stepper.disabled .stepper-input { background: #fff; border-color: #eee; color: #ccc; }
+.stepper.disabled .stepper-arrow { background: #fff; border-color: #eee; cursor: default; }
+
+
+
+.boxed label {
+  display: inline-block;
+  width: 80px;
+  padding: 3px 8px 2px 8px;
+  // padding: 1px;
+  margin-left: 10px;
+  border: solid 2px #ccc;
+  transition: all 0.3s;
+}
+.boxed label:hover {
+  cursor: pointer;
+  display: inline-block;
+  width: 80px;
+  padding: 3px 8px 2px 8px;
+  // padding: 1px;
+  margin-left: 10px;
+  background: #fff1e8;
+  border: 2px solid #ce6425;
+  color: #ce6425;
+  transition: all 0.3s;
+}
+
+.boxed input[type="radio"] {
+  display: none;
+}
+
+label.activeRadio {
+  background: #fff1e8;
+  border: 2px solid #ce6425;
+  color: #ce6425;
+}
+.acseine-btn{
+  background-color: #eb7832;
+  color:#ffffff;
+  border: 1px solid #ffffff;
+}
+.btn.acseine-btn:hover,.btn.acseine-btn:focus{
+  background-color: #eb7832;
+  color:#ffffff;
+  border: 1px solid #ffffff;
+}
+.err-message,.red-text{
+  color:red;
+}

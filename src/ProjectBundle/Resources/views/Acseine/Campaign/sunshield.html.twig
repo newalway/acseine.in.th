@@ -1,0 +1,290 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block title %}ผลิตภัณฑ์ครีมกันแดดสำหรับผิวแพ้ง่าย ไม่ก่อให้เกิดอาการแพ้ | {{ parent() }}{% endblock %}
+{% block html_description %}ครีมกันแดดสำหรับผิวแพ้ง่าย ไม่ก่อให้เกิดอาการแพ้ ปกป้องผิวจากรังสี UV มากกว่าการปกป้องผิวเราพัฒนาครีมกันแดดที่ปราศจากสารเคมี เหมาะสำหรับผิวแพ้ง่ายเป็นพิเศษ{% endblock %}
+{% block html_keywords %}ครีมกันแดดผิวแพ้ง่าย, ครีมกันแดดสำหรับผิวแพ้ง่าย, ครีมกันแดด, sunscreen cream sensitive skin, sunscreen cream for sensitive skin{% endblock %}
+
+{% block body_class %}body-sunshield{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="main-banner pro-banner">
+            <div class="item item2">
+                <a>
+                    <img src="{{asset('/acseine_campaign/images/banner/sun2.jpg')}}" class="pc" alt="Super Sunshield ปกป้องผิวจากรังสี UV อย่างอ่อนโยน" />
+                    <img src="{{asset('/acseine_campaign/images/banner/sun2-m.jpg')}}" class="m" alt="Super Sunshield ปกป้องผิวจากรังสี UV อย่างอ่อนโยน Mobile" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="sunshield">
+        <div class="container">
+            <div class="pad">
+                <div class="section-title">
+                    <h1>ครีมกันแดดสำหรับผิวแพ้ง่าย ปกป้องผิวจากรังสี UV</h1>
+                </div>
+
+                <div class="sun-top">
+                    <h2>SUPER SUNSHIELD EX SPF50+ PA++++</h2>
+
+                    <h3>
+                        เพื่อผิวกระจ่างใสแบบเป็นธรรมชาติ
+                    </h3>
+                    <img src="{{asset('/acseine_campaign/images/product/sunshield/pro.png')}}" alt="Super Sunshield EX SPF50+ PA++++"/>
+                </div>
+
+                <div class="sun-detail">
+                    <h4>
+                        มากกว่าการปกป้องผิวจากรังสียูวี ยังช่วยปรับสีผิวให้สม่ำเสมอ <br />
+                        กันแดดหมาะกับทุกสภาพผิว แม้ผิวแพ้ง่ายก็ใช้ได้อย่างวางใจ
+                    </h4>
+
+                    <div class="text-center">
+                        {#<a href="{{path('product_detail',{'id':'3','slug':'super-sunshield-ex-spf50+-pa++++'})}}" target="_blank" class="button red js_waveBtn">
+                            ORDER NOW
+                        </a>#}
+
+                        {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'3','slug':'super-sunshield-ex-spf50+-pa++++'} %}
+
+                        <a href="#shoplist" class="button blue js_waveBtn link-click"><div class="hoverContainer"><div class="hoverPoint"></div></div>Shop list</a>
+                    </div><br />
+                    <ul>
+                        <li>เหมาะกับทุกสภาพผิว</li>
+                        <li>ไม่มีสารเคมีที่ดูดกลืนรังสี UV จึงไม่ทำให้หน้าหมองคล้ำ</li>
+                        <li>ปราศจากน้ำหอม /แอลกอฮอล์ / พาราเบน</li>
+                        <li>ผ่านการทดสอบว่าไม่ก่อให้เกิดการอุดตัน (Non-comedogenic)</li>
+                        <li>Water-resistant</li>
+                        <li>ครีมเนื้อเบส บางเบา เกลี่ยง่าย ไม่มัน ไม่ทิ้งคราบขาว</li>
+                        <li>นวัตกรรมเคลือเม็ดสีด้วย Silica จึงไม่สัมผัสผิวโดยตรง ไม่ก่อให้เกิดอาการแพ้</li>
+                    </ul>
+
+                </div>
+
+                <br /><br />
+
+                <div id="brightveil" class="sun-top">
+                    <h2>SUPER SUNSHIELD BRIGHT VEIL SPF50+, PA++++</h2>
+
+                    <h3>
+                        กันแดดฝาสี Rose Gold สำหรับผิวโทนชมพู<br />
+                        ที่ต้องการการปกปิดและขาวกระจ่างใสเป็นพิเศษ
+                    </h3>
+                    <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-veil/sun-veil2-02.png')}}" alt="SUPER SUNSHIELD BRIGHT VEIL SPF50+, PA++++"/>
+                </div>
+                <div class="sun-detail">
+                    <div class="text-center">
+                        {#<a href="{{path('product_detail',{'id':'16','slug':'super-sunshield-bright-veil-spf50+pa++++'})}}" target="_blank" class="button red js_waveBtn">
+                            ORDER NOW
+                        </a>#}
+
+                        {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'16','slug':'super-sunshield-bright-veil-spf50+pa++++'} %}
+
+                        <a href="#shoplist" class="button blue js_waveBtn link-click"><div class="hoverContainer"><div class="hoverPoint"></div></div>Shop list</a>
+                    </div><br />
+
+                    <p><u>ความพิเศษที่เหมือน EX</u></p>
+                    <ul>
+                        <li>Makeup base</li>
+                        <li>100% Physical sunscreen</li>
+                        <li>Hybrid UV shield (Sebum Response Powder & Thermo Melty Technology, Perfect Veil, Gentle Court UV Cut Powder, Airy Powder & Smooth Powder,  Balloon Powder และ Ginkgo pearl)</li>
+                        <li>ใช้ระบบ ACS (Allergen Control System)</li>
+                        <li>LOW IRRITATION</li>
+                        <li>สูตร  Very Water-resistant</li>
+                    </ul>
+
+                    <p><u>ความแตกต่าง</u></p>
+                    <ul>
+                        <li>มีเนื้อครีมเข้มข้นกว่าเพื่อ “เน้นการปกปิด”</li>
+                        <li>ครีมสีโทนชมพูมากกว่า</li>
+                        <li>มี Fine Bright ช่วยปกปิดจุดด่างดำ ลดความหมองคล้ำ ปรับสภาพผิวให้สม่ำเสมอและกระจ่างใสเป็นพิเศษ</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="pad tech">
+
+                <div class="section-title">
+                    <h2 style="text-transform: uppercase;">OUR TECHNOLOGY</h2>
+                </div>
+
+                <div class="tech-title">
+                    <p class="t1">Physical Sunscreen 100%</p>
+                    <h3>ปกป้องรังสียูวี <span class="pink">SPF</span> <span class="pink pers">50</span> super sunshield</h3>
+                    <p class="t3">ไม่มีช่องว่างให้รังสี uv ไม่เหนียว ไม่แห้งเป็นขุย</p>
+                    <p class="t4">ปกป้องผิวจากแสงแดดดีที่สุด</p>
+                    <p class="t5"><span class="pink">5</span> features</p>
+                </div>
+
+                <div class="tb tech-feature">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/sunshield/feature1.jpg')}}" alt="Best UV cut effect" />
+                    </div>
+                    <div class="td detail">
+                        <h2>Best UV cut effect</h2>
+                        <p>
+                            ปกป้องแสงแดดด้วย SPF 50 + / PA ++++
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tb tech-feature">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/sunshield/feature2.jpg')}}" alt="Low irritation" />
+                    </div>
+                    <div class="td detail">
+                        <h2>Low irritation</h2>
+                        <p>
+                            <span class="pink">
+                                ไม่มีสารเคมีเป็นอันตรายต่อผิว<br />
+                                ปราศจากน้ำหอม แอลกอฮอล์ และพราราเบน *
+                            </span><br />
+                            ผ่านการทดสอบว่าไม่ก่อให้เกิดการอุดตัน paraben free<br />
+                            ตัวแทนของการปกป้องแดด
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tb tech-feature">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/sunshield/feature3.jpg')}}" alt="Usable everyday use" />
+                    </div>
+                    <div class="td detail">
+                        <h2>Everyday use</h2>
+                        <p>
+                            มีส่วนผสมที่ช่วยกักเก็บความชุ่มชื้นระหว่างวันให้อยู่ในสภาวะสมดุล นวัตกรรม  Thermo MELTY Technology ช่วยสร้างเกราะป้องกันการระเหยของน้ำจากชั้นผิวหนังเมื่อโดนแสงแดด
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tb tech-feature">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/sunshield/feature4.jpg')}}" alt="Moisturizing power to protect moisture moisture" />
+                    </div>
+                    <div class="td detail">
+                        <h2>Moisturizing power to protect skin moisture</h2>
+                        <p>
+                            UV-cut ปกป้องเม็ดสีไม่ให้สัมผัสรังสียูวีโดยตรงจึงลดโอกาสการหมองคล้ำ และลดการตึงผิวจากแรงเสียดทาน แม้ผิวของคุณจะบอบบางแพ้ง่ายก็สามารถใช้งานได้อย่างสบาย
+                        </p>
+                    </div>
+                </div>
+
+                <div class="tb tech-feature">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/sunshield/feature5.jpg')}}" alt="Effect to make skin look beautiful" />
+                    </div>
+                    <div class="td detail">
+                        <h2>Effect to make skin look beautiful</h2>
+                        <p>
+                            เนื้อแป้งสูตรพิเศษช่วยคุมความมัน เกลี่ยสีผิวที่ไม่สม่ำเสมอ ลดความหมองคล้ำ เพิ่มความสดใส ไม่ว่าจะผิวสภาพใดก็สามารถมีผิวที่สวยกระจ่างใสได้
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="functions">
+                <h2 class="text-center">หากผิวของคุณได้รับการปรับตัวที่เหมาะสมจะสามารถรับกระบวนการป้องกันผิวทั้ง 5 แบบได้</h2>
+                <div class="wrap">
+                    <h3 class="text-center pink">กระบวนการทำงานของ Super Sunshield</h3>
+                    <div class="tb box">
+                        <div class="td img">
+                            <img src="{{asset('/acseine_campaign/images/product/sunshield/skin.jpg')}}" alt="When super sunshield is applied" />
+                        </div>
+                        <div class="td detail">
+                            <p>
+                                <b>Moiss veil</b><br />
+                                ช่วยคงความชื้น
+                            </p>
+                            <p>
+                                <b>Emollient veil</b><br />
+                                ปกปิดปัญหาผิวหมองคล้ำและปัญหาการซึมของเม็ดสี
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="detail2">
+                    ต้นฉบับเทคโนโลยีเกราะป้องกันผิวจากแสงแดด "Hybrid UV shield" ประกอบด้วยโครงสร้างสองชั้น "Emollient veil" และ "Moist Veil" ที่สุดของการปกป้องและดูแลผิวของคุณ
+                </div>
+
+                <div class="detail3">
+                    <ul>
+                        <li>Sebum Response Powder คุมมัน ลดโอกาสการเกิดสิว</li>
+                        <li>Thermo Melty Technology กักเก็บความชุ่มชื้น</li>
+                        <li>Perfect Veil เทคโนโลยีเฉพาะของแอคซีน เคลือบเม็ดสีไม่ให้สัมผัสผิวโดยตรง</li>
+                        <li>Airy Powder & Smooth ให้สัมผัสไร้น้ำหนัก ไร้ความมัน ช่วยทำให้เมคอัพติดทนนาน</li>
+                        <li>Balloon Powder & Ginkgo pearl ปรับผิวให้กระจ่างใส ปกปิดรูขุมขนให้ดูเล็กลงด้วย</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="brightfit" class="sun-bright">
+        <div class="container">
+            <div class="pad">
+                <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-fit/banner.jpg')}}" alt="Super Sunshield BRIGHT FIT SPF50+, PA++++" class="banner pc"/>
+                <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-fit/banner-m.jpg')}}" alt="Super Sunshield BRIGHT FIT SPF50+, PA++++" class="banner m"/>
+
+                <div class="box-pink">
+                    <h2 class="title4">Super Sunshield BRIGHT FIT <span>SPF50+, PA++++</span></h2>
+                    <div class="row row-5">
+                        <div class="col-md-6 col text-center">
+                            <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-fit/sun-fit3.png')}}" alt="Super Sunshield BRIGHT FIT SPF50+, PA++++" class="img"/>
+                        </div>
+                        <div class="col-md-6 col">
+                            <h3 class="pink">
+                                บอดี้การ์ดผิวที่คุณวางใจได้ทุกวัน<br />
+                                โลชั่นกันแดดเนื้อน้ำนมสำหรับผิวกายและผิวหน้า
+                            </h3>
+                            <p>
+                                กันแดดเนื้อเบาสบายผิว เนื้อน้ำนมจะแตกตัวคล้ายน้ำในทันทีเมื่อทาครั้งแรก
+                                เพียงการทาไม่กี่ครั้งก็ซึมลงผิวจึงไม่ทิ้งสัมผัสเหนียวเหนอะ
+                                มีส่วนผสมพิเศษที่ช่วยคงความชุ่มชื้นและเสริมความใสเงางาม
+                                ทั้งคงทนต่อน้ำและเหงื่อหากล้างออกง่ายโดยไม่ต้องใช้ Makeup remover
+                                จึงบอกลาปัญหาผิวแห้งหยาบกร้าน หน้าขาวลอย เครื่องสำอางหลุดลอกและเมคอัพตกค้างได้เลย
+                            </p>
+
+                            <p>
+                                Super Sunshield BRIGHT FIT SPF50+, PA++++<br />
+                                40 g. / 1,100 บาท (รวมภาษี)
+                            </p>
+
+                            <div class="result">
+                                <h5>Result</h5>
+                                <ul>
+                                    <li>ให้สัมผัสบางเบา สบายผิวในวันที่ไม่อยากแต่งหน้าแต่อยากได้ลุคผิวเนียนใสตามธรรมชาติ</li>
+                                    <li>ผิวยังคงชุ่มชื้น ไม่แห้งกร้านเมื่อเผชิญแสงแดด</li>
+                                    <li>เครื่องสำอางติดทน ไม่หลุดลอกง่าย</li>
+                                </ul>
+                            </div>
+
+                            {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'17','slug':'super-sunshield-bright-fit-spf50-+-pa-++++'} %}
+
+                            <a href="#shoplist" class="button blue js_waveBtn link-click"><div class="hoverContainer"><div class="hoverPoint"></div></div>Shop list</a>
+
+                            {#<div class="row row-5">
+                                <div class="col-sm-6 col-md-12 col-lg-6 col">
+                                    <a href="{{path('product_detail',{'id':'17','slug':'super-sunshield-bright-fit-spf50-+-pa-++++'})}}" target="_blank" class="button red js_waveBtn">
+                                        ORDER NOW
+                                    </a>
+                                </div>
+                                <div class="col-sm-6 col-md-12 col-lg-6 col">
+                                    <a href="#shoplist" class="button blue js_waveBtn link-click"><div class="hoverContainer"><div class="hoverPoint"></div></div>Shop list</a>
+                                </div>
+                            </div>#}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_sample.html.twig" %}#}
+
+{% endblock %}

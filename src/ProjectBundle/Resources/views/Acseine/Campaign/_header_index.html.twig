@@ -1,0 +1,51 @@
+<header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-5">
+                <div class="social">
+                    <a href="https://www.facebook.com/acseine.th/" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-facebook.png')}}" alt="facebook" /></a>
+                    <a href="https://www.instagram.com/acseine.th/" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-instagram.png')}}" alt="instagram" /></a>
+                    <a href="https://line.me/R/ti/p/%40nei8508o" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-line.png')}}" alt="line" /></a>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="logo">
+                    <a href="#home" class="link-click"><img src="{{asset('/acseine_campaign/images/logo.png')}}" alt="ACSEINE" /></a>
+                </div>
+            </div>
+            <div class="col-sm-5">
+                <div class="menu-link">
+                    <a class="button blue js_waveBtn link-click" href="#shoplist">SHOP LIST</a>
+                    <a class="button red js_waveBtn" href="{{path('product')}}" target="_blank">ONLINE SHOPPING</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<nav class="navbar" data-spy="affix" data-spy="affix" data-offset-top="70">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top" aria-expanded="false">
+                <span class="ti-menu"></span>
+            </button>
+            <a class="navbar-brand link-click" href="#home"><img src="{{asset('/acseine_campaign/images/logo.png')}}" alt="ACSEINE" /></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-top">
+            <ul class="nav navbar-nav">
+                <li><a href="#home" class="link-click">HOME</a></li>
+                <li><a href="#about" class="link-click">ABOUT ACSEINE</a></li>
+                <li><a href="#product" class="link-click">PRODUCT</a></li>
+                <li class="{% block promotion_active %}{% endblock %}"><a href="{{path('acseine_campaign_promotion')}}" >PROMOTION</a></li>
+                {#<li><a href="{{path('acseine_campaign_counseling')}}">SKIN COUNSELING</a></li>#}
+                <li><a href="{{path('acseine_campaign_blog')}}">BLOG</a></li>
+                <li><a href="#shoplist" class="link-click">SHOP LIST</a></li>
+                <li class="social">
+                    <a href="https://www.facebook.com/acseine.th/" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-facebook.png')}}" alt="facebook" /></a>
+                    <a href="https://www.instagram.com/acseine.th/" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-instagram.png')}}" alt="instagram" /></a>
+                    <a href="https://line.me/R/ti/p/%40nei8508o" target="_blank"><img src="{{asset('/acseine_campaign/images/icon-line.png')}}" alt="line" /></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

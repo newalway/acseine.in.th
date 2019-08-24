@@ -1,0 +1,76 @@
+<!--Form Column-->
+<form id="first_delivery_form" ng-submit="submitCreateFirstDeliveryAddressForm({{first_delivery_form.countryCode.vars.choices[1].value}})">
+    {{form_widget(first_delivery_form._token)}}
+    <div class="default-form billing-info-form">
+        <div class="clearfix">
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.personal.fname{% endtrans %} <span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.first_name, {'id' : 'fd_first_name', 'attr':{'ng-model':'frm_first_delivery.first_name'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.first_name" ng-bind="frm_first_delivery_error.first_name"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.personal.lname{% endtrans %} <span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.last_name, {'id' : 'fd_last_name', 'attr':{'ng-model':'frm_first_delivery.last_name'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.last_name" ng-bind="frm_first_delivery_error.last_name"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.personal.company_name{% endtrans %} </div>
+                {{form_widget(first_delivery_form.company_name, {'id' : 'fd_company_name', 'attr':{'ng-model':'frm_first_delivery.company_name'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.company_name" ng-bind="frm_first_delivery_error.company_name"></div>
+            </div>
+            <div class="form-group col-md-8 col-sm-12 col-xs-12">
+                <div class="field-label">{% trans %}member.address{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.address, {'id' : 'fd_address', 'attr':{'ng-model':'frm_first_delivery.address'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.address" ng-bind="frm_first_delivery_error.address"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.district{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.district, {'id' : 'fd_district', 'attr':{'ng-model':'frm_first_delivery.district', 'autocomplete':'off'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.district" ng-bind="frm_first_delivery_error.district"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.amphure{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.amphure, {'id' : 'fd_amphure', 'attr':{'ng-model':'frm_first_delivery.amphure', 'autocomplete':'off'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.amphure" ng-bind="frm_first_delivery_error.amphure"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.province{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.province, {'id' : 'fd_province', 'attr':{'ng-model':'frm_first_delivery.province', 'autocomplete':'off'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.province" ng-bind="frm_first_delivery_error.province"></div>
+            </div>
+
+            <div class="hidden form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.country{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.countryCode, {'id' : 'fd_countryCode', 'attr':{'ng-model':'frm_first_delivery.countryCode','class':'form-control'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.countryCode" ng-bind="frm_first_delivery_error.countryCode"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.postcode{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.postcode, {'id' : 'fd_postcode', 'attr':{'ng-model':'frm_first_delivery.postcode', 'autocomplete':'off'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.postcode" ng-bind="frm_first_delivery_error.postcode"></div>
+            </div>
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.personal.phone{% endtrans %}<span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.phone, {'id' : 'fd_phone', 'attr':{'ng-model':'frm_first_delivery.phone'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.phone" ng-bind="frm_first_delivery_error.phone"></div>
+            </div>
+
+            <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label"><small>{% trans %}member.taxpayerid{% endtrans %}</small></div>
+                {{form_widget(first_delivery_form.taxpayer_id, {'id' : 'fd_taxpayer_id', 'attr':{'ng-model':'frm_first_delivery.taxpayer_id'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.taxpayer_id" ng-bind="frm_first_delivery_error.taxpayer_id"></div>
+            </div>
+
+            <div class="form-group col-md-4 col-sm-12 col-xs-12 text-right">
+                <div class="field-label">&nbsp;</div>
+                <button type="button" ng-click="submitCreateFirstDeliveryAddressForm({{first_delivery_form.countryCode.vars.choices[1].value}})" class="thm-btn thm-blue-bg">{% trans %}member.button.save{% endtrans %}</button>
+            </div>
+
+            {# <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                <div class="field-label">{% trans %}member.address.title{% endtrans %} <span class="red-text"> *</span></div>
+                {{form_widget(first_delivery_form.title, {'id' : 'title', 'attr':{'ng-model':'frm_first_delivery.title'}})}}
+                <div class="red-text" ng-show="frm_first_delivery_error.title" ng-bind="frm_first_delivery_error.title"></div>
+            </div> #}
+        </div>
+    </div>
+</form>

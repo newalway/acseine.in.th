@@ -1,0 +1,124 @@
+
+<!--Form Column-->
+<div class="">
+    <!--Totals Table-->
+    {#
+    <ul class="totals-table">
+        <li class="clearfix">
+            <span class="col col-title">Cart Subtotal</span>
+            <span class="col">฿{{'{{arr_cart_data.summary.sub_total| currency:"":2}}'}}</span>
+        </li>
+
+      {% if discount_setting_status %}
+            <li class="clearfix" ng-if="!arr_cart_data.summary.discount_code">
+                <span class="col" style="width: 100%;">
+                    <div class="clearfix" ng-cloak>
+                        <form method="post" enctype="multipart/form-data">
+                            {{form_widget(coupon_form._token)}}
+                            <div class="input-group">
+                              <input type="text" ng-model="frm_discount.code" name="code" class="form-control"placeholder="Enter Coupon Code">
+                              <span class="input-group-btn">
+                              <button ng-click="applyDiscountCode()" type="button" class="btn btn-marathon">Apply</button>
+                              </span>
+                            </div>
+
+                            <div ng-hide="arr_result_discount.status">
+                                <div class="err-message">{{'{{arr_result_discount.error_message}}'}}</div>
+                            </div>
+                        </form>
+                    </div>
+                </span>
+            </li>
+            <li ng-if="arr_cart_data.summary.discount_code" class="clearfix">
+                <span class="col col-title">
+                    Coupon "{{'{{arr_cart_data.summary.discount_code}}'}}"
+                    <a href="javascript:void(0)" ng-click="removeDiscountCode()">Remove</a>
+                </span>
+                <span class="col">- ฿{{'{{arr_cart_data.summary.discount_amount| currency:"":2}}'}}</span>
+            </li>
+        {% endif %}
+
+        <li class="clearfix">
+            <span class="col col-title">Shipping and Handling</span>
+            <span class="col" ng-show="arr_cart_data.summary.shipping_cost>0">฿{{'{{arr_cart_data.summary.shipping_cost| currency:"":2}}'}}</span>
+            <span class="col" ng-show="arr_cart_data.summary.shipping_cost<=0">Free Shipping</span>
+        </li>
+        <li class="clearfix">
+            <span class="col col-title">Order Total</span>
+            <span class="col">฿{{'{{arr_cart_data.summary.total| currency:"":2}}'}}</span>
+        </li>
+    </ul> #}
+
+    <div class="totals panel panel-default panel-body">
+      <div class="totals-item">
+        <label>{% trans %}cart.subtotal{% endtrans %}</label>
+        <div class="totals-value" id="cart-subtotal"><span>฿{{'{{arr_cart_data.summary.sub_total| currency:"":2}}'}}</span></div>
+      </div>
+       {% if discount_setting_status %}
+      <div class="" ng-if="!arr_cart_data.summary.discount_code">
+        <label>
+            <span>
+                <form method="post" enctype="multipart/form-data">
+                    {{form_widget(coupon_form._token)}}
+                    <div class="input-group">
+                      <input type="text" ng-model="frm_discount.code" name="code" class="form-control"placeholder="Enter Coupon Code">
+                      <span class="input-group-btn">
+                      <button ng-click="applyDiscountCode()" type="button" class="btn btn-marathon">Apply</button>
+                      </span>
+                    </div>
+
+                    <div ng-hide="arr_result_discount.status">
+                        <div class="err-message">{{'{{arr_result_discount.error_message}}'}}</div>
+                    </div>
+                </form>
+            </span>
+        </label>
+      </div>
+      <div class="totals-item" ng-if="arr_cart_data.summary.discount_code">
+        <label><span>Coupon "{{'{{arr_cart_data.summary.discount_code}}'}}" <a href="javascript:void(0)" ng-click="removeDiscountCode()">Remove</a></span></label>
+        <div class="totals-value" id="cart-discount"><span>- ฿{{'{{arr_cart_data.summary.discount_amount| currency:"":2}}'}}</span></div>
+      </div>
+      {% endif %}
+
+      <div class="totals-item">
+        <label>
+            {% trans %}cart.shipping_free{% endtrans %}
+            {% if page_data and page_data.getContent %}
+                <div style="font-weight: normal;">
+                    <small>{{page_data.getContent|raw}}</small>
+                </div>
+            {% endif %}
+        </label>
+        <div class="totals-value" id="cart-shipping">
+          <span  ng-show="arr_cart_data.summary.shipping_cost>0">฿{{'{{arr_cart_data.summary.shipping_cost| currency:"":2}}'}}</span>
+          <span  ng-show="arr_cart_data.summary.shipping_cost<=0">{% trans %}cart.free{% endtrans %}</span>
+        </div>
+      </div>
+      <div class="totals-item totals-item-total">
+        <label>{% trans %}cart.grand_total{% endtrans %}</label>
+        <div class="totals-value" id="cart-total"><span>฿{{'{{arr_cart_data.summary.total| currency:"":2}}'}}</span></div>
+      </div>
+      <div class="totals-item totals-item-total">
+        <label>{% trans %}order.delivered.on{% endtrans %}</label>
+        <div class="totals-value" id="cart-total">
+            <span>
+                {% if delivery_date %}
+                    {{ delivery_date|date("d") }} {{ delivery_date|date("F")|trans }} {{ delivery_date|date("Y") }}
+                {% endif %}
+            </span>
+        </div>
+      </div>
+    </div>
+
+
+</div>
+<script type="text/javascript">
+    /*
+    $('#rbank-payment').on('click', function(){
+        $(this).parent().find('a').trigger('click')
+    });
+    $('#rcredit-payment').on('click', function(){
+        $(this).parent().find('a').trigger('click')
+    });
+    */
+</script>

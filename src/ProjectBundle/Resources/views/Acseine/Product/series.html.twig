@@ -1,0 +1,96 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% if series.getMetaTitle %}{{series.getMetaTitle}}{% else %}{{series.getTitle}} {{series.getSubtitle}}{% endif %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% if series.getMetaDescription %}{{series.getMetaDescription}}{% else %}{{series.getTitle}}{{series.getSubtitle}}{% endif %}{% endblock %}
+{% block html_keywords %}{% if series.getMetaKeywords %}{{series.getMetaKeywords}}{% else %}{{series.getTitle}}{{series.getSubtitle}}, {% trans %}acseine.product.series.html_keywords{% endtrans %}{% endif %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('product')}}">{% trans %}acseine.breadcrumb.product{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{{series.getTitle}}<span class="tit_pl20">{{series.getSubtitle}}</span>
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{{series.getTitle}}<span class="tit_pl20">{{series.getSubtitle}}</span></h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="product-series" class="product-series">
+	<!-- /title_table -->
+	<div class="main-content container">
+
+		<div class="content">
+			<h3 class="fz18 mb20">{{series.getShortDesc|raw}}</h3>
+			{{series.getDescription|raw}}
+			{% if products|length %}
+				<div class="block-product">
+					<h2>{{series.getTitle}}  Product lineup</h2>
+					<div class="col-md-12"><p>&nbsp;</p></div>
+					{% for rs in products %}
+						{% set product = rs[0] %}
+						{% set data_price = getPriceData(rs) %}
+						<div class = "col-xs-6 col-sm-3 col-md-3 mt20">
+							<a href="{{path('product_detail', {'id':product.id, 'slug':product.getTitle|slug })}}">
+								<div class = "text-center">
+									{% if product.image %}
+										<img class="product-img" src="{{asset(product.image) | imagine_filter('img_150x150')}}" alt="{{product.getTitle}}">
+									{% endif %}
+									{% if (data_price.compare_at_price > data_price.price) %}
+										<div class="bubble">
+											<div class="inside">
+												<div class="inside-text">-{{ rs|getPercentProductDiscount }}%</div>
+											</div>
+										</div><!-- end bubble -->
+									{% endif %}
+								</div>
+								<div class="caption text-center">
+									<h3>{{product.getTitle|nl2br}}</h3>
+									<p>
+										<b>฿{{ data_price.price|round(2,'ceil')|number_format(2, '.', ',') }}</b>
+										{% if (data_price.compare_at_price and data_price.compare_at_price > data_price.price) %}
+											<del class="before-rate">
+												฿{{ data_price.compare_at_price|round(2,'ceil')|number_format(2, '.', ',') }}
+											</del>
+										{% endif %}
+									</p>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+
+			{#<div class="block-counseling-shop">
+				 <ul>
+					<li><a href="{{path('in_shop_counseling')}}"><img src="{{asset('acseine/original/common/images/img02_pc.jpg')}}" alt=""></a></li>
+					<li><a href="{{path('shop')}}"><img src="{{asset('acseine/original/common/images/img03_pc.jpg')}}" alt=""></a></li>
+				</ul>
+			</div>#}
+		</div>
+		<div class="col-xs-12 col-sm-12 col-md-12 block-series-top pull-right">
+			<div class="btn panel panel-default">
+				<a href="{{path('product')}}">To the product series top</a>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block javascripts_body %}
+{{ parent() }}
+{% endblock %}

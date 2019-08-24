@@ -1,0 +1,105 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.sitemap.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.sitemap.title{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.sitemap.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.menu.sitemap{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.sitemap.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- /title_table -->
+<section  id="sitemap" class="sitemap">
+<div class="main-content container">
+	<div class="sitemap">
+		<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.home{% endtrans %}</h3>
+		<div class="listItems sitemap_list">
+			<div class="sitemap_items">
+				<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.about{% endtrans %}</h3>
+				<ul>
+					<li><a href="{{path('history')}}">ACSEINE's history</a></li>
+				</ul>
+			</div>
+			<div class="sitemap_items">
+				<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.product{% endtrans %}</h3>
+				<ul>
+					{% if product_categories|length %}
+						{% for product_category in product_categories %}
+							{% for series in product_category.series %}
+								<li>
+									<a href="{{path('product_series', {'id':series.id, 'slug':series.translate('en').title|slug })}}">
+										{{series.getTitle|nl2br}}
+									</a>
+								</li>
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<!-- /sitemap_list -->
+		<div class="listItems sitemap_list">
+			<div class="sitemap_items">
+				<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.counseling{% endtrans %}</h3>
+				<ul>
+					<li><a href="{{path('in_shop_counseling')}}">In-shop counseling</a></li>
+					<li><a href="{{path('shop')}}">List of ACSEINE shops in department stores</a></li>
+				</ul>
+			</div>
+			<div class="sitemap_items">
+				<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.skin_problem{% endtrans %}s</h3>
+				<ul>
+					<li><a href="{{path('skin_allergy')}}">{% trans %}acseine.sitemap.titlemenu.allergies{% endtrans %}</a></li>
+					<li><a href="{{path('skin_atopic_dermatitis')}}">{% trans %}acseine.sitemap.titlemenu.atopic_dermatitis{% endtrans %}</a></li>
+					<li><a href="{{path('adult_acne')}}">{% trans %}acseine.sitemap.titlemenu.adult_acne{% endtrans %}</a></li>
+					<li><a href="{{path('uv_rays_and_dryness')}}">{% trans %}acseine.sitemap.titlemenu.uv_rays_and_dryness{% endtrans %}</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /sitemap_list -->
+		<div class="listItems sitemap_list">
+			<div class="sitemap_items">
+				<h3 class="title_category_site"><i class="icon-thin center-btn-history right"></i> &nbsp;{% trans %}acseine.sitemap.titlemenu.shop{% endtrans %}</h3>
+				<ul>
+					{% if locations|length %}
+						{% for location in locations %}
+							{% for shop in location.showrooms %}
+								<li><a href="{{path('shop')}}">{{shop.getTitle|nl2br}}</a></li>
+							{% endfor %}
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+		<!-- /sitemap_list -->
+		<div class="sitemap_nav">
+			<ul class="listItems">
+				<li><a href="{{path('company_profile')}}">{% trans %}acseine.sitemap.titlemenu.company_profile{% endtrans %}</a></li>
+				<li><a href="{{path('terms_of_use')}}">{% trans %}acseine.sitemap.titlemenu.terms_of_use{% endtrans %}</a></li>
+				<li><a href="{{path('privacy_policy')}}">{% trans %}acseine.sitemap.titlemenu.privacy{% endtrans %}</a></li>
+				{#<li><a href="http://www.acseine.co.jp/shop/pages/privacy.aspx">{% trans %}acseine.sitemap.titlemenu.privacy{% endtrans %}</a></li>#}
+			</ul>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

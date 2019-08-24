@@ -1,0 +1,71 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_member.html.twig" %}
+
+{% block title %}{% trans %}member.address.book{% endtrans %} | {{ parent() }}{% endblock %}
+{% block member_home_active %}active{% endblock %}
+{% block member_header %}{% trans %}member.address.book{% endtrans %}{% endblock %}
+
+{% block member_address_active %}active{% endblock %}
+
+{% block breadcrumb %}
+  {{ parent() }}
+  <div class="breadcrumb">
+      <div class="container breadcrumb_in">
+          <div class="breadcrumb_items">
+              <a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+          </div>
+          <div class="breadcrumb_items">
+              {% trans %}member.address.book{% endtrans %}
+          </div>
+      </div>
+  </div><!-- /breadcrumb -->
+{% endblock %}
+
+
+
+{% block content_member %}
+<div class="member-box panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">{% trans %}member.address.book{% endtrans %}
+  <a href="{{path('address_create')}}" class="btn btn-xs btn-default pull-right address-create"><span><i class="fa fa-plus"></i> {% trans %}member.new.address{% endtrans %}</span></a>
+</h4>
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+    <table class="table table-striped table-bordered">
+        <th><b>#</b></th>
+        <th width="25%"><b>{% trans %}member.personal.fullname{% endtrans %}</b></th>
+        <th><b>{% trans %}member.address{% endtrans %}</b></th>
+        <th><b>{% trans %}member.personal.phone{% endtrans %}</b></th>
+        <th>&nbsp;</th>
+
+    {% for user_data in delivery_address %}
+      <tr>
+        <td>{{loop.index}}</td>
+        <td>{{user_data.firstName}}  {{user_data.lastName}}</td>
+        <td>
+            <div>
+                {{user_data.address}}, {{user_data.district}}, {{user_data.amphure}},
+                {{user_data.province}}
+                {#, {% if user_data.countryCode %}{{user_data.countryCode.country}}{% endif %}#}
+                {{user_data.postCode}}
+            </div>
+            {% if user_data.defaultShipping == 1 %}
+            <div class="label label-default">{% trans %}member.default.shipping.address{% endtrans %}</div>
+            {% endif %}
+            {% if user_data.defaultTax == 1 %}
+            <div class="label label-default">{% trans %}member.default.billing.address{% endtrans %}</div>
+            {% endif %}
+        </td>
+        <td>{{user_data.phone}}</td>
+        <td class="col-sm-2 link-ed">
+            <a href="{{path('address_edit',{'id':user_data.id})}}" class="btn btn-xs btn-warning">{% trans %}edit{% endtrans %}</a>
+            <a href="{{path('address_delete',{'id':user_data.id})}}" class="btn btn-xs btn-danger" onclick="return confirm('{% trans %}confirm.delete{% endtrans %}');">{% trans %}remove{% endtrans %}</a>
+        </td>
+    </tr>
+    {% else %}
+     <tr><td colspan="3" class="text-center">{% trans %}data.nodata{% endtrans %}</td></tr>
+    {% endfor %}
+  </table>
+</div>
+
+{% endblock %}

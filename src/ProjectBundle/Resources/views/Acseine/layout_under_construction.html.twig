@@ -1,0 +1,50 @@
+{% extends 'ProjectBundle::base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block html_description %}{% endblock %}
+{% block html_keywords %}{% endblock %}
+
+{% block html_meta %}
+
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+<link rel="stylesheet" href="{{asset('acseine/bootstrap-3.3.7-dist/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/OwlCarousel2/assets/owl.carousel.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/OwlCarousel2/assets/owl.theme.default.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/themify-icons/themify-icons.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/themify-icons/themify-icons.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/stylesheets/style.min.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Roboto:300,400,500,700,900|Playfair+Display|Prompt:300,400,500,700,900" rel="stylesheet">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('acseine/images/favicon.ico')}}" />
+{% endblock %}
+
+{% block javascripts %}
+<link rel="text/javascript" href="{{asset('acseine/javascripts/jquery-1.12.4.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/bootstrap-3.3.7-dist/js/bootstrap.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/OwlCarousel2/owl.carousel.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/javascripts/angular/angular.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/javascripts/angular/angular-route.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/javascripts/angular/angular-translate.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/javascripts/angular/angular-ui-router.min.js')}}">
+<link rel="text/javascript" href="{{asset('acseine/javascripts/base.js')}}">
+
+{% endblock %}
+
+{% block body %}
+
+	{% block breadcrumb %}
+	{% endblock %}
+
+	{% block content %}{% endblock %}
+
+
+
+{% endblock %}
+
+{% block javascripts_body %}
+	{{ parent() }}
+
+{% endblock %}

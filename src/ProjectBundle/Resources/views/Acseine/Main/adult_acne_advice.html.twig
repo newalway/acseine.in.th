@@ -1,0 +1,97 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.breadcrumb.adult_acne_advice{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.adult_acne_advice.title{% endtrans %} {% trans %}acseine.adult_acne_advice.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.adult_acne_advice.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active"> {% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('adult_acne')}}"  class="active">{% trans %}acseine.breadcrumb.adult_acne{% endtrans %} </a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.adult_acne_advice{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.adult_acne_advice.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="adult-acne-advice" class="adult-acne-advice">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.adult_acne_advice.head{% endtrans %}</h3>
+			<h4 class="title_h4">{% trans %}acseine.adult_acne_advice.head2{% endtrans %}</h4>
+			<div class="description">
+				<h5>{% trans %}acseine.adult_acne_advice.head_paragraph1{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.adult_acne_advice.paragraph1{% endtrans %}</p>
+				<h5>{% trans %}acseine.adult_acne_advice.head_paragraph2{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.adult_acne_advice.paragraph2{% endtrans %}</p>
+				<h5>{% trans %}acseine.adult_acne_advice.head_paragraph3{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.adult_acne_advice.paragraph6{% endtrans %}</p>
+				<h5>{% trans %}acseine.adult_acne_advice.head_paragraph4{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.adult_acne_advice.paragraph4{% endtrans %}</p>
+			</div>
+			<div class="listItems skin_pimple_highlight">
+				<div class="avatar"><img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/ico_point.png')}}" alt="Point"></div>
+				<div class="description">
+					<h5>{% trans %}acseine.adult_acne_advice.head_paragraph5{% endtrans %}</h5>
+					<p class="text">{% trans %}acseine.adult_acne_advice.paragraph5{% endtrans %}</p>
+				</div>
+			</div>
+			<div class="listItems skin_pimple_step">
+				<div class="items">
+					<div class="avatar">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_01.png')}}" alt="Before makeup You want to conceal the acne's rednes">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_01_th.png')}}" alt="ก่อนแต่งหน้า คุณต้องปกปิดสิวและริ้วรอยต่างๆ">
+						{% endif %}
+					</div>
+				</div>
+				<div class="items">
+					<div class="avatar">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_02.png')}}" alt="First, use makeup to correct the skin tone and reduce the visibility of acne redness">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_02_th.png')}}" alt="ใช้เครื่องสำอางที่เหมาะกับผิวและลดการเกิดสิว">
+						{% endif %}
+					</div>
+					<p class="skin_pimple_step_text">{% trans %}acseine.adult_acne_advice.paragraph6{% endtrans %}</p>
+				</div>
+				<div class="items">
+					<div class="avatar">
+						{%  if (app.request.getLocale()) == 'en' %}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_03.png')}}" alt="Beauty boots Makeup that draws attention away from acne">
+						{% elseif (app.request.getLocale()) == 'th'%}
+							<img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/step_03_th.png')}}" alt="เครื่องสำอางที่ทำให้ไม่เกิดสิว">
+						{% endif %}
+					</div>
+					<p class="skin_pimple_step_text">{% trans %}acseine.adult_acne_advice.paragraph7{% endtrans %}</p>
+				</div>
+			</div>
+			<div class="listItems btn_back">
+				<a href="{{path('adult_acne')}}"><img src="{{asset('acseine/original/images/skin_problems/adult_acne/advice/btn_back.png')}}" alt="back"></a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

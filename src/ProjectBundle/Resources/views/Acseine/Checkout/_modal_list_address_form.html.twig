@@ -1,0 +1,107 @@
+<div  class="modal fade" id="deliveryAddressModal"  tabindex="-1" role="dialog" aria-labelledby="deliveryAddressModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="deliveryAddressModalLabel">{% trans %}member.address.book.new{% endtrans %}</h4>
+            </div>
+            <div class="modal-body">
+                <form id="modal_delivery_form" ng-submit="submitDeliveryAddressForm({{delivery_form.countryCode.vars.choices[1].value}})">
+                    {{form_widget(delivery_form._token, {'id':'modal_delivery_address__token'})}}
+                    <div class="row">
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.personal.fname{% endtrans %} <span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.first_name, {'id' : 'modal_first_name', 'attr':{'ng-model':'frm_delivery.first_name'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.first_name" ng-bind="frm_delivery_error.first_name"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.personal.lname{% endtrans %} <span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.last_name, {'id' : 'modal_last_name', 'attr':{'ng-model':'frm_delivery.last_name'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.last_name" ng-bind="frm_delivery_error.last_name"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.personal.company_name{% endtrans %}</div>
+                            {{form_widget(delivery_form.company_name, {'id' : 'modal_company_name', 'attr':{'ng-model':'frm_delivery.company_name'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.company_name" ng-bind="frm_delivery_error.company_name"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.address{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.address, {'id' : 'modal_address', 'attr':{'ng-model':'frm_delivery.address'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.address" ng-bind="frm_delivery_error.address"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.district{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.district, {'id' : 'modal_district', 'attr':{'ng-model':'frm_delivery.district', 'autocomplete':'off'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.district" ng-bind="frm_delivery_error.district"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.amphure{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.amphure, {'id' : 'modal_amphure', 'attr':{'ng-model':'frm_delivery.amphure', 'autocomplete':'off'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.amphure" ng-bind="frm_delivery_error.amphure"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.province{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.province, {'id' : 'modal_province', 'attr':{'ng-model':'frm_delivery.province', 'autocomplete':'off'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.province" ng-bind="frm_delivery_error.province"></div>
+                        </div>
+
+                        <div class="hidden form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.country{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.countryCode, {'id' : 'modal_countryCode', 'attr':{'ng-model':'frm_delivery.countryCode','class':'form-control'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.countryCode" ng-bind="frm_delivery_error.countryCode"></div>
+                        </div>
+
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.postcode{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.postcode, {'id' : 'modal_postcode', 'attr':{'ng-model':'frm_delivery.postcode', 'autocomplete':'off'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.postcode" ng-bind="frm_delivery_error.postcode"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.personal.phone{% endtrans %}<span class="red-text"> *</span></div>
+                            {{form_widget(delivery_form.phone, {'id' : 'modal_phone', 'attr':{'ng-model':'frm_delivery.phone'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.phone" ng-bind="frm_delivery_error.phone"></div>
+                        </div>
+                        <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                            <div class="field-label">{% trans %}member.taxpayerid{% endtrans %}<span class="red-text"></span></div>
+                            {{form_widget(delivery_form.taxpayer_id, {'id' : 'modal_taxpayer_id', 'attr':{'ng-model':'frm_delivery.taxpayer_id'}})}}
+                            <div class="red-text" ng-show="frm_delivery_error.taxpayer_id" ng-bind="frm_delivery_error.taxpayer_id"></div>
+                        </div>
+                    </div>
+                    {#
+                    <div class="form-group col-md-4 col-sm-6 col-xs-12">
+                        <div class="field-label">{% trans %}member.address.title{% endtrans %} <span class="red-text"> *</span></div>
+                        {{form_widget(delivery_form.title, {'id' : 'title', 'attr':{'ng-model':'frm_delivery.title'}})}}
+                        <div class="red-text" ng-show="frm_delivery_error.title" ng-bind="frm_delivery_error.title"></div>
+                    </div>
+                    #}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">{% trans %}member.button.close{% endtrans %}</button>
+                <button type="button" ng-click="submitDeliveryAddressForm({{delivery_form.countryCode.vars.choices[1].value}})" class="btn btn-primary">{% trans %}member.button.save{% endtrans %}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+/*
+$('#addDataAddress').on('click', function (event) {
+    $('#deliveryAddressModal').modal({
+      show: true,
+      backdrop: 'static',
+      keyboard: false,
+    });
+   $('#list-address-billing').modal('toggle');
+});
+*/
+
+// $('#addDataAddress').click(function () {
+//     $('#deliveryAddressModal').modal({
+//       show: true,
+//       backdrop: 'static',
+//       keyboard: false,
+//     });
+//    $('#list-address-billing').modal('toggle');
+// });
+</script>

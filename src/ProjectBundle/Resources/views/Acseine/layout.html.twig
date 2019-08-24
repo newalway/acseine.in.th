@@ -1,0 +1,426 @@
+{% extends 'ProjectBundle::base.html.twig' %}
+
+{% block title %}{% endblock %}
+{% block html_description %}{% endblock %}
+{% block html_keywords %}{% endblock %}
+
+{% block html_meta %}
+{{ parent() }}
+<meta name="google-site-verification" content="dTaBbXEd37sl5-uInHjHF2DfooP6SnQUqrUHd__d6oI">
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+{############################# original #############################################}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">
+<link rel="stylesheet" href="{{asset('acseine/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/reset.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/global.css')}}">
+<link rel="stylesheet" href="{{asset('acseine/original/common/css/module.css')}}">
+
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/original/css/slick.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/original/css/styles.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/stylesheets/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('acseine/stylesheets/style-web.min.css')}}">
+{##########################################################################}
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('acseine/images/favicon.ico')}}" />
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div id="wrapper" class="wrap">
+	<header class="header">
+		<div class="container">
+			<div class="header-top">
+				<a href="{{path('homepage')}}"><img class="img-logo" src="{{asset('acseine/original/common/images/logo.png')}}" alt="logo" /></a>
+				<div class="header-right no-sp">
+
+					<div class="header-basket">
+						{{ render(controller('ProjectBundle:Cart:blog_cart' )) }}
+					</div>
+
+					<div class="header-language">
+						<div class="dropdown">
+							{% if app.request.getLocale() == 'en' %}
+								<button class="header-lang btn-flag btn-flag-color dropdown-toggle pull-right" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</span>
+								</button>
+							{% elseif app.request.getLocale() == 'th' %}
+								<button class="header-lang btn-flag btn-flag-color dropdown-toggle pull-right" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</span>
+								</button>
+							{% else %}
+								<span>Language</span>
+							{% endif %}
+							<ul class="ul-lang dropdown-menu pull-right" aria-labelledby="about-us">
+								{#<li><a href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>#}
+								<li>
+									<a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English">
+										<img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English
+									</a>
+								</li>
+								<li>
+									<a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย">
+										<img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="header-user">
+						<a href="{{path('fos_user_registration_register')}}">{% trans %}menu.register{% endtrans %}</a>
+						<a href="{{path('fos_user_security_login')}}">{% trans %}menu.login{% endtrans %}</a>
+					</div>
+
+
+					{#<div class="header-user">
+						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							{% if is_granted('ROLE_EDITOR') %}
+								<a href="{{path('admin')}}"><i class="glyphicon glyphicon-user"></i> {% trans %}member.hello{% endtrans %} Admin</a>
+								<a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a>
+							{% elseif is_granted('ROLE_CUSTOMER') or is_granted('ROLE_CLIENT') %}
+								<a href="{{path('fos_user_profile_show')}}" class="user-show"><i class="glyphicon glyphicon-user"></i> {% trans %}member.hello{% endtrans %}, {{ app.user.firstName }} {{ app.user.lastName }}</a>
+								<a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a>
+							{% endif %}
+						{% else %}
+							<a href="{{path('fos_user_registration_register')}}">{% trans %}menu.register{% endtrans %}</a>
+							<a href="{{path('fos_user_security_login')}}">{% trans %}menu.login{% endtrans %}</a>
+						{% endif %}
+					</div>#}
+
+
+					{#<div class="header-lang">
+						{% if app.request.getLocale() == 'en' %}
+							<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></span>
+						{% elseif app.request.getLocale() == 'th' %}
+							<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></span>
+						{% else %}
+							<span>Language</span>
+						{% endif %}
+						<ul class="ul-lang">
+							<li><a href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>
+							<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+							<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>
+						</ul>
+					</div>#}
+
+				</div>
+				<div class="header-btn-nav is-sp">
+					<div class="btn-icon">
+					  <span></span>
+					  <span></span>
+					  <span></span>
+					</div>
+				</div>
+			</div>
+
+			<div class="header-nav">
+			  	<div class="header-nav-content">
+					<div class="header-nav-top">
+						<ul>
+							<li>
+								<a href="{{path('homepage')}}">{% trans %}acseine.menu.top{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{path('product')}}">{% trans %}acseine.menu.product{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{path('about')}}">{% trans %}acseine.menu.about{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{path('counseling')}}">{% trans %}acseine.menu.counseling{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{path('skin_problems_and_cosmetics')}}">{% trans %}acseine.menu.skincosmetics{% endtrans %}</a>
+							</li>
+							<li>
+								<a href="{{path('shop')}}">{% trans %}acseine.menu.shoplist{% endtrans %}</a>
+							</li>
+						</ul>
+						<ul class="is-sp">
+							{{ render(controller('ProjectBundle:Cart:blog_cart' )) }}
+							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+								{% if is_granted('ROLE_EDITOR') %}
+									<li><a href="{{path('admin')}}" class="user-show"> {% trans %}member.hello{% endtrans %} Admin</a></li>
+									<li><a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a></li>
+								{% elseif is_granted('ROLE_CUSTOMER') or is_granted('ROLE_CLIENT') %}
+									<li><a href="{{path('fos_user_profile_show')}}">{% trans %}member.personal.profile{% endtrans %}</a></li>
+									<li><a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a></li>
+								{% endif %}
+							{% else %}
+								<li>
+									<a href="{{path('fos_user_registration_register')}}" >{% trans %}menu.register{% endtrans %}</a>
+								</li>
+								<li>
+									<a href="{{path('fos_user_security_login')}}" >{% trans %}menu.login{% endtrans %}</a>
+								</li>
+							{% endif %}
+						</ul>
+					</div>
+					<div class="header-nav-bottom is-sp">
+						<div class="dropdown">
+							{% if app.request.getLocale() == 'en' %}
+								<button class="header-lang btn-flag btn-flag-color dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="position-text-flag-mobile"><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</span>
+								</button>
+							{% elseif app.request.getLocale() == 'th' %}
+								<button class="header-lang btn-flag btn-flag-color dropdown-toggle" type="button" id="about-us" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									<span class="position-text-flag-mobile"><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</span>
+								</button>
+							{% else %}
+								<span>Language</span>
+							{% endif %}
+							<ul class="ul-lang dropdown-menu" aria-labelledby="about-us">
+								{#<li><a class="text-flag" href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>#}
+								<li><a class="text-flag" href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+								<li><a class="text-flag" href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>
+							</ul>
+						</div>
+						{#<div class="header-lang">
+							{% if app.request.getLocale() == 'en' %}
+								<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></span>
+							{% elseif app.request.getLocale() == 'th' %}
+								<span><img class="flag-lang2" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></span>
+							{% else %}
+								<span>Language</span>
+							{% endif %}
+							<ul class="ul-lang">
+								<li><a href="http://www.acseine.co.jp/" target="_blank"><img src="{{asset('acseine/original/common/images/japan.jpg')}}" alt="japan"> Japan</a></li>
+								<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'en'}))|merge(app.request.query.all))}}" title="English"><img class="flag-lang" src="{{ asset('images/marathon/flat-united-states-of-america.png')}}" alt="English" />English</a></li>
+								<li><a href="{{path(app.request.attributes.get('_route'), (app.request.attributes.get('_route_params')|merge({'_locale': 'th'}))|merge(app.request.query.all))}}" title="ภาษาไทย"><img class="flag-lang" src="{{ asset('images/marathon/flat-thailand.png')}}" alt="ภาษาไทย" />ภาษาไทย</a></li>
+							</ul>
+						</div>#}
+						{#<div class="header-social">
+							<a href="{{path('privacy_policy')}}"><img src="{{asset('acseine/original/common/images/facebook_icon.png')}}" alt=""></a>
+						</div> #}
+					</div>
+			  	</div>
+			</div>
+		</div>
+	</header>
+
+
+<div class="main">
+	{% block breadcrumb %}{% endblock %}
+	{% block content %}{% endblock %}
+</div>{#end main#}
+
+
+	<footer class="footer">
+	  <div class="footer-nav-sp is-sp">
+		<ul class="nav01">
+			<li><a href="{{path('product')}}">{% trans %}acseine.menu.product{% endtrans %}</a></li>
+			<li><a href="{{path('about')}}">{% trans %}acseine.menu.about{% endtrans %}</a></li>
+			<li><a href="{{path('counseling')}}">{% trans %}acseine.menu.counseling{% endtrans %}</a></li>
+			<li><a href="{{path('skin_problems_and_cosmetics')}}">{% trans %}acseine.menu.skincosmetics{% endtrans %}</a></li>
+		</ul>
+		<ul class=" nav02">
+			<li><a href="{{path('company_profile')}}">{% trans %}acseine.menu.company_profile{% endtrans %}</a></li>
+			<li><a href="{{path('how_to_buy')}}">{% trans %}menu.how.to.buy{% endtrans %}</a></li>
+			<li style="clear: both;"><a href="{{path('shipping_delivery')}}">{% trans %}menu.shipping.delivery{% endtrans %}</a></li>
+			<li><a href="{{path('confirm_payment')}}">{% trans %}menu.confirm.payment{% endtrans %}</a></li>
+			<li style="clear: both;"><a href="{{path('terms_of_use')}}">{% trans %}acseine.menu.web_terms_of_use{% endtrans %}</a></li>
+			<li><a href="{{path('privacy_policy')}}">{% trans %}acseine.menu.privacy_policy{% endtrans %}</a></li>
+			<li style="clear: both;"><a href="{{path('homepage')}}">{% trans %}acseine.menu.top{% endtrans %}</a></li>
+			<li><a href="{{path('sitemap')}}">{% trans %}acseine.menu.sitemap{% endtrans %}</a></li>
+		</ul>
+	  </div>
+		<div class="container">
+
+
+			<div class="ft-box">
+				<div class="row">
+					<div class="col-xs-12 col-md-2 col-lg-3">
+						<img src="{{asset('acseine/original/common/images/footer_logo.png')}}" alt="footer logo" class="ft-logo">
+					</div>
+
+					<div class="col-xs-7 col-sm-7 col-md-6 col-lg-5">
+						<div class="row">
+							<div class="col-xs-6">
+								<ul>
+									<li>
+										<a href="{{path('how_to_buy')}}">{% trans %}menu.how.to.buy{% endtrans %}</a>
+									</li>
+									<li>
+										<a href="{{path('shipping_delivery')}}">{% trans %}menu.shipping.delivery{% endtrans %}</a>
+									</li>
+									<li>
+										<a href="{{path('confirm_payment')}}">{% trans %}menu.confirm.payment{% endtrans %}</a>
+									</li>
+								</ul>
+							</div>
+
+							<div class="col-xs-6">
+								<ul>
+									<li>
+										<a href="{{path('company_profile')}}">{% trans %}acseine.menu.company_profile{% endtrans %}</a>
+									</li>
+									<li>
+										<a href="{{path('terms_of_use')}}">{% trans %}acseine.menu.web_terms_of_use{% endtrans %}</a>
+									</li>
+									<li>
+										<a href="{{path('privacy_policy')}}">{% trans %}acseine.menu.privacy_policy{% endtrans %}</a>
+									</li>
+									<li>
+										<a href="{{path('sitemap')}}">{% trans %}acseine.menu.sitemap{% endtrans %}</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-5 col-sm-5 col-md-4 col-lg-4">
+						<div class="ft-socail">
+							<b>Follow Us :</b>
+							<a href="https://www.facebook.com/acseine.th/" target="_blank">
+								<img src="{{asset('acseine/images/icon-facebook-gray.png')}}" alt="facebook" />
+							</a>
+							<a href="https://www.instagram.com/acseine.th/" target="_blank">
+								<img src="{{asset('acseine/images/icon-instagram-gray.png')}}" alt="instagram" />
+							</a>
+							<a href="https://line.me/R/ti/p/%40nei8508o" target="_blank">
+								<img src="{{asset('acseine/images/icon-line-gray.png')}}" alt="line@" />
+							</a>
+						</div>
+						<div class="ft-copy">
+							© Copyright ACSEINE ALL rights reserved.
+						</div>
+					</div>
+
+				</div>
+			</div>
+			{#
+			<div class="footer-top no-sp">
+				<img src="{{asset('acseine/original/common/images/footer_logo.png')}}" alt="footer logo">
+				<ul>
+					<li>
+
+					</li>
+				</ul>
+			</div>
+			<div class="footer-bottom">
+				<div class="footer-nav no-sp">
+					<ul>
+						<li>
+							<a href="{{path('company_profile')}}">{% trans %}acseine.menu.company_profile{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('terms_of_use')}}">{% trans %}acseine.menu.web_terms_of_use{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('privacy_policy')}}">{% trans %}acseine.menu.privacy_policy{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('how_to_buy')}}">{% trans %}menu.how.to.buy{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('shipping_delivery')}}">{% trans %}menu.shipping.delivery{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('confirm_payment')}}">{% trans %}menu.confirm.payment{% endtrans %}</a>
+						</li>
+						<li>
+							<a href="{{path('sitemap')}}">{% trans %}acseine.menu.sitemap{% endtrans %}</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer-copyright">
+				  <a href="#wrapper" class="is-sp"><img src="{{asset('acseine/original/common/images/to_topsp.png')}}" alt=""></a>
+					<p>© Copyright ACSEINE ALL rights reserved.</p>
+				</div>
+			</div>
+			#}
+			<div class="footer-totop no-sp">
+				<a href="#wrapper">
+					{# <img src="{{asset('acseine/original/common/images/to_top.png')}}" alt=""> #}
+					<div class="button_gray_gotop"><i class="icon up-arrow"></i>&nbsp;&nbsp;{% trans %}acseine.btn.to.top{% endtrans %}</div>
+				</a>
+			</div>
+		</div>
+	</footer>
+</div>{# end wraper#}
+{% endblock %}
+
+{% block javascripts_body %}
+	{{ parent() }}
+	{% javascripts output='js/complied/acseine_27062019.js'
+		'acseine/original/common/js/jquery.min.js'
+		'acseine/javascripts/angular/angular.min.js'
+		'javascripts/angular-responsive-images.js'
+		'acseine/bootstrap-3.3.7-dist/js/bootstrap.min.js'
+		'acseine/original/common/js/global.js'
+		'acseine/original/js/slick.min.js'
+		'acseine/original/js/custom.js'
+		'@domwindow'
+		'@numeral'
+		'@web_custom'
+	%}
+	<script src="{{ asset_url }}"></script>
+	{% endjavascripts %}
+
+	<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+	<script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+
+	<!-- update item_count and user_data -->
+	<script>
+		$(document).ready(function() {
+			$.get("{{path('cart_get_item_cart')}}", function(data, status){
+				if(data.arr_cart_data.summary.total){
+					$(".cart_summary_item_count_sub").html('('+data.arr_cart_data.summary.item_count+')')
+				}
+			});
+
+			$.get("{{path('getPublicUser')}}", function(data, status){
+				if(data.loggedin){
+					var header_username_html = '';
+					if($.inArray("ROLE_CUSTOMER", data.user.roles) !== -1){
+						header_username_html = '<a href="{{path('fos_user_profile_show')}}" class="user-show"><i class="glyphicon glyphicon-user"></i> {% trans %}member.hello{% endtrans %}, '+ data.user.first_name +' '+data.user.last_name+'</a>';
+					}else{
+						header_username_html = '<a href="{{path('admin')}}"><i class="glyphicon glyphicon-user"></i> {% trans %}member.hello{% endtrans %} Admin</a> ';
+					}
+					$(".header-user").html(header_username_html + ' <a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a>' );
+				}
+			});
+		});
+	</script>
+
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-129082405-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-129082405-1');
+	</script>
+
+	{% if app.request.locale == 'th' %}
+		{% set lang = "th_TH" %}
+	{% else %}
+		{% set lang = "en_US" %}
+	{% endif %}
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = 'https://connect.facebook.net/{{lang}}/sdk/xfbml.customerchat.js';
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<!-- Your customer chat code -->
+	<div class="fb-customerchat"
+		attribution=setup_tool
+		page_id="2354871621207516"
+		theme_color="#656565"
+		greeting_dialog_display="hide">
+	</div>
+
+
+
+{% endblock %}

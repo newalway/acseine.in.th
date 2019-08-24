@@ -1,0 +1,57 @@
+acseine_campaign_index:
+    path:     /
+    defaults: { _controller: ProjectBundle:AcseineCampaign:index }
+
+acseine_campaign_promotion:
+    path:     /promotion
+    defaults: { _controller: ProjectBundle:AcseineCampaign:promotion }
+
+acseine_campaign_moistbalance:
+    path:  /moistbalance
+    defaults: { _controller: ProjectBundle:AcseineCampaign:moistbalance }
+
+acseine_campaign_sunshield:
+    path:  /sunshield
+    defaults: { _controller: ProjectBundle:AcseineCampaign:sunshield }
+
+acseine_campaign_brightfit:
+    path:  /brightfit
+    defaults: { _controller: ProjectBundle:AcseineCampaign:brightfit }
+
+acseine_campaign_ad_control:
+    path:  /ad-control
+    defaults: { _controller: ProjectBundle:AcseineCampaign:ad_control }
+
+acseine_campaign_register:
+    path:     /register
+    defaults: { _controller: ProjectBundle:AcseineCampaign:register }
+
+acseine_campaign_thanks:
+    path:  /thanks
+    defaults: { _controller: ProjectBundle:AcseineCampaign:thanks }
+
+acseine_terms_of_use:
+    path:  /terms-of-use
+    defaults: { _controller: ProjectBundle:AcseineCampaign:terms_of_use }
+
+acseine_campaign_counseling:
+    path:  /counseling
+    defaults: { _controller: ProjectBundle:AcseineCampaign:counseling }
+
+acseine_campaign_counseling_create:
+    path: /counseling-create
+    defaults: { _controller: ProjectBundle:AcseineCampaign:counseling_create }
+    requirements:
+        _method: post
+    options:
+        expose: true
+
+acseine_campaign_blog:
+    path:     /blog
+    defaults: { _controller: ProjectBundle:AcseineCampaign:blog }
+
+acseine_campaign_blog_detail:
+    path:     /blog/{id}/{slug}
+    defaults: { _controller: ProjectBundle:AcseineCampaign:blog_detail }
+    requirements:
+      id: \d+

@@ -1,0 +1,33 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{{data.getTitle}} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block shipping_delivery_active %}active{% endblock %}
+{% block m_shipping_delivery_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.shipping_address.sub_head1{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.shipping_address.html_keywords{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}menu.shipping.delivery{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}menu.shipping.delivery{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        {{data.getContent|raw}}
+    </div>
+</section>
+{% endblock %}

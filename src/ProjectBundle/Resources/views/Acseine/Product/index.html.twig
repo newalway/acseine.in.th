@@ -1,0 +1,193 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.menu.product{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.product.series.paragraph1{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.product.series.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.product{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.product.series.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="product-series" class="product-series">
+	<!-- /title_table -->
+	<div class="main-content container">
+		<div class="mv">
+			<p class="mv-txt01">{% trans %}acseine.product.series.paragraph1{% endtrans %}</p>
+			<p class="mv-txt02">{% trans %}acseine.product.series.paragraph2{% endtrans %}</p>
+			<p class="mv-txt03">{% trans %}acseine.product.series.paragraph3{% endtrans %}</p>
+			<div class="mv-img"><img src="{{asset('acseine/original/images/product_series/series_mv.jpg')}}" alt="{% trans %}acseine.product.series.paragraph1{% endtrans %}"></div>
+		</div>
+
+		{% if product_categories|length %}
+			{% for product_category in product_categories %}
+
+				<div class="skin style01">
+					<h2>{{product_category.getTitle}}</h2>
+					<ul>
+						{% for series in product_category.series %}
+							<li>
+								<a href="{{path('product_series', {'id':series.id, 'slug':series.translate('en').title|slug })}}">
+									<div class="style01-left">
+										<h3>{{series.getTitle|nl2br}}</h3>
+										<p>{{series.getSubtitle|nl2br}}</p>
+									</div>
+									<div class="style01-right">
+										<img src="{{asset(series.image) | imagine_filter('img_85x57') }}" alt="{{series.getTitle}} {{series.getSubtitle}}">
+									</div>
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+
+			{% endfor %}
+		{% endif %}
+
+		{#
+		<div class="skin style01">
+			<h2>Skin care products</h2>
+			<ul>
+				<li>
+				  <a href="series_cleansing">
+					<div class="style01-left">
+							<h3>Cleans well, yet gentle <br>on the skin</h3>
+							<p>Hypoallergenic cleanser</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img01.jpg')}}" alt="Cleans well, yet gentle on the skin">
+						</div>
+				  </a>
+				</li>
+				<li>
+				  <a href="series_ad">
+						<div class="style01-left">
+							<h3>For sensitive skin that's<br>vulnerable to irritants</h3>
+							<p>AD Control</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img02.jpg')}}" alt="For sensitive skin that's vulnerable to irritants">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_al">
+						<div class="style01-left">
+							<h3>For easily irritated,<br>unstable skin</h3>
+							<p>Basic skin care</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img03.jpg')}}" alt="For easily irritated,unstable skin">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_moist">
+						<div class="style01-left">
+							<h3>For dry skin that needs<br>more moisture</h3>
+							<p>Moistbalance</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img04.jpg')}}" alt="For dry skin that needs more moisture">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_ac">
+						<div class="style01-left">
+							<h3>For skin suffering<br>from adult acne </h3>
+							<p>Sebum Clean Up</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img05.jpg')}}" alt="For skin suffering from adult acne">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_emulsion">
+						<div class="style01-left">
+							<h3>For skin with<br>dark spots/dullness</h3>
+							<p>White Emulsion</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img06.jpg')}}" alt="For skin with dark spots/dullness">
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="series_aging">
+						<div class="style01-left">
+							<h3>For skin lacking<br>firmness/elasticity</h3>
+							<p>Aging care</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img07.jpg')}}" alt="For skin lacking firmness/elasticity">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_advance">
+						<div class="style01-left">
+							<h3>For healthier,<br>more beautiful skin</h3>
+							<p>Advanced Care</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/skin_img08.jpg')}}" alt="For healthier, more beautiful skin">
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="base style01">
+			<h2>Base/Makeup products</h2>
+			<ul>
+				<li>
+					<a href="series_uv">
+						<div class="style01-left">
+							<h3>Gentle UV care</h3>
+							<p>Hypoallergenic sunscreen base</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/base_img01.jpg')}}" alt="Gentle UV care">
+						</div>
+					</a>
+				</li>
+				<li>
+				  <a href="series_pv">
+						<div class="style01-left">
+							<h3>Hypoallergenic makeup,<br>gentle on the skin</h3>
+							<p>Perfect Veil</p>
+						</div>
+						<div class="style01-right">
+							<img src="{{asset('acseine/original/images/product_series/base_img02.jpg')}}" alt="Hypoallergenic makeup, gentle on the skin">
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+		#}
+
+	</div>
+</section>
+{% endblock %}
+
+{% block javascripts_body %}
+{{ parent() }}
+{% endblock %}

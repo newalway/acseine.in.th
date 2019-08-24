@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ลงทะเบียน | ACSEINE THAILAND</title>
+    <meta name="description" content="ตอบคำถามกับ ACSEINE ลุ้นรับ  Tester  ACSEINE  100 รางวัล  !!" />
+    <meta name="keywords" content="ACSEINE" />
+
+    <link rel="import" href="/header.html">
+
+</head>
+
+<body>
+    <div class="regis-header">
+        <div class="container-fluid">
+            <img src="/images/footer_logo.png" alt="ACSEINE" />
+            <h2>ตอบคำถามกับ ACSEINE ลุ้นรับ  Tester  ACSEINE  100 รางวัล  !!</h2>
+        </div>
+    </div>
+    <main>
+        <div class="bgContents"></div>
+
+        <section class="regis-section" ng-app="registerApp" ng-controller="registerController">
+            <div class="container">
+                <div class="pad">
+                    <div class="regis-title">
+                        เชิญสาว ๆ 100 ท่านแรก  ลุ้นรับ Tester  ACSEINE  ไปใช้แบบฟรี  ๆ  เพียงตอบคำถาม
+                    </div>
+                    <form ng-submit="processForm()" autocomplete="off">
+                        <div class="row">
+                            <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                                <div class="form-group">
+                                    <label for="first_name">ชื่อ</label>
+                                    <input type="text" name="first_name" id="first_name" class="form-control" ng-model="formData.param.first_name">
+                                    <div class="ng-cloak" ng-if="errors.first_name" ng-class="errors.first_name?'error':''">{{errors.first_name}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="last_name">นามสกุล</label>
+                                    <input type="text" name="last_name" id="last_name" class="form-control" ng-model="formData.param.last_name">
+                                    <div class="ng-cloak" ng-if="errors.last_name" ng-class="errors.last_name?'error':''">{{errors.last_name}}</div>
+                                </div>
+
+                                <div class="form-group age">
+                                    <label for="age">อายุ</label>
+                                    <input type="number" name="age" id="age" class="form-control" ng-model="formData.param.age">
+                                    <div class="ng-cloak" ng-if="errors.age" ng-class="errors.age?'error':''">{{errors.age}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="address">ที่อยู่</label>
+                                    <textarea name="address" id="address" rows="4" class="form-control" ng-model="formData.param.address"></textarea>
+                                    <div class="ng-cloak" ng-if="errors.address" ng-class="errors.address?'error':''">{{errors.address}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">เบอร์โทรศัพท์</label>
+                                    <input type="tel" name="phone" id="phone" class="form-control" ng-model="formData.param.phone">
+                                    <div class="ng-cloak" ng-if="errors.phone" ng-class="errors.phone?'error':''">{{errors.phone}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">อีเมล์</label>
+                                    <input type="email" name="email" id="email" class="form-control" ng-model="formData.param.email">
+                                    <div class="ng-cloak" ng-if="errors.email" ng-class="errors.email?'error':''">{{errors.email}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers1">1. ปัจจุบันคุณใช้ Skin Care ประเภทใด ?</label>
+                                    <input type="text" name="answers1" id="answers1" class="form-control" ng-model="formData.param.answers1">
+                                    <div class="ng-cloak" ng-if="errors.answers1" ng-class="errors.answers1?'error':''">{{errors.answers1}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers2">2. คุณพึงพอใจใน Skin Care  ที่ใช้อยุ่หรือไม่  ?</label><br />
+                                    <div class="answers">
+                                        <label for="answers21">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers2[]" id="answers21" value="Yes" ng-model="formData.param.answers2">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            พึงพอใจ
+                                        </label>
+                                        <label for="answers22">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers2[]" id="answers22" value="No" ng-model="formData.param.answers2">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            ไม่พึงพอใจ
+                                        </label>
+                                    </div>
+                                    <div class="ng-cloak" ng-if="errors.answers2" ng-class="errors.answers2?'error':''">{{errors.answers2}}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers3">3. จากข้อ 2. เพราะเหตุใดจึงไม่พึงพอใจ โปรดระบุ (*ถ้าตอบพึงพอใจไม่ต้องตอบข้อนี้)</label>
+                                    <input type="text" name="answers3" id="answers3" class="form-control" ng-model="formData.param.answers3" ng-disabled="formData.param.answers2 === 'Yes'">
+                                    <div class="ng-cloak" ng-if="errors.answers3" ng-class="errors.answers3?'error':''">* กรุณาตอบ</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers4">4. ถ้ามี Skin Care  ที่จะช่วยแก้ไขปัญหาให้คุณได้ คุณจะเปลี่ยนใช้ทันทีหรือไม่ ?</label><br />
+                                    <div class="answers">
+                                        <label for="answers41">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers4[]" id="answers41" value="Yes" ng-model="formData.param.answers4">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            ใช่
+                                        </label>
+                                        <label for="answers42">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers4[]" id="answers42" value="No" ng-model="formData.param.answers4">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            ไม่ใช่
+                                        </label>
+                                    </div>
+                                    <div class="ng-cloak" ng-if="errors.answers4" ng-class="errors.answers4?'error':''">* กรุณาตอบ</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers5">5. คุณมีปัญหาเกี่ยวกับผิวใช่หรือไม่ ?</label><br />
+                                    <div class="answers">
+                                        <label for="answers51">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers5[]" id="answers51" value="Yes" ng-model="formData.param.answers5">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            ใช่
+                                        </label>
+                                        <label for="answers52">
+                                            <div class="checked-container">
+                                                <input type="radio" name="answers5[]" id="answers52" value="No" ng-model="formData.param.answers5">
+                                                <span class="radiobtn"></span>
+                                            </div>
+                                            ไม่ใช่
+                                        </label>
+                                    </div>
+                                    <div class="ng-cloak" ng-if="errors.answers5" ng-class="errors.answers5?'error':''">* กรุณาตอบ</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers6">6. จากข้อ 5. ปัญหาที่ว่านั่นคือ โปรดระบุ  (*ถ้าตอบไม่ใช่ไม่ต้องตอบข้อนี้)</label>
+                                    <input type="text" name="answers6" id="answers6" class="form-control" ng-model="formData.param.answers6" ng-disabled="formData.param.answers5 === 'No'">
+                                    <div class="ng-cloak" ng-if="errors.answers6" ng-class="errors.answers6?'error':''">* กรุณาตอบ</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="answers7">7. คุณรู้จัก  ACSEINCE จากช่องทางไหน</label><br />
+
+                                    <div class="answers">
+                                        <label for="answers71">
+                                            <div class="checked-container">
+                                                <input type="checkbox" name="answers7[]" id="answers71" value="Social Media่" ng-model="formData.param.answers7['Social Media']">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                            Social Media
+                                        </label><br />
+
+                                        <label for="answers72">
+                                            <div class="checked-container">
+                                                <input type="checkbox" name="answers7[]" id="answers72" value="Influencer" ng-model="formData.param.answers7['Influencer']">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                            Influencer
+                                        </label><br />
+
+                                        <label for="answers73">
+                                            <div class="checked-container">
+                                                <input type="checkbox" name="answers7[]" id="answers73" value="Store" ng-model="formData.param.answers7['Store']">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                            Store
+                                        </label><br />
+
+                                        <label for="answers74">
+                                            <div class="checked-container">
+                                                <input type="checkbox" name="answers7[]" id="answers74" value="Point of Purchase" ng-model="formData.param.answers7['Point of Purchase']">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                            Point of Purchase
+                                        </label><br />
+
+                                        <label for="answers75">
+                                            <div class="checked-container">
+                                                <input type="checkbox" name="answers7[]" id="answers75" value="Other" ng-model="formData.param.answers7['Other']">
+                                                <span class="checkmark"></span>
+                                            </div>
+                                            Other
+                                        </label>
+                                    </div>
+
+                                    <div class="answers7_other" ng-if="formData.param.answers7['Other']">
+                                        <input type="text" name="answers7_other" id="answers7_other" class="form-control" placeholder="โปรดระบุ" ng-model="formData.param.answers7_other">
+                                    </div>
+
+                                    <div class="ng-cloak" ng-if="errors.answers7" ng-class="errors.answers7?'error':''">* กรุณาตอบ</div>
+
+                                    <div class="ng-cloak" ng-if="errors.answers7_other" ng-class="errors.answers7_other?'error':''">* กรุณาระบุ</div>
+                                    <br /><br />
+                                    <div class="form-footer">
+                                        <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw ng-cloak" ng-show="getDataLoading()"></i>
+                                        <button type="submit" class="button red js_waveBtn" ng-hide="getDataLoading()">ส่งข้อมูล</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                © Copyright ACSEINE ALL rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <div class="scrollTop">
+        <span class="ti-angle-up"></span>
+    </div>
+
+    <!-- Modules -->
+    <script src="/javascripts/registerApp/app.js"></script>
+    <!-- Controllers -->
+    <script src="/javascripts/registerApp/controllers/register-controller.js"></script>
+
+
+</body>
+
+</html>

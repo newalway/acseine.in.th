@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /uploads/userfiles/files/
+
+Sitemap: https://www.acseine.in.th/sitemap.xml

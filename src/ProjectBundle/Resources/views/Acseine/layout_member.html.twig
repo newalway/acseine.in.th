@@ -1,0 +1,76 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}member.title{% endtrans %}{% endblock %}
+
+{% block body_class %}{{ parent() }} body-member{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}member.title{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+<section class="section-padding member-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="p-0-15 member-header text-center panel-heading">
+                        <i class="glyphicon glyphicon-user"></i> {% trans %}member.hello{% endtrans %}, {{ app.user.firstName }} {{ app.user.lastName }}
+                        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <div class="btn-logout-margin">
+                            <a href="{{path('fos_user_security_logout')}}" class="btn btn-default ">{% trans %}menu.logout{% endtrans %}</a>
+                        </div>
+
+                        {% endif %}
+                    </div>
+                    <!-- <hr class="mb-10 mt-10" /> -->
+                    <div class="row panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="{% block member_profile_active %}{% endblock %}">
+                            <a href="{{path('fos_user_profile_show')}}">{% trans %}member.personal{% endtrans %}</a>
+                        </li>
+                        {#<li class="{% block member_profile_edit_active %}{% endblock %}">
+                            <a href="{{path('fos_user_profile_edit')}}">{% trans %}member.change.personal.info{% endtrans %}</a>
+                        </li>#}
+
+                        {% if app.user.issetpassword == 1 %}
+                        <li class="{% block member_change_password_active %}{% endblock %}">
+                            <a href="{{path('fos_user_change_password')}}">{% trans %}member.change.password{% endtrans %}</a>
+                        </li>
+                        {% else %}
+                        <li class="{% block member_set_password_active %}{% endblock %}">
+                            <a href="{{path('member_set_password')}}">{% trans %}member.set_password{% endtrans %}</a>
+                        </li>
+                        {% endif %}
+
+                        {% if is_granted('ROLE_CUSTOMER') %}
+                        <li class="{% block member_address_active %}{% endblock %}">
+                            <a href="{{path('address')}}">{% trans %}member.address.book{% endtrans %}</a>
+                        </li>
+                        <li class="{% block member_orders_active %}{% endblock %}">
+                            <a href="{{path('member_orders')}}">{% trans %}member.my.orders{% endtrans %}</a>
+                        </li>
+                        {% endif %}
+                        <li class="{% block member_social_connections_active %}{% endblock %}">
+                            <a href="{{path('member_social_connections')}}">{% trans %}member.social.connections{% endtrans %}</a>
+                        </li>
+                        {#{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li><a href="{{path('fos_user_security_logout')}}">{% trans %}menu.logout{% endtrans %}</a></li>
+                        {% endif %} #}
+
+                    </ul>
+                    </div>
+                    <!-- <div class="panel-footer"></div> -->
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                {#<div class="section-title">
+                    <h1><span>{% block member_header %}{% endblock %}</span></h1>
+                </div>#}
+                {% block content_member %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

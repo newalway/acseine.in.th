@@ -1,0 +1,24 @@
+{% extends "FOSUserBundle::bundle-layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{{ 'registration.confirmed_title'|trans }} {{ parent() }}{% endblock %}
+
+{% block content %}
+<section class="bg-default section-md">
+<div class="container fos-container">
+    <h1 class="text-center">{{ 'registration.confirmed_title'|trans }}</h1>
+
+    <div class="container fos-container text-center">
+        <div class="fos-regis-confirm">
+            <i class="ion-ios-checkmark" style="font-size:3em;"></i>
+            <p style="margin-top:30px;">{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+            {# {% if targetUrl %}
+                <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+                {% endif %} #}
+            <p><a href="{{ path('homepage') }}" class="btn btn-marathon">{{ 'registration.back'|trans }}</a></p>
+        </div>
+    </div>
+</div>
+</section>
+{% endblock content %}

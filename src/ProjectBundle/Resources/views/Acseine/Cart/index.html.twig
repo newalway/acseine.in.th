@@ -1,0 +1,265 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}cart.title{% endtrans %} {{ parent() }}{% endblock %}
+{% block cart_active %}active{% endblock %}
+{% block m_cart_active %}active{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}cart.title{% endtrans %}{% endblock %}
+
+{% block breadcrumb %}
+  {{ parent() }}
+  <div class="breadcrumb">
+      <div class="container breadcrumb_in">
+          <div class="breadcrumb_items">
+              <a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+          </div>
+          <div class="breadcrumb_items">
+              {% trans %}cart.title{% endtrans %}
+          </div>
+      </div>
+  </div><!-- /breadcrumb -->
+{% endblock %}
+
+{% block content %}
+<section class="cart-section pb0" ng-app="cartApp" ng-controller="cartCtrl" ng-init="init()">
+    <div class="container">
+
+       {% if arr_cart_data.products|length > 0 %}
+        <!--Cart Outer-->
+        <div class="cart-outer">
+
+            <!--Product List-->
+            <div ng-show="arr_cart_data.products.length>0" ng-cloak class="table-outer table-responsive">
+                <table class="cart-table table table-striped">
+                    <thead class="cart-header">
+                        <tr>
+                            <th colspan="2" class="text-center">{% trans %}cart.product{% endtrans %}</th>
+                            <th>{% trans %}cart.quantity{% endtrans %}</th>
+                            {#<th>Avalability</th>#}
+                            <th class="price ">{% trans %}cart.price{% endtrans %}</th>
+                            <th class="">{% trans %}cart.total{% endtrans %}</th>
+                            <!-- <th></th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in arr_cart_data.products" ng-cloak>
+                          <td class="valign">
+                              <a ng-href="{{'{{getRouteProductDetail(product.product_id, product.title, product.variant_option)}}'}}">
+                                  <img class='img-responsive' ng-if="product.image_small" ng-src="{{'{{product.image_small}}'}}" alt="{{'{{product.title}}'}}" />
+                                  <img class='img-responsive' ng-if="!product.image_small" ng-src="{{ asset('template/img/shop/thumb-1.jpg')}}" alt="{{'{{product.title}}'}}" />
+                              </a>
+                          </td>
+                            <td class="valign">
+                                <h5 class="link-color">
+                                <a ng-href="{{'{{getRouteProductDetail(product.product_id, product.title, product.variant_option)}}'}}">
+                                    {{'{{product.title}}'}}
+                                    <div ng-if="product.variant_option.length>0">
+                                        <small>{{'{{product.variant_option.join(" · ")}}'}}</small>
+                                    </div>
+                                </a>
+                                </h5>
+                            </td>
+                            <td class="qty valign" style="padding-top: 32px;">
+                                <div class="input-group btn-spin-width">
+                                    <div class="input-group-btn">
+                                        <button ng-click="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'decrease')" class="btn btn-default" style=""><i class="fa fa-minus"></i></button>
+                                    </div>
+                                    {#<span>{{'{{product.quantity}}'}}</span>#}
+                                    <input ng-model="product.quantity" ng-change="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'update')" class=" text-center form-control" type="text" value="{{'{{product.quantity}}'}}" name="quantity" style="min-width:60px;">
+                                    <div class="input-group-btn">
+                                        <button ng-click="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'increase')" class="btn btn-default" style=""><i class="fa fa-plus"></i></button>
+                                    </div>
+                                </div>
+
+                                <div style="padding-top: 10px;" class="">
+                                    <a href="javascript:void(0)" style="color:#404040;visited:#404040;" ng-click="removeProduct(product.product_id, product.sku_id, $index)" class="{#btn btn-xs btn-default#}"> {#<span class="fa fa-trash-o"></span>#} <small>{% trans %}cart.remove{% endtrans %}</small></a>
+                                </div>
+
+                                <div class="error_msg" ng-if="product.error_msg"><small>{{'{{product.error_msg}}'}}</small></div>
+                            </td>
+                            <td class="price valign">
+                                ฿{{'{{product.price| currency:"":2}}'}}
+                                <del ng-if="product.compare_at_price">฿{{'{{product.compare_at_price| currency:"":2}}'}}</del>
+                            </td>
+                            <td class="sub-total valign">
+                                ฿{{'{{product.amount| currency:"":2}}'}}
+                            </td>
+                            <!-- <td class="remove valign"></td> -->
+                        </tr>
+                    </tbody>
+                </table>
+                <hr>
+            </div>
+            <div ng-show="arr_cart_data.products.length<=0" ng-cloak class="table-responsive">
+                <table class="cart-table table table-striped">
+                    <thead class="cart-header">
+                        <tr>
+                            <th colspan="6" class="">
+                                <h4>{% trans %}cart.empty{% endtrans %}</h4>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="text-center">{% trans %}cart.no_items_in_cart{% endtrans %}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <!--End Product List-->
+
+            <div class="update-cart-box clearfix">
+                {% if discount_setting_status %}
+                    <div ng-if="!arr_cart_data.summary.discount_code" class="pull-left" ng-cloak>
+                        <form method="post" enctype="multipart/form-data">
+                            {{form_widget(form._token)}}
+                            <div class="apply-coupon clearfix">
+                                <div class="form-group clearfix">
+                                    <input type="text" ng-model="frm_discount.code" name="code" class="form-control" placeholder="Enter Coupon Code...">
+                                </div>
+                                <div class="form-group clearfix">
+                                    <button ng-click="applyDiscountCode()" type="button" class="btn btn-default">Apply Coupon</button>
+                                </div>
+                            </div>
+                            <div ng-hide="arr_result_discount.status">
+                                <div class="err-message">{{'{{arr_result_discount.error_message}}'}}</div>
+                            </div>
+                        </form>
+                    </div>
+                {% endif %}
+                {#<div class="pull-right">
+                    <!-- <button type="button" class="thm-btn update-cart">Update Cart</button> &emsp; -->
+                    <a href="{{path('checkout')}}" class="btn btn-default">Proceed to Checkout</a>
+                </div> #}
+            </div>
+
+            <div class="row clearfix section-padding">
+                {#
+                <div class="column col-md-6 col-sm-12 col-xs-12">
+                    <div class="estimate-form default-form">
+                        <div class="section-title text-left">
+                            <h1><span>Calculate Shipping</span></h1>
+                        </div>
+                        <form method="post" action="#">
+                            <div class="row clearfix">
+                                <!--Form Group-->
+                                <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                    <div class="select-box">
+                                        <select name="country" class="selectpicker">
+                                            <option>United Kingdom (UK)</option>
+                                            <option>Pakistan</option>
+                                            <option>USA</option>
+                                            <option>CANADA</option>
+                                            <option>INDIA</option>
+                                        </select>
+                                    </div>
+                                    <!-- /.select-box -->
+                                </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <div class="select-box">
+                                        <select name="country" class="selectpicker">
+                                            <option>State / Country</option>
+                                            <option>Maharshtra</option>
+                                            <option>NY</option>
+                                            <option>ALabama</option>
+                                            <option>Mexico</option>
+                                        </select>
+                                    </div>
+                                    <!-- /.select-box -->
+                                </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" name="code" value="" placeholder="Zip / Postal Code">
+                                </div>
+                                <!--Form Group-->
+                                <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                    <button type="submit" class="thm-btn thm-blue-bg">Update Totals</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                #}
+
+                <div class="column col-md-6 col-sm-12 col-xs-12">
+                </div>
+
+                    <div ng-show="arr_cart_data.products.length>0" ng-cloak class="column cart-total col-md-6 col-sm-12 col-xs-12">
+                        {#<div class="section-title text-left">
+                            <h2 class="text-right"><span>Cart Totals</span></h2>
+                        </div>#}
+                        <div class="totals panel panel-default panel-body">
+                          <div class="totals-item">
+                            <label>{% trans %}cart.subtotal{% endtrans %}</label>
+                            <div class="totals-value" id="cart-subtotal"><span>฿{{'{{arr_cart_data.summary.sub_total| currency:"":2}}'}}</span></div>
+                          </div>
+                          <div class="totals-item" ng-if="arr_cart_data.summary.discount_code">
+                            <label><span>Coupon "{{'{{arr_cart_data.summary.discount_code}}'}}" <a href="javascript:void(0)" ng-click="removeDiscountCode()">Remove</a></span></label>
+                            <div class="totals-value" id="cart-discount"><span>- ฿{{'{{arr_cart_data.summary.discount_amount| currency:"":2}}'}}</span></div>
+                          </div>
+                          <div class="totals-item">
+                            <label>
+                                {% trans %}cart.shipping_free{% endtrans %}
+
+                                {% if page_data and page_data.getContent %}
+                                    <div style="font-weight: normal;">
+                                        <small>{{page_data.getContent|raw}}</small>
+                                    </div>
+                                {% endif %}
+                            </label>
+                            <div class="totals-value" id="cart-shipping">
+                              <span  ng-show="arr_cart_data.summary.shipping_cost>0">฿{{'{{arr_cart_data.summary.shipping_cost| currency:"":2}}'}}</span>
+                              <span  ng-show="arr_cart_data.summary.shipping_cost<=0">{% trans %}cart.free{% endtrans %}</span>
+                            </div>
+                          </div>
+                          <div class="totals-item totals-item-total">
+                            <label>{% trans %}cart.grand_total{% endtrans %}</label>
+                            <div class="totals-value" id="cart-total"><span>฿{{'{{arr_cart_data.summary.total| currency:"":2}}'}}</span></div>
+                          </div>
+                        </div>
+                        <div class="margin-top-30 text-right"><a href="{{path('checkout')}}" class="btn acseine-btn">{% trans %}cart.checkout{% endtrans %}</a></div>
+                    </div>
+
+            </div>
+        </div>
+       {% else %}
+         <div class="table-responsive">
+        <table class="cart-table table table-striped">
+            <thead class="cart-header">
+                <tr>
+                    <th colspan="6" class="">
+                        <h4>{% trans %}cart.empty{% endtrans %}</h4>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td colspan="6" class="text-center">{% trans %}cart.no_items_in_cart{% endtrans %}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        {% endif %}
+    </div>
+
+{#
+    {{dump('{{arr_cart_data.products}}')}}
+    {{dump('{{arr_cart_data}}')}}
+#}
+
+</section>
+
+{% endblock %}
+
+{% block javascripts_body %}
+{{ parent() }}
+<script>
+    window.cart_data = {{arr_cart_data|json_encode|raw}};
+</script>
+<script src="{{asset('javascripts/base_product.js')}}"></script>
+<!-- Modules -->
+<script src="{{asset('javascripts/cartApp/app.js')}}"></script>
+<!-- Controllers -->
+<script src="{{asset('javascripts/cartApp/controllers/cart_controller.js')}}"></script>
+{% endblock %}

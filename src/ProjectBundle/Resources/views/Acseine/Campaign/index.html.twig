@@ -1,0 +1,525 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block title %}Acseine (แอคซีน) | เวชสำอางดูแลผิวจากประเทศญี่ปุ่น{% endblock %}
+
+{% block header %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_header_index.html.twig" %}
+{% endblock %}
+
+{% block content %}
+    <section id="home">
+        {% if banners|length > 0 %}
+        <div class="owl-carousel owl-theme owl-carousel-banner main-banner">
+            {% for banner in banners %}
+            <div class="item">
+                {% if banner.website %}<a href="{{banner.website}}">{% endif %}
+                    <img src="{{asset(banner.image)}}" class="pc" alt="Acseine banner" />
+                    <img src="{{asset(banner.imageMobile)}}" class="m" alt="Acseine banner" />
+                {% if banner.website %}</a>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="container-fluid" style="max-width: 1600px;">
+            <div class="pad pro-new">
+                <div class="section-title">
+                    <h2 style="text-transform: uppercase;">Recommended Products</h2>
+                    <!-- <h4>Just in now</h4> -->
+                </div>
+                {#<div class="row row-10">
+                    <div class="col-sm-6 col-md-3 col">
+                        <div class="item item1">
+                            <a href="{{path('acseine_campaign_moistbalance')}}">
+                                <img src="{{asset('/acseine_campaign/images/product/new/pro-new-01.jpg')}}" alt="Moistbalance Lotion" />
+                                <div class="hover">
+                                    <div class="tb">
+                                        <div class="td">
+                                            Moistbalance Lotion
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col">
+                        <div class="item item2">
+                            <a href="{{path('acseine_campaign_moistbalance')}}">
+                                <img src="{{asset('/acseine_campaign/images/product/new/pro-new-02.jpg')}}" alt="Moistbalance Gel" />
+                                <div class="hover">
+                                    <div class="tb">
+                                        <div class="td">
+                                            Moistbalance Gel
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col">
+                        <div class="item item3">
+                            <a href="{{path('acseine_campaign_sunshield')}}">
+                                <img src="{{asset('/acseine_campaign/images/product/new/pro-new-04.jpg')}}" alt="Gentle UV care Hypoallergenic sunscreen base" />
+                                <div class="hover">
+                                    <div class="tb">
+                                        <div class="td">
+                                            Gentle UV care<br />
+                                            Hypoallergenic sunscreen base
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col">
+                        <div class="item item3">
+                            <a href="{{path('acseine_campaign_brightfit')}}">
+                                <img src="{{asset('/acseine_campaign/images/product/new/pro-new-05.jpg')}}" alt="SUPER SUNSHIELD BRIGHT FIT SPF50+, PA++++" />
+                                <div class="hover">
+                                    <div class="tb">
+                                        <div class="td">
+                                            SUPER SUNSHIELD BRIGHT FIT SPF50+, PA++++
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>#}
+
+                <div class="owl-carousel owl-theme owl-carousel-product">
+                    <div class="item item1">
+                        <a href="{{path('acseine_campaign_moistbalance')}}">
+                            <img src="{{asset('/acseine_campaign/images/product/new/pro-new-01.jpg')}}" alt="Moistbalance Lotion" />
+                            <div class="hover">
+                                <div class="tb">
+                                    <div class="td">
+                                        Moistbalance Lotion
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item item2">
+                        <a href="{{path('acseine_campaign_moistbalance')}}">
+                            <img src="{{asset('/acseine_campaign/images/product/new/pro-new-02.jpg')}}" alt="Moistbalance Gel" />
+                            <div class="hover">
+                                <div class="tb">
+                                    <div class="td">
+                                        Moistbalance Gel
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item item3">
+                        <a href="{{path('acseine_campaign_sunshield')}}">
+                            <img src="{{asset('/acseine_campaign/images/product/new/pro-new-04.jpg')}}" alt="Gentle UV care Hypoallergenic sunscreen base" />
+                            <div class="hover">
+                                <div class="tb">
+                                    <div class="td">
+                                        Gentle UV care<br />
+                                        Hypoallergenic sunscreen base
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item item3">
+                        <a href="{{path('acseine_campaign_brightfit')}}">
+                            <img src="{{asset('/acseine_campaign/images/product/new/pro-new-05.jpg')}}" alt="SUPER SUNSHIELD BRIGHT FIT SPF50+, PA++++" />
+                            <div class="hover">
+                                <div class="tb">
+                                    <div class="td">
+                                        SUPER SUNSHIELD BRIGHT FIT SPF50+, PA++++
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="item item5">
+                        <a href="{{path('acseine_campaign_ad_control')}}">
+                            <img src="{{asset('/acseine_campaign/images/product/new/pro-new-06.jpg')}}" alt="SUPER SUNSHIELD BRIGHT FIT SPF50+, PA++++" />
+                            <div class="hover">
+                                <div class="tb">
+                                    <div class="td">
+                                        AD Control
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pro-web">
+                    <a href="{{path('product')}}" target="_blank">คลิกเพื่อดูโปรโมชั่นและสินค้าทั้งหมด</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="banner-pro">
+            <!-- <div class="inner"> </div> -->
+            <img src="{{asset('/acseine_campaign/images/about/about-banner.png')}}" alt="Acseine ไม่มีส่วนผสมของน้ำหอมและสารเคมีที่เสี่ยงต่อการแพ้ระคายเคือง" class="img1" />
+            <img src="{{asset('/acseine_campaign/images/about/about-banner-m.png')}}" alt="Acseine ไม่มีส่วนผสมของน้ำหอมและสารเคมีที่เสี่ยงต่อการแพ้ระคายเคือง Mobile" class="img2" />
+        </div>
+
+        <div class="container">
+            <div class="pad about">
+                <div class="section-title">
+                    <h2 style="text-transform: uppercase;">About ACSEINE</h2>
+                </div>
+
+                <h4 class="title2">
+                    ACSEINE มุ่งเน้นพัฒนานวัตกรรมเพื่อผิวแพ้ง่าย โดยใช้หลักการความสวยงามบนพื้นฐานทางกายภาพของผิว
+                </h4>
+
+                <div class="detail1">
+                    <p>
+                        เวชสำอางช่วยให้ผู้หญิงดูดีขึ้น และช่วยดูแล ป้องกัน ผิวของผู้หญิงที่บอบบางแพ้ง่ายให้สามารถใช้เครื่องสำอางได้อย่างมั่นใจและมีโอกาสแพ้เครื่องสำอางน้อยลง และในยุคสมัยใหม่เราต้องยอมรับว่าเครื่องสำอางมีความปลอดภัยมากขึ้น แต่ในปี 1970 การแพ้ผลิตภัณฑ์เครื่องสำอางมีผลกระทบร้ายแรงต่อผิวของผู้หญิง บางครั้งทำให้การแต่งหน้าดูเป็นอันตรายมาก ACSEINE จึงเริ่มต้นโดยการร่วมมือกับแพทย์ผิวหนังเพื่อดำเนินการวิจัยร่วมกันเกี่ยวกับทฤษฎีที่มุ่งเน้นการหลีกเลี่ยงผลิตภัณฑ์ที่ก่อให้เกิดอาการแพ้
+                    </p>
+
+                </div>
+
+                <div class="about-acs">
+                    <div class="acs1">
+                        <p>
+                            เพื่อผิวที่สวยกระจ่างใสดูสุขภาพดี
+                        </p>
+                        <img src="{{asset('/acseine_campaign/images/logo.png')}}" alt="ACSEINE logo" /><br />
+                        – เป็นหน้าที่หลักของ ACSEINE ที่จะคอยให้คำปรึกษา
+                    </div>
+                    <div class="acs2">
+                        <img src="{{asset('/acseine_campaign/images/about/about01.png')}}" class="img2" alt="เพื่อผิวที่สวยกระจ่างใสดูสุขภาพดี เป็นหน้าที่หลักของ ACSEINE ที่จะคอยให้คำปรึกษา"/>
+                        <img src="{{asset('/acseine_campaign/images/about/asc.png')}}" class="img1" alt="asc space"/>
+                    </div>
+                </div>
+
+                <p>
+                    ตัวอักษรสามตัว "A.C.S. " เป็นสาระสำคัญของต้นกำเนิดของ ACSEINE ย่อมาจาก "Allergen Control System" ซึ่งหมายถึงระบบบำบัดที่มีเป้าหมายเพื่อหาสารที่ก่อให้เกิดการระคายเคืองต่อผิวหนัง เพื่อขจัดออกไปจากชีวิตประจำวันและป้องกันการเกิดซ้ำของปัญหาแพ้ระคายเคือง ในปี พ.ศ. 2516 ACSEINE ได้ร่วมมือกับแพทย์ผิวหนังและ 9 บริษัท เพื่อจัดตั้ง ACS Research Society ซึ่งทำหน้าที่เป็นศูนย์พัฒนานวัตกรรมเกี่ยวกับผลิตภัณฑ์ด้านการดูแลผิวและความงามและยังคงพัฒนาเวชสำอางชั้นนำ “แอค – ซีน” อย่างต่อเนื่องมาจนถึงปัจจุบัน
+                </p>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="product">
+        <div class="container">
+            <div class="pad pb-0 product">
+                <div class="section-title">
+                    <h1>Product</h1>
+                </div>
+                <div class="pro-list">
+                    <!-- Item 1 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/pro1.png')}}" alt="Moistbalance Lotion สำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail detail-lotion">
+                                <h3 class="text-blue">Moistbalance Lotion</h3>
+                                <h2>โลชั่นเพื่อผิวชุ่มชื้นตลอดทั้งวัน</h2>
+                                <hr />
+                                <p>
+                                    <b>สำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว</b>
+                                </p>
+                                <p>
+                                    เราไม่เพียงแต่ยึดติดกับ "คุณภาพ" ของความชุ่มชื้นแต่เรายังใส่ใจใน "ปริมาณ" เพื่อให้ได้โลชั่นที่ให้ความชุ่มชื่นพร้อมตอบสนองต่อปัญหาผิวแห้งของผู้หญิงสมัยใหม่
+                                </p>
+                                <p>
+                                    ทุกช่วงเวลาที่เนื้อโลชั่นสัมผัสผิว จะให้ความรู้สึกเหมือนเนื้อสัมผัส “กลายเป็นผิวจริงๆ” และแทรกซึมล้ำลึกเข้าสู่ผิวของคุณ ด้วยเนื้อโลชั่นละเอียดนุ่ม เบาสบาย ไม่เหนียวเหนอะหนะ ให้ความรู้สึกชุ่มชื้นอย่างต่อเนื่อง ผิวไม่รู้จักความแห้งกร้านเลยตลอดทั้งวัน
+                                </p>
+                                <p>
+                                    ACSEINE Moist Balance Lotion<br />
+                                    360ml 2,100 บาท (รวมภาษี)
+                                </p>
+                                <br />
+
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'1','slug':'moistbalance-lotion'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_moistbalance')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'1','slug':'moistbalance-lotion'} %}
+
+                                {#<a href="{{path('acseine_campaign_moistbalance')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/pro2.png')}}" alt="Moistbalance Gel เจลสำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">Moistbalance Gel</h3>
+                                <h2>ช่วยปกป้องความชุ่มชื้นได้อย่างสมบูรณ์แบบ </h2>
+                                <hr />
+                                <p>
+                                    <b>เจลสำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว</b>
+                                </p>
+                                <p>
+                                    ไม่ใช่แค่การปกป้อง แต่ยังช่วยฟื้นบำรุงความชุ่มชื้นและความหยาบกร้าน
+                                    เพราะใส่ใจที่ "ความรู้สึก" เราจึงค้นคว้าวิจัยเพื่อสร้างความรู้สึก "แสนสบาย" เพียงเริ่มใช้
+                                </p>
+                                <p>
+                                    เมื่อเจลเนื้อนุ่มสัมผัสลงบนผิวจะแทรกซึมและละลายเข้าสู่ผิว โดยให้ผิวรู้สึกสบายและสดชื่น ยาวนานตลอดทั้งวัน
+                                </p>
+                                <p>
+                                    Moistbalance Gel<br />
+                                    50g 2,100 บาท (รวมภาษี)<br />
+                                    95g 3,200 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'2','slug':'moistbalance-gel'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_moistbalance')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'2','slug':'moistbalance-gel'} %}
+
+                                {#<a href="{{path('acseine_campaign_moistbalance')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/pro3.png')}}" alt="Super Sunshield EX SPF50+ PA++++ ครีมกันแดดและรองพื้นในหนึ่งเดียว"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">Super Sunshield EX SPF50+ PA++++</h3>
+                                <h2>ครีมกันแดดและรองพื้นในหนึ่งเดียว</h2>
+                                <hr />
+
+                                <p>
+                                    SPF50+・PA++++
+                                </p>
+                                <p>
+                                    ครีมกันแดดประสิทธิภาพสูงสุดของ ACSEINE ช่วยแก้ปัญหาสีผิวที่ดูไม่สม่ำเสมอ  ผิวจึงกระจ่างใสอย่างเป็นธรรมชาติ มาพร้อมเนื้อครีมแบบเบส อ่อนนุ่ม สบายผิว แห้งไว ไม่เหนอะหนะ พิสูจน์แล้วว่าอ่อนโยนแม้แต่กับผิวบอบบางแพ้ง่าย
+                                </p>
+                                <p>
+                                    Super Sunshield EX SPF50+ PA++++<br />
+                                    22g 1,300 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'3','slug':'super-sunshield-ex-spf50+-pa++++'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_sunshield')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'3','slug':'super-sunshield-ex-spf50+-pa++++'} %}
+
+                                {#<a href="{{path('acseine_campaign_sunshield')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-veil/sun-veil-01.png')}}" alt="Super Sunshield BRIGHT VEIL SPF50+, PA++++ กันแดดฝาสี Rose Gold สำหรับผิวโทนชมพูที่ต้องการการปกปิดและขาวกระจ่างใสเป็นพิเศษ"/>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">Super Sunshield BRIGHT VEIL SPF50+, PA++++</h3>
+                                <h2>กันแดดฝาสี Rose Gold สำหรับผิวโทนชมพูที่ต้องการการปกปิดและขาวกระจ่างใสเป็นพิเศษ</h2>
+                                <hr />
+                                <p>
+                                    SPF50+・PA++++
+                                </p>
+                                <p>
+                                    สำหรับผิวขาวอมชมพู แก้ปัญหาผิวหมองคล้ำ สีผิวไม่สม่ำเสมอ ปกปิดรอยด่างดำ เป็นทั้งกันแดดและเมคอัพเบสในหนึ่งเดียว
+                                </p>
+                                <p>
+                                    Super Sunshield BRIGHT VEIL SPF50+, PA++++<br />
+                                    22g 1,300 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'16','slug':'super-sunshield-bright-veil-spf50+pa++++'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_sunshield')}}#brightveil" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'16','slug':'super-sunshield-bright-veil-spf50+pa++++'} %}
+
+                                {#<a href="{{path('acseine_campaign_sunshield')}}#brightveil" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/sunshield-bright-fit/sun-fit.png')}}" alt="Super Sunshield BRIGHT FIT SPF50+, PA++++ โลชั่นกันแดดเนื้อน้ำนมสำหรับผิวกายและผิวหน้า" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">Super Sunshield BRIGHT FIT SPF50+, PA++++</h3>
+                                <h2>โลชั่นกันแดดเนื้อน้ำนมสำหรับผิวกายและผิวหน้า</h2>
+                                <hr />
+                                <p>
+                                    SPF50+・PA++++
+                                </p>
+                                <p>
+                                    กันแดดเนื้อเบาสบายผิว เนื้อน้ำนมจะแตกตัวคล้ายน้ำในทันทีเมื่อทาครั้งแรก เพียงการทาไม่กี่ครั้งก็ซึมลงผิวจึงไม่ทิ้งสัมผัสเหนียวเหนอะ มีส่วนผสมพิเศษที่ช่วยคงความชุ่มชื้นและเสริมความใสเงางาม ทั้งคงทนต่อน้ำและเหงื่อหากล้างออกง่ายโดยไม่ต้องใช้ Makeup remover จึงบอกลาปัญหาผิวแห้งหยาบกร้าน หน้าขาวลอย เครื่องสำอางหลุดลอกและเมคอัพตกค้างได้เลย
+                                </p>
+                                <p>
+                                    Super Sunshield BRIGHT FIT SPF50+, PA++++<br />
+                                    40 g.  1,100 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'17','slug':'super-sunshield-bright-fit-spf50-+-pa-++++'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_brightfit')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'17','slug':'super-sunshield-bright-fit-spf50-+-pa-++++'} %}
+
+                                {#<a href="{{path('acseine_campaign_brightfit')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/ad-control/ad-control.png')}}" alt="AD Control" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">AD Control</h3>
+                                <h2>ผลิตภัณฑ์สำหรับผิวบอบบางแพ้ง่าย เสี่ยงต่อการระคายเคือง</h2>
+                                <hr />
+                                <p>
+                                    ความแห้งกร้านและมลภาวะทางอากาศเป็นตัวการร้ายที่ทำให้ผิวแห้งเสีย โดยเฉพาะกับบุคคลที่มีผิวบอบบาง แห้งเสียอยู่แล้วก็มักจะถูกกระตุ้นจากสิ่งแวดล้อมได้ง่าย
+                                </p>
+                                <p>
+                                    "Acseine AD Control" คือ ผลิตภัณฑ์ที่พัฒนาขึ้นมาเพื่อช่วยปกป้องและดูแลผิวให้คืนสู่ความสวยงามและดูสุขภาพดีตามธรรมชาติ ด้วยสูตรที่ เรียบง่าย เป็นมิตรกับผิว ระคายเคืองต่ำ อ่อนโยนแม้กับผิวที่อ่อนไหวง่าย ทว่ากลับมอบความชุ่มชื้นสูง (Low irritation & High moisture)
+                                </p>
+                                <p>
+                                    ไม่ว่าผิวจะแพ้ง่ายแค่ไหน ก็สามารถใช้ได้ ไร้กังวล
+                                </p>
+                                <p>
+                                    AD Control<br />
+                                    ราคาเริ่มต้น 400 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'17','slug':'super-sunshield-bright-fit-spf50-+-pa-++++'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                <a href="{{path('acseine_campaign_ad_control')}}" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now_series.html.twig" with {'id':'7','slug':'for-sensitive-skin-thats-vulnerable-to-irritants'} %}
+
+                                {#<a href="{{path('acseine_campaign_ad_control')}}#brightfit" class="button blue2 js_waveBtn">
+                                    Product Detail
+                                </a>#}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {#
+        <!-- Campaign Register -->
+        {% if "now"|date("Y-m-d") >= '2019-03-22'|date("Y-m-d") and "now"|date("Y-m-d") <= '2019-04-30'|date("Y-m-d") %}
+            {% include "ProjectBundle:"~ view_acseine_campaign ~":_sample.html.twig" %}
+        {% endif %}
+        #}
+    </section>
+
+    {% if blogs %}
+    <section id="blog">
+        <div class="container">
+            <div class="pad pb-0">
+                <div class="section-title">
+                    <h2 style="text-transform: uppercase;">Blog</h2>
+                </div>
+                <div class="owl-carousel owl-theme owl-carousel-blog">
+                    {% for blog in blogs %}
+                    <div class="blog-list">
+                        <div class="item">
+                            <a href="{{path('acseine_campaign_blog_detail',{'id':blog.id,'slug':blog.title|slug})}}">
+                                {% if blog.image %}
+                                    <img src="{{asset(blog.image) | imagine_filter('blog_640x360')}}" alt="{{blog.title}}" />
+                                {% endif %}
+                                <div class="box">
+                                    <div class="detail">
+                                        <h4>{{blog.title}}</h4>
+                                        <p>{{blog.shortDesc}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_footer_index.html.twig" %}
+{% endblock %}

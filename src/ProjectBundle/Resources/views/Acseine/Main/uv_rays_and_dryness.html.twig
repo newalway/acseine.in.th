@@ -1,0 +1,130 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.uv_rays_and_dryness.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.uv_rays_and_dryness.title{% endtrans %} {% trans %}acseine.uv_rays_and_dryness.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.uv_rays_and_dryness.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('skin_problems_and_cosmetics')}}" class="active">{% trans %}acseine.breadcrumb.skin_problems_cosmetics{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.uv_rays_and_dryness{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.uv_rays_and_dryness.title{% endtrans %}</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="uv-rays-and-dryness" class="uv-rays-and-dryness">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="skin_pimple">
+		<div class="skin_pimple_content">
+			<h3 class="title_h3">{% trans %}acseine.uv_rays_and_dryness.head{% endtrans %}</h3>
+			<div class="listItems skin_pimple_question">
+				<ul class="listQuestion">
+					<li><a href="#q1">{% trans %}acseine.uv_rays_and_dryness.question1_title_main{% endtrans %}</a></li>
+					<li><a href="#q2">{% trans %}acseine.uv_rays_and_dryness.question2_title_main{% endtrans %}</a></li>
+					<li><a href="#q3">{% trans %}acseine.uv_rays_and_dryness.question3_title_main{% endtrans %}</a></li>
+				</ul>
+			</div>
+			<h4 class="title_h4" id="q1">{% trans %}acseine.uv_rays_and_dryness.question1.title{% endtrans %}</h4>
+			<div class="description">
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question1.head_paragraph1{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question1.paragraph1{% endtrans %}</p>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question1.head_paragraph2{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question1.paragraph2{% endtrans %}</p>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question1.head_paragraph3{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question1.paragraph3{% endtrans %}</p>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question1.head_paragraph4{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question1.paragraph4{% endtrans %}.</p>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question1.head_paragraph5{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question1.paragraph5{% endtrans %}</p>
+			</div>
+			<h4 class="title_h4" id="q2">{% trans %}acseine.uv_rays_and_dryness.question2.title{% endtrans %}</h4>
+			<div class="description">
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question2.head_paragraph1{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question2.paragraph1{% endtrans %}</p>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question2.head_paragraph2{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question2.paragraph2{% endtrans %}</p>
+			</div>
+			<div class="img_content">
+				<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/img_slogan_01.jpg')}}" alt="Sensitive skin is vulnerable to UV rays. That's why sun care is a must.">
+			</div>
+			<h4 class="title_h4" id="q3">{% trans %}acseine.uv_rays_and_dryness.question3.title{% endtrans %}</h4>
+			<div class="description">
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question3.head_paragraph1{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.paragraph1{% endtrans %}</p>
+				<div class="thumbnail_items">
+					<div class="listItems thumbnail_items_in">
+						<ul class="content">
+							<li><h5>{% trans %}acseine.uv_rays_and_dryness.question3.head_list1{% endtrans %}</h5></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list1_1{% endtrans %}</p></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list1_2{% endtrans %}</p></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list1_3{% endtrans %}</p></li>
+						</ul>
+						<div class="avatar">
+							{%  if (app.request.getLocale()) == 'en' %}
+								<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/thumb_01.png')}}" alt="{% trans %}acseine.uv_rays_and_dryness.question3.head_list1{% endtrans %}">
+							{% elseif (app.request.getLocale()) == 'th'%}
+								<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/thumb_01_th.png')}}" alt="{% trans %}acseine.uv_rays_and_dryness.question3.head_list1{% endtrans %}">
+							{% endif %}
+						</div>
+					</div>
+				</div>
+				<h5>{% trans %}acseine.uv_rays_and_dryness.question3.head_paragraph2{% endtrans %}</h5>
+				<p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.paragraph2{% endtrans %}</p>
+				<div class="thumbnail_items">
+					<div class="listItems thumbnail_items_in">
+						<ul class="content">
+							<li><h5>{% trans %}acseine.uv_rays_and_dryness.question3.head_list2{% endtrans %}</h5></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list2_1{% endtrans %}</p></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list2_2{% endtrans %}</p></li>
+							<li><p class="text">{% trans %}acseine.uv_rays_and_dryness.question3.text_list2_3{% endtrans %}</p></li>
+						</ul>
+						<div class="avatar">
+							{%  if (app.request.getLocale()) == 'en' %}
+								<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/thumb_02.png')}}" alt="{% trans %}acseine.uv_rays_and_dryness.question3.head_list2{% endtrans %}">
+							{% elseif (app.request.getLocale()) == 'th'%}
+								<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/thumb_02_th.png')}}" alt="{% trans %}acseine.uv_rays_and_dryness.question3.head_list2{% endtrans %}">
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="img_content">
+				<img src="{{asset('acseine/original/images/skin_problems/uv_rays_and_dryness/img_slogan_02.jpg')}}" alt="The secret to keeping skin from becoming sensitive lies in fighting dryness.It's a good idea to take another look at your moisturizing care.">
+			</div>
+		</div>
+	</div>
+	<div class="listItems skin_pimple_listBtn">
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('skin_allergy')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_allergies{% endtrans %}</h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('skin_atopic_dermatitis')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_atopic{% endtrans %} </h3> <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('adult_acne')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i> <h3>{% trans %}acseine.skin_problems.button_adult{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-6">
+			<a href="{{path('uv_rays_and_dryness')}}"><button class="button_skin" href="#"><i class="icon-thin center-btn-history right"></i><h3> {% trans %}acseine.skin_problems.button_uv{% endtrans %}</h3>  <i class="icon-thin-sm center-right-btn-history right"></i></button></a>
+		</div>
+	</div>
+</div>
+</section>
+{% endblock %}

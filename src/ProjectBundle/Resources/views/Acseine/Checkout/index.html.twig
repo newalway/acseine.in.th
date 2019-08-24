@@ -1,0 +1,194 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+{% block html_meta %}
+	{{ parent() }}
+    <meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block title %}{% trans %}checkout.title{% endtrans %} {{ parent() }}{% endblock %}
+{% block checkout_active %}active{% endblock %}
+{% block m_checkout_active %}active{% endblock %}
+
+{% block breadcrumb_title1 %}{% trans %}checkout.title{% endtrans %}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('jquery.ThaiAddress.En-Th.js/css/jquery.ThaiAddress.En-Th.css') }}">
+{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}checkout.title{% endtrans %}
+		</div>
+	</div>
+</div>
+<!-- /breadcrumb -->
+<div class="container title_category">
+	<h2>{% trans %}checkout.title{% endtrans %}</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+{### main cart controller ###}
+<section ng-app="cartApp" ng-controller="cartCtrl" ng-init="init()" class="checkout-section section-padding cart-section">
+
+{#
+{{'{{message_one}}'}}<br/>
+<a href="javascript:void(0)" ng-click="broadcastEvent()">Broadcast message</a>
+#}
+
+    {% for flashMessage in app.session.flashbag.get('inventory_errors') %}
+        <div class="container alert alert-danger alert-dismissible">
+            <div class="text-center">
+                <i class="fa fa-2x fa-exclamation-circle"></i>
+                {{ flashMessage }}
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="container" ng-cloak>
+        <div class="clearfix">
+            <div class="col-md-7 col-sm-7 col-xs-12 column form-column">
+
+                <!-- old.delivery_controller  -->
+                <div ng-controller="deliveryAddressCtrl" ng-init="delivery_init('{{first_delivery_form.vars.value.firstName}}', '{{first_delivery_form.vars.value.lastName}}', '{{first_delivery_form.vars.value.companyName}}', '{{first_delivery_form.vars.value.phone}}')" class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-left">
+                        <h1><span>{% trans %}member.delivery.address{% endtrans %}</span></h1>
+                    </div>
+
+{#
+{{'{{message_two}}'}}<br/>
+<a href="javascript:void(0)" ng-click="emitEvent()">Emit message</a>
+#}
+                    <div class="panel panel-default panel-body">
+                    <div ng-show="shipping_address.id">
+						{# list delivery address #}
+						{% include "ProjectBundle:"~ view_checkout ~":_list_delivery_address.html.twig"%}
+                    </div>
+
+                    <div ng-show="!shipping_address.id">
+						{# form delivery address #}
+                        {% include "ProjectBundle:"~ view_checkout ~":_form_address_billing_shipping.html.twig"%}
+                    </div>
+
+                    {# modal include #}
+                    {% include "ProjectBundle:"~ view_checkout ~":_modal_list_address_billing.html.twig"%}
+                    {% include "ProjectBundle:"~ view_checkout ~":_modal_list_address_form.html.twig"%}
+                </div>
+{# {{dump('{{arr_cart_data.summary}}')}} #}
+
+                </div>
+
+{#
+{{dump('{{arr_cart_data.delivery_information.shipping_address}}')}}
+{{dump('{{arr_cart_data.delivery_information.billing_address}}')}}
+#}
+
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-left">
+                        <!-- <h1><span>Products</span></h1> -->
+                    </div>
+                    {% include "ProjectBundle:"~ view_checkout ~":_product_totals.html.twig"%}
+                </div>
+            </div>{# end main 1#}
+
+            <div class="col-md-5 col-sm-5 col-xs-12 column default-column cart-total">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="section-title text-left">
+                        <h1><span>{% trans %}cart.order_summary{% endtrans %}</span></h1>
+                    </div>
+                    {% include "ProjectBundle:"~ view_checkout ~":_cart_totals.html.twig"%}
+                </div>
+
+                {### payment controller ###}
+                <div ng-controller="paymentCtrl" ng-init="payment_init('')" class="col-md-12 col-sm-12 col-xs-12">
+
+                    <div class="section-title text-left payment-options">
+                        <h1><span>{% trans %}payment.method.title{% endtrans %}</span></h1>
+                    </div>
+                    {% include "ProjectBundle:"~ view_checkout ~":_payment_method.html.twig"%}
+{# {{dump('{{arr_cart_data.summary}}')}} #}
+                </div>
+
+
+            </div>{# end main 2#}
+        </div>{# end clearfix #}
+    </div>{# end div container #}
+
+
+</section>
+{% endblock %}
+
+
+{% block javascripts_body %}
+{{ parent() }}
+<script>
+    window.cart_data = {{arr_cart_data|json_encode|raw}};
+    window.delivery_address = {{delivery_address|json_encode|raw}};
+</script>
+<script src="{{ asset('javascripts/base_product.js') }}"></script>
+<!-- Modules -->
+<script src="{{asset('javascripts/cartApp/app.js')}}"></script>
+<!-- Controllers -->
+<script src="{{asset('javascripts/cartApp/controllers/cart_controller.js')}}"></script>
+<script src="{{asset('javascripts/cartApp/controllers/delivery_address_controller.js')}}"></script>
+<script src="{{asset('javascripts/cartApp/controllers/payment_controller.js')}}"></script>
+
+<!-- jquery.Thailand -->
+<script src="{{asset('jquery.Thailand.js/dependencies/JQL.min.js')}}"></script>
+<script src="{{asset('jquery.Thailand.js/dependencies/typeahead.bundle.js')}}"></script>
+<script src="{{asset('jquery.ThaiAddress.En-Th.js/js/jquery.ThaiAddress.En-Th.js')}}"></script>
+
+<!-- Omise -->
+<script src="https://cdn.omise.co/omise.js"></script>
+<script src="{{asset('javascripts/cartApp/omise_app.js')}}"></script>
+<script>
+	$(function() {
+		//first delivery address
+		initJueryThailandEnTh('{{asset('jquery.ThaiAddress.En-Th.js/js/thai_address_database_en_th.js')}}', '{{app.request.locale|upper}}', 'first_delivery_form', 'fd_district', 'fd_amphure', 'fd_province', 'fd_postcode');
+
+		//modal delivery address
+		initJueryThailandEnTh('{{asset('jquery.ThaiAddress.En-Th.js/js/thai_address_database_en_th.js')}}', '{{app.request.locale|upper}}', 'modal_delivery_form', 'modal_district', 'modal_amphure', 'modal_province', 'modal_postcode');
+	});
+
+	// Set public key
+    Omise.setPublicKey("{{omise_pkey}}");
+
+
+
+	$(function() {
+		$('#addDataAddress').on('click', function (event) {
+		    $('#deliveryAddressModal').modal({
+		      show: true,
+		      backdrop: 'static',
+		      keyboard: false,
+		    });
+		   $('#list-address-billing').modal('toggle');
+		});
+		$('#selectShippingAddress').click(function () {
+	        $('#list-address-billing').modal({
+	            show: true,
+	            backdrop: 'static',
+	            keyboard: false,
+	        });
+	    });
+	    $('#selectBillingAddress').click(function () {
+	        $('#list-address-billing').modal({
+	            show: true,
+	            backdrop: 'static',
+	            keyboard: false,
+	        });
+	    });
+		/*$('#rbank-payment').on('click', function(){
+	        $(this).parent().find('a').trigger('click')
+	    });
+	    $('#rcredit-payment').on('click', function(){
+	        $(this).parent().find('a').trigger('click')
+	    });*/
+	});
+</script>
+{% endblock %}

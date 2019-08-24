@@ -1,0 +1,42 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block html_description %}ขอบคุณที่ร่วมตอบแบบสอบถาม | ตอบคำถามกับ ACSEINE ลุ้นรับ Tester ACSEINE 50 รางวัล !!{% endblock %}
+
+{% block header %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_header_register.html.twig" %}
+{% endblock %}
+
+{% block content %}
+    <section class="regis-tk">
+        <div class="container">
+            <div class="pad">
+                <h1 class="text-red">
+                    ขณะนี้สิทธิ์ผู้โชคดีที่ได้รับ Tester ACSEINE ครบจำนวน 50 คนแล้ว
+                </h1>
+                <h1 class="text-red">
+                    ไว้โอกาสหน้ามาร่วมสนุกกันใหม่นะคะ ขอบคุณค่ะ
+                </h1>
+                <img src="{{asset('/acseine_campaign/images/thanks/tk2-1.png')}}" alt="THANK YOU VERY MUCH" />
+                {#<h1 class="text-blue">ขอบคุณที่ร่วมตอบแบบสอบถาม</h1>#}
+                {#<h3>
+                    ผู้โชคดี 50 ท่านที่ได้รับ Tester ACSEINE อย่าลืมถ่ายรูป<br />
+                    พร้อมรีวิวและโพสต์ลง FB/IG และติด #ACSEINETH มาด้วยนะคะ
+                </h3>#}
+
+                <a href="{{path('acseine_campaign_index')}}" class="button red js_waveBtn">ปิด</a>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block shoplist %}{% endblock %}
+
+{% block footer %}
+    {% include "ProjectBundle:"~ view_acseine_campaign ~":_footer_register.html.twig" %}
+{% endblock %}
+
+{% block javascripts_footer %}
+    {{ parent() }}
+
+{% endblock %}

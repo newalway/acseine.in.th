@@ -1,0 +1,132 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}ACSEINE THAILAND{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{asset('acseine/construction.css')}}">
+<body data-spy="scroll" data-target="#navbar-top">
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-5">
+                    <div class="social">
+                        <a href="https://www.facebook.com/acseine.th/" target="_blank"><img src="{{asset('acseine/images/icon-facebook.png')}}" alt="facebook" /></a>
+                        <a href="https://www.instagram.com/acseine.th/" target="_blank"><img src="{{asset('acseine/images/icon-instagram.png')}}" alt="instagram" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="logo">
+                        <a href="{{path('acseine_campaign_index')}}#home" class="link-click"><img src="{{asset('acseine/images/logo.png')}}" alt="ACSEINE" /></a>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="menu-link">
+                        <a class="button blue js_waveBtn link-click" href="{{path('acseine_campaign_index')}}#shoplist">SHOP LIST</a>
+                        <a class="button gray js_waveBtn" href="{{path('acseine_campaign_register')}}">REQUEST TESTER</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- <nav class="navbar" data-spy="affix" data-spy="affix" data-offset-top="70">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-top" aria-expanded="false">
+                    <span class="ti-menu"></span>
+                </button>
+                <a class="navbar-brand link-click" href="#home"><img src="images/logo.png" alt="ACSEINE" /></a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-top">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{path('acseine_campaign_index')}}#home" class="link-click">HOME</a></li>
+                    <li><a href="{{path('acseine_campaign_index')}}#about" class="link-click">ABOUT ACSEINE</a></li>
+                    <li><a href="{{path('acseine_campaign_index')}}#product" class="link-click">PRODUCT</a></li>
+                    <li><a href="{{path('acseine_campaign_index')}}#shoplist" class="link-click">SHOP LIST</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav> -->
+
+    <main>
+        <div class="bgContents"></div>
+<section>
+    <div class="size1 overlay1">
+        <!--  -->
+        <div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
+            <h3 class="l1-txt1 txt-center p-b-25">
+                Coming Soon
+            </h3>
+
+            <p class="m2-txt1 txt-center p-b-48">
+                Our website is under construction, follow us for update now!
+            </p>
+        </div>
+    </div>
+
+</section>
+
+
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="row footer-row">
+                <div class="col-sm-2 col-md-3 footer-logo">
+                    <a href="{{path('acseine_campaign_index')}}#home" class="link-click"><img src="{{asset('acseine/images/footer_logo.png')}}" alt="ACSEINE" /></a>
+                </div>
+                <div class="col-sm-4 col-md-3 col-sm-push-6 footer-btn">
+                    <a class="button blue js_waveBtn link-click" href="{{path('acseine_campaign_index')}}#shoplist">SHOP LIST</a>
+                    <a class="button gray js_waveBtn" href="{{path('acseine_campaign_register')}}">REQUEST TESTER</a>
+                </div>
+
+                <div class="col-sm-6 col-sm-pull-4 col-md-pull-3">
+                    <div class="row footer-menu">
+                        <div class="col-sm-6">
+                            <a href="{{path('acseine_campaign_index')}}#home" class="link-click">HOME</a><br />
+                            <a href="{{path('acseine_campaign_index')}}#about" class="link-click">ABOUT ACSEINE</a><br />
+                            <a href="{{path('acseine_campaign_index')}}#product" class="link-click">PRODUCT</a><br />
+                            <a href="{{path('acseine_campaign_index')}}#shoplist" class="link-click">SHOP LIST</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="http://www.acseine.co.jp/english/about/index.html" target="_blank">COMPANY PROFILE</a><br />
+                            <a href="http://www.acseine.co.jp/shop/pages/privacy.aspx" target="_blank">PRIVACY POLICY</a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="copyright">
+                © Copyright ACSEINE ALL rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- <div class="scrollSample">
+        <a href="#sample" class="link-click">
+            <img src="images/sample/icon-real.png" alt="ลุ้นรับ TESTER FREE"/>
+        </a>
+    </div> -->
+
+    <!-- <div class="scrollTop">
+        <span class="ti-angle-up"></span>
+    </div> -->
+
+</body>
+
+
+
+
+{% endblock %}
+
+{% block javascripts_body %}
+{% endblock %}

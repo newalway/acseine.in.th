@@ -1,0 +1,78 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% trans %}acseine.counseling.title{% endtrans %} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endblock %}
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% trans %}acseine.counseling.head{% endtrans %}{% endblock %}
+{% block html_keywords %}{% trans %}acseine.counseling.html_keywords{% endtrans %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %} </a>
+		</div>
+		<div class="breadcrumb_items">
+			{% trans %}acseine.breadcrumb.counseling{% endtrans %}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{% trans %}acseine.counseling.title{% endtrans %}</h1>
+</div><!-- /title_category -->
+{% endblock %}
+
+{% block content %}
+<section id="counseling" class="counseling">
+<!-- /title_table -->
+<div class="main-content container">
+	<div class="counseling">
+		<ul class="box01">
+			<li>
+				<h3>{% trans %}acseine.counseling.head{% endtrans %}</h3>
+				<p>{% trans %}acseine.counseling.paragraph1{% endtrans %}</p>
+				<p>{% trans %}acseine.counseling.paragraph2{% endtrans %}</p>
+				<p>{% trans %}acseine.counseling.paragraph3{% endtrans %}</p>
+			</li>
+			<li>
+				<img src="{{asset('acseine/original/images/counseling/img01_pc.jpg')}}" alt="A fundamental part of ACSEINE is counseling">
+			</li>
+		</ul>
+		<div class="counseling-bottom">
+			 {# <ul class="box02">
+				  <li><a href="{{path('in_shop_counseling')}}"><img src="{{asset('acseine/original/images/counseling/img02_pc.jpg')}}" alt=""></a></li>
+				  <li><a href="{{path('shop')}}"><img src="{{asset('acseine/original/images/counseling/img03_pc.jpg')}}" alt=""></a></li>
+			  </ul>#}
+			<div class="col-md-6">
+				<a href="{{path('in_shop_counseling')}}">
+				  	<div class="containers">
+					  	<div class="centered">
+							<p class="font-btn-counseling">{% trans %}acseine.counseling.button_in_shop{% endtrans %}</p>
+					  	</div>
+					  	<div class="top-right">
+							<img class=""src="{{asset('acseine/original/images/counseling/img02_-pc.jpg')}}" alt="{% trans %}acseine.counseling.button_in_shop{% endtrans %}">
+					  	</div>
+				  	</div>
+				</a>
+			</div>
+			<div class="col-md-6">
+				<a href="{{path('shop')}}">
+				  	<div class="containers">
+					  	<div class="centered">
+							<p class="font-btn-counseling">{% trans %}acseine.counseling.button_list_shop{% endtrans %}</p>
+					  	</div>
+					  	<div class="top-right">
+							<img class=""src="{{asset('acseine/original/images/counseling/img03_-pc.jpg')}}" alt="{% trans %}acseine.counseling.button_list_shop{% endtrans %}">
+					  	</div>
+				  	</div>
+			  	</a>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+{% endblock %}

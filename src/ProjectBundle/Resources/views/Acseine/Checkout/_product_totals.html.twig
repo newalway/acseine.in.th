@@ -1,0 +1,58 @@
+
+    <div class="table-outer table-responsive">
+        <table class="cart-table table table-striped">
+            <thead class="cart-header">
+                <tr>
+                    <th class="text-center" colspan="2">{% trans %}cart.product{% endtrans %}</th>
+                    <th class="text-center">{% trans %}cart.quantity{% endtrans %}</th>
+                    <th class="price text-center">{% trans %}cart.price{% endtrans %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in arr_cart_data.products" ng-cloak>
+                    <td >
+                        <a ng-href="{{'{{getRouteProductDetail(product.product_id, product.title, product.variant_option)}}'}}">
+                            <img class='img-responsive' ng-if="product.image_small" ng-src="{{'{{product.image_small}}'}}" alt="{{'{{product.title}}'}}" />
+                            <img class='img-responsive' ng-if="!product.image_small" ng-src="{{ asset('template/img/shop/thumb-1.jpg')}}" alt="{{'{{product.title}}'}}" />
+                        </a>
+                    </td>
+                    <td  class="valign">
+                        <div class="">
+                            <!-- <figure class="prod-thumb">
+                            </figure> -->
+                            <h5 class="link-color">
+                            <a ng-href="{{'{{getRouteProductDetail(product.product_id, product.title, product.variant_option)}}'}}">
+                                {{'{{product.title}}'}}
+                                <div ng-if="product.variant_option.length>0">
+                                    <small>{{'{{product.variant_option.join(" · ")}}'}}</small>
+                                </div>
+                            </a>
+                        </h5>
+                        </div>
+                    </td>
+                    <td class="qty text-center valign">
+                        {#
+                        <input ng-model="product.quantity" ng-change="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'update')" class="quantity-spinner" type="text" value="{{'{{product.quantity}}'}}" name="quantity">
+                        #}
+
+                        {#
+                        <div class="input-group">
+                            <div class="input-group-btn">
+                                <button ng-click="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'decrease')" class="btn btn-default" style="" type="button"><i class="fa fa-minus"></i></button>
+                            </div>
+                            <input ng-model="product.quantity" ng-change="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'update')" class=" text-center form-control" type="text" value="{{'{{product.quantity}}'}}" name="quantity" style="min-width:60px;">
+                            <div class="input-group-btn">
+                                <button ng-click="updateProductQuantity($event, product.quantity, product.product_id, product.sku_id, $index, 'increase')" class="btn btn-default" style="" type="button"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </div>
+                        <div class="error_msg" ng-if="product.error_msg"><small>{{'{{product.error_msg}}'}}</small></div>
+                        #}
+                        {{'{{product.quantity}}'}}
+                    </td>
+                    <td class="price text-center valign">
+                        ฿{{'{{product.amount| currency:"":2}}'}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>

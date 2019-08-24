@@ -1,0 +1,131 @@
+<div class="">
+    <div class="panel-group" id="accordion">
+
+        {% if payment_bank_transfer_code in payment_options %}
+            <div ng-click="getPaymentOptionCode($event, '{{payment_bank_transfer_code}}', '{{payment_bank_transfer_code}}', '{{payment_omise_code}}', '{{payment_linepay_code}}')" class="panel inputGroup panel-default radio-block active">
+                <div class="icon clearfix"></div>
+                <div class="payment-a panel-title padding-title-payment">
+                    <!-- <input type='radio' id='rbank-payment' name='payment-options'/> -->
+                    <label class="radio-label" >{% trans %}payment.method.bank.title{% endtrans %}
+                        <a data-toggle="collapse" data-parent="#accordion" href="#bank-payment"></a>
+                        <label class=" active" ng-show="arr_cart_data.summary.payment_option=='{{payment_bank_transfer_code}}'"></label>
+                    </label>
+                </div>
+
+                <div id="bank-payment" class="panel-collapse collapse" ng-class="{'show': arr_cart_data.summary.payment_option=='{{payment_bank_transfer_code}}'}">
+                    <div class="panel-body">
+                        <p>{% trans %}payment.method.bank.description{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if payment_linepay_code in payment_options %}
+            <div ng-click="getPaymentOptionCode($event, '{{payment_linepay_code}}', '{{payment_bank_transfer_code}}', '{{payment_omise_code}}', '{{payment_linepay_code}}')" class="panel inputGroup panel-default radio-block">
+                <div class="icon clearfix"></div>
+                <div class="payment-a panel-title padding-title-payment">
+                    <label class="radio-label">{% trans %}payment.method.linepay.title{% endtrans %}
+                        <a data-toggle="collapse" data-parent="#accordion" href="#linepay-payment"></a>
+                        <label class=" active" ng-show="arr_cart_data.summary.payment_option=='{{payment_linepay_code}}'"></label>
+                    </label>
+                </div>
+
+			    {% for flashMessage in app.session.flashbag.get('linepay_errors') %}
+			        <div class="alert alert-dismissible text-danger" style="margin-bottom: 0px;">
+			            <i class="fa fa-exclamation-circle"></i> {{ flashMessage|raw }}
+			        </div>
+			    {% endfor %}
+
+                <div id="linepay-payment" class="panel-collapse collapse" ng-class="{'show': arr_cart_data.summary.payment_option=='{{payment_linepay_code}}'}">
+                    <div class="panel-body">
+                        <p>{% trans %}payment.method.linepay.description{% endtrans %}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+        {% if payment_omise_code in payment_options %}
+            <div ng-click="getPaymentOptionCode($event, '{{payment_omise_code}}', '{{payment_bank_transfer_code}}', '{{payment_omise_code}}', '{{payment_linepay_code}}')" class="panel inputGroup panel-default radio-block">
+                <div class="icon clearfix"></div>
+                <!-- <input type='radio' id='rcredit-payment' name='payment-options' value='Not-Working'/> -->
+                <div class="payment-b panel-title padding-title-payment">
+                    <label class="payment-b radio-label">{% trans %}payment.method.credit.title{% endtrans %}
+                        <label class="payment-b active" ng-show="arr_cart_data.summary.payment_option=='{{payment_omise_code}}'"></label>
+                    </label><br>
+                    <span>
+                        <img src="{{asset('images/payment_method/visa_symbol.png')}}" alt="" style="width:40px;"/>
+                        <img src="{{asset('images/payment_method/mc_symbol.png')}}" alt="" style="width:40px;"/>
+                        <img src="{{asset('images/payment_method/jcb_symbol.gif')}}" alt="" style="width:25px;"/>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#credit-payment"></a>
+                    </span>
+                </div>
+
+                {% if payment_omise_code in payment_options %}
+    			    {% for flashMessage in app.session.flashbag.get('omise_errors') %}
+    			        <div class="alert alert-dismissible text-danger" style="margin-bottom: 0px;">
+    			            <i class="fa fa-exclamation-circle"></i> {{ flashMessage|raw }}
+    			        </div>
+    			    {% endfor %}
+    			{% endif %}
+
+                <div id="credit-payment" class="panel-collapse collapse" ng-class="{'show': arr_cart_data.summary.payment_option=='{{payment_omise_code}}'}">
+                    <div class="panel-body">
+
+                        <form action="{{path('checkout_place_order')}}" method="post" id="checkout">
+    						<div class="alert-dismissible text-danger" id="token_errors"></div>
+    						<input type="hidden" name="omise_token">
+    						<div>
+                                {% trans %}payment.method.card.name_on_card{% endtrans %}<br/>
+    							<input type="text" data-omise="holder_name">
+    						</div>
+    						<div>
+                                {% trans %}payment.method.card.card_number{% endtrans %}<br/>
+    							<input type="text" data-omise="number" maxlength="16">
+    						</div>
+    						<div>
+                                {% trans %}payment.method.card.expiry_date{% endtrans %}<br/>
+    							<input type="text" data-omise="expiration_month" maxlength="2" size="4" placeholder="MM"> /
+    							<input type="text" data-omise="expiration_year" maxlength="2" size="4" placeholder="YY">
+    						</div>
+    						<div>
+                                {% trans %}payment.method.card.security_code{% endtrans %}<br/>
+    							<input type="text" data-omise="security_code" maxlength="4" size="8">
+    							<img src="{{asset('images/credit-card.png')}}" style="width:40px;">
+    						</div>
+
+                            <br/>
+                            <p>{% trans %}payment.method.credit.description{% endtrans %}</p>
+
+    						<div class="">
+    							<button type="submit" id="create_token" class="btn acseine-btn place-order">{% trans %}cart.place_order{% endtrans %}</button>
+    						</div>
+    					</form>
+
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="margin-top-40 text-right">
+    <form action="{{path('checkout_place_order')}}" ng-submit="submitCheckoutPlaceOrderForm()" name="checkout_place_order_form" id="checkout_place_order_form" method="post" enctype="multipart/form-data">
+        {{form_widget(place_order_form._token)}}
+        {{form_widget(place_order_form.omise_token, {'id' : 'place_order_omise_token'} )}}
+        <div  ng-show="arr_cart_data.summary.payment_option!='{{payment_omise_code}}'">
+            <button ng-disabled="validatePlaceOrder()" type="submit" class="btn acseine-btn place-order">{% trans %}cart.place_order{% endtrans %}</button>
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript">
+    // move to javascripts/cartApp/controllers/payment_controller.js
+    // $('.payment-a').on('click', function(){
+    //     $( "#bank-payment" ).slideDown('slow');
+    //     $( "#credit-payment" ).slideUp();
+    // });
+    // $('.payment-b').on('click', function(){
+    //     $( "#credit-payment" ).slideDown('slow');
+    //     $( "#bank-payment" ).slideUp();
+    // });
+</script>

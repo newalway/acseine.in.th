@@ -1,0 +1,460 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout.html.twig" %}
+
+{% block title %}{% if product.getMetaTitle %}{{product.getMetaTitle}}{% else %}{{product.getTitle}} | {% trans %}project.title_bar_name{% endtrans %} {{ parent() }}{% endif %}{% endblock %}
+
+{% block home_active %}active{% endblock %}
+{% block m_home_active %}active{% endblock %}
+
+{% block html_description %}{% if product.getMetaDescription %}{{product.getMetaDescription}}{% else %}{{product.getTitle}}{% endif %}{% endblock %}
+{% block html_keywords %}{{product.getTitle}}, {% if product.getMetaKeywords %}{{product.getMetaKeywords}}{% else %}{% trans %}acseine.product.series.html_keywords{% endtrans %}{% endif %}{% endblock %}
+
+{% block main_class %}{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style media="screen">
+	.group-cart{padding: 10px}
+	.paddind-cart-data{padding-bottom: 10px}
+	{% if is_variant %}
+		.div-height{height: 50px;}
+	{% else %}
+		.div-height{height: 30px;}
+	{% endif %}
+</style>
+{% endblock %}
+
+{% block breadcrumb %}
+<div class="breadcrumb">
+	<div class="container breadcrumb_in">
+		<div class="breadcrumb_items">
+			<a href="{{path('homepage')}}" class="active">{% trans %}acseine.breadcrumb.top{% endtrans %}</a>
+		</div>
+		<div class="breadcrumb_items">
+			<a href="{{path('product')}}">{% trans %}acseine.breadcrumb.product{% endtrans %}</a>
+		</div>
+		{% if series %}
+			<div class="breadcrumb_items">
+				<a href="{{path('product_series', {'id':series.id, 'slug':series.translate('en').title|slug })}}">{{series.getTitle}} {{series.getSubtitle}}</a>
+			</div>
+		{% endif %}
+		<div class="breadcrumb_items">
+			{{product.getTitle}}
+		</div>
+	</div>
+</div><!-- /breadcrumb -->
+<div class="container title_category">
+	<h1>{{product.getTitle}}</h1> {#<span class="tit_pl20">{{product.getSubtitle}}</span>#}
+</div><!-- /title_category -->
+{% endblock %}
+
+{% block content %}
+<section ng-app="productDetailApp" id="product-detail" class="product-detail sidebar-pages popular-shop-item product-detail">
+<!-- /title_table -->
+<div ng-controller="productDetailCtrl" ng-init="init('{{product.id}}')" class="main-content container">
+	<div class="content">
+		<ul class="box-top">
+			<li style="position:relative;margin:0 auto;">
+				<img class="text-ceter" src="{{asset(product.image)}}" alt="{{product.getTitle}}">
+				{#<div class="bubble">
+					<div class="inside">
+						<div class="inside-text">-{{ product|getPercentProductDiscount }}%</div>
+					</div>
+				</div><!-- end bubble -->#}
+			</li>
+			<li>
+				<div class="title_category">
+					<h2>{{product.getTitle}} {#<span class="tit_pl20">PA++++</span>#} </h2>
+				</div><!-- /title_category -->
+
+				{# {{product.getShortDesc|raw}} #}
+
+				{{product.getDescription|raw}}
+
+				{#
+				{% if is_variant %}
+					<div ng-repeat="v in arr_sku_variant_data.variant_data" ng-cloak>
+						<span>{{'{{v.option_name}}'}}</span>
+						<select ng-model="v.selected" ng-change="setVariantSelectedData()" name="variant_data[]">
+							<option ng-repeat="vo in v.option_value" ng-value="{{'{{vo.toLowerCase()}}'}}">{{'{{vo}}'}}</option>
+						</select>
+						<div ng-repeat="test in v.option_value">
+							<span> {{'{{test}}'}}</span>
+						</div>
+					</div>
+				{% endif %}
+				<span class="price" ng-cloak>
+					฿{{'{{showprice.total_price|currency:"":2}}'}}
+					฿<del ng-if="showprice.compare_at_price">{{'{{showprice.total_compare_at_price|currency:"":2}}'}}</del>
+
+					<span ng-if="frm.quantity>1">
+						(Qty {{'{{frm.quantity}}'}})
+					</span>
+
+					<text ng-show="varian_option_selected.status=='off'">
+						Unavailable
+					</text>
+				</span>
+
+				{{'{{arr_sku_variant_data.variant_data}}'}}
+				#}
+
+				<div class="box-top-txt02 ng-cloak">
+					{# {% set data_price = getPriceData(product_rs) %} #}
+					<ul class="row group-cart" >
+						{% if is_variant %}
+							<!-- Variant -->
+							<li ng-repeat="v in arr_sku_variant_data.variant_data" ng-cloak>
+								<div class="col-xs-3 col-sm-2 col-md-2 paddind-cart-data txt01">
+									<span class="">{{'{{v.option_name|capitalize}}'}}</span>
+
+								</div>
+								<div class="col-xs-9 col-sm-10 col-md-10 paddind-cart-data">
+									<span class="txt02">
+										{# <!-- select option -->
+										<select ng-model="v.selected" ng-change="setVariantSelectedData()" name="variant_data[]">
+											<option ng-repeat="vo in v.option_value" ng-value="{{'{{vo.toLowerCase()}}'}}">{{'{{vo}}'}}</option>
+										</select> #}
+
+										<!-- radio -->
+										<span class="boxed">
+											<label ng-repeat="vo in v.option_value" class="text-center" ng-class="{activeRadio: v.selected == vo.toLowerCase()}">
+												<input type="radio" ng-model="v.selected"  ng-change="setVariantSelectedData()" value="{{'{{vo.toLowerCase()}}'}}">
+												<span>{{'{{vo}}'}}</span>
+											</label>
+										</span>
+									</span>
+								</div>
+								<div class="div-height">&nbsp;</div>
+							</li>
+							{% if product.isShowWeight %}
+								<li ng-if="varian_option_selected.grams">
+									<div class="col-xs-3 col-sm-2 col-md-2 paddind-cart-data txt01 ">
+										<span class="">{% trans %}product.volume{% endtrans %}</span>
+									</div>
+									<div class="col-xs-9 col-sm-10 col-md-10 paddind-cart-data">
+										<span class="txt02">&nbsp;{{'{{varian_option_selected.grams|currency:"":0}}'}}{{'{{varian_option_selected.weight_unit}}'}}</span>
+									</div>
+									<div class="div-height">&nbsp;</div>
+								</li>
+							{% endif %}
+
+						{% else %}
+							<!-- No variant -->
+							{% if product.isShowWeight and product.grams %}
+								<li>
+									<div class="col-xs-3 col-sm-2 col-md-2 paddind-cart-data txt01 ">
+										<span class="">{% trans %}product.volume{% endtrans %}</span>
+									</div>
+									<div class="col-xs-9 col-sm-10 col-md-10 paddind-cart-data">
+										<span class="txt02">&nbsp;{{product.weight|number_format(0, '.', ',')}}{{product.weightunit}}</span>
+									</div>
+									<div class="div-height">&nbsp;</div>
+								</li>
+							{% endif %}
+						{% endif %}
+
+						<li>
+							<div class="col-xs-3 col-sm-2 col-md-2 paddind-cart-data txt01 ">
+								<span class="">{% trans %}product.price{% endtrans %}</span>
+							</div>
+							<div class="col-xs-9 col-sm-10 col-md-10 paddind-cart-data">
+								<span class="txt02">
+									฿{{'{{showprice.total_price|currency:"":2}}'}}
+									<del ng-if="showprice.compare_at_price" class="before-rate">฿{{'{{showprice.total_compare_at_price|currency:"":2}}'}}</del>
+									<span ng-if="frm.quantity>1">(Qty {{'{{frm.quantity}}'}})</span>
+									<text ng-show="varian_option_selected.status=='off'">Unavailable</text>
+								</span>
+							</div>
+
+							{#
+							<span class="txt02">
+								฿{{ data_price.price|round(2,'ceil')|number_format(2, '.', ',') }}
+								{% if (data_price.compare_at_price and data_price.compare_at_price > data_price.price) %}
+									<del class="before-rate">
+										฿{{ data_price.compare_at_price|round(2,'ceil')|number_format(2, '.', ',') }}
+									</del>
+								{% endif %}
+							</span>
+							#}
+							<div class="div-height">&nbsp;</div>
+						</li>
+
+						<li>
+							<form ng-submit="submitAddToCart(0)" method="post" enctype="multipart/form-data">
+								<div class="col-xs-3 col-sm-2 col-md-2 paddind-cart-data txt01 ">
+									<span class="">{% trans %}product.quantity{% endtrans %}</span>
+								</div>
+								<div class="col-xs-9 col-sm-10 col-md-10 paddind-cart-data">
+									<span class="txt02 " ng-cloak >
+	                                    {{form_widget(form._token)}}
+										<!-- <label for="spinner">Select a value:</label> -->
+										<div class="stepper">
+											<input ng-model="frm.quantity" ng-change="setShowPriceData()" type="number" name="add_to_cart['quantity']" min="1" class="stepper-input">
+											<button ng-click="updateProductQuantity('increase')" class="stepper-step stepper-arrow up" type="button"></button>
+											<button ng-click="updateProductQuantity('decrease')" class="stepper-step stepper-arrow down" type="button"></button>
+										</div>
+										<div class="add-to-cart-box" >
+										    <button style="padding:5px;"ng-disabled="varian_option_selected.status=='off'" type="button" ng-click="submitAddToCart(1)" class="btn acseine-btn">{% trans %}product.buy_it_now {% endtrans %}</button>
+	                                        <button ng-disabled="varian_option_selected.status=='off'" type="submit" class="btn acseine-btn add-to-cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbsp;{% trans %}product.add_to_cart{% endtrans %}</button>
+
+											{% if page_data and page_data.getContent %}
+												<div style="display:inline-block; padding-left: 10px;">
+													{{page_data.getContent|raw}}
+												</div>
+											{% endif %}
+
+											<span ng-if="error_msg"><br/>{{'{{error_msg}}'}}</span>
+											{#<a href="#" class="thm-btn">Add To Cart</a>
+											<button type="button" class="thm-btn">Order Now</button>#}
+	                                    </div>
+									</span>
+								</div>
+							</form>
+						</li>
+					</ul>
+				</div> <!--  box-top-txt02-->
+			</li>
+		</ul>
+
+{#{{ dump('{{varian_option_selected|json}}') }}#}
+
+		{% if product.getHowToUse %}
+			<div class="box-item">
+				<h2 class="title_product">{% trans %}product.howtouse{% endtrans %}</h2>
+				<p>{{product.getHowToUse|nl2br}}</p>
+			</div>
+		{% endif %}
+
+		{% if product.getIngredient %}
+			<div class="box-item">
+				<h2 class="title_product">{% trans %}product.ingredient{% endtrans %}</h2>
+				<p>{{product.getIngredient|nl2br}}</p>
+			</div>
+		{% endif %}
+
+		{% if products_relateds|length %}
+			<div class="block-product">
+				<h2>{% trans %}product.related{% endtrans %}</h2>
+				<div class="col-md-12"><p> &nbsp; </p></div>
+
+				{% for rs in products_relateds %}
+					{% set products_related = rs[0] %}
+					{% set data_price_related = getPriceData(rs) %}
+					<div class="col-xs-6 col-sm-3 col-md-3">
+						<a href="{{path('product_detail', {'id':products_related.id, 'slug':products_related.getTitle|slug })}}">
+						<div class="text-center">
+							{% if products_related.image %}
+								<img class="product-img" src="{{asset(products_related.image) | imagine_filter('img_150x150')}}" alt="{{products_related.getTitle}}">
+							{% endif %}
+							{% if (data_price_related.compare_at_price > data_price_related.price) %}
+								<div class="bubble">
+									<div class="inside">
+										<div class="inside-text">-{{ rs|getPercentProductDiscount }}%</div>
+									</div>
+								</div><!-- end bubble -->
+							{% endif %}
+						</div>
+						<div class="caption text-center">
+							<h3>{{products_related.getTitle|nl2br}}</h3>
+							<p>
+								<b>฿{{ data_price_related.price|round(2,'ceil')|number_format(2, '.', ',') }}</b>
+								{% if (data_price_related.compare_at_price and data_price_related.compare_at_price > data_price_related.price) %}
+									<del class="before-rate">
+										฿{{ data_price_related.compare_at_price|round(2,'ceil')|number_format(2, '.', ',') }}
+									</del>
+								{% endif %}
+							</p>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		{% endif %}
+
+		<div class="col-xs-12 col-sm-12 col-md-12 block-series-top pull-right">
+			<div class="btn panel panel-default">
+				<a href="{{path('product')}}">To the product series top</a>
+			</div>
+		</div>
+	</div>
+
+{#
+{{ dump('{{arr_sku_variant_data|json}}') }}
+-------<br/>
+{{ dump('{{arr_variant_option_data|json}}') }}
+#}
+
+</div>
+</section>
+{% endblock %}
+
+{% block javascripts_body %}
+{{ parent() }}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.js"></script>
+
+<script src="{{ asset('javascripts/base_product.js') }}"></script>
+<script>
+	$( function() {
+	  var spinner = $( "#spinner" ).spinner();
+	} );
+
+	var app = angular.module('productDetailApp', []);
+
+    app.factory('product_data', ['$http', function product_data($http) {
+        return {
+            add_item_to_cart: function(dataObj){
+                return $http({
+                    method: 'POST',
+                    // url: Routing.generate('api_1_post_public_additemtocart'),
+                    url: Routing.generate('cart_add_item_to_cart'),
+                    data: $.param(dataObj),
+                    headers: {
+                        'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'
+                    }
+                });
+            }
+        }
+    }]);
+
+	app.controller('productDetailCtrl',['$scope', '$sce', 'product_data', function($scope, $sce, product_data){
+
+        $scope.init = function(product_id)
+        {
+			$scope.product_id = product_id;
+            $scope.is_variant = '{{is_variant}}';
+            $scope.arr_sku_variant_data = {{arr_sku_variant_data|json_encode|raw}}
+            $scope.arr_variant_option_data = {{arr_variant_option_data|json_encode|raw}}
+            $scope.varian_option_selected = {};
+            if($scope.arr_variant_option_data['variant_default_option'].length>0){
+                var key_name = $scope.getVariantKeyName($scope.arr_variant_option_data['variant_default_option'], 'array');
+                $scope.varian_option_selected = $scope.arr_variant_option_data['variant_option_data'][key_name];
+            }
+
+            $scope.frm = {};
+            $scope.frm.quantity = 1;
+            $scope.frm.product_id = $scope.product_id;
+
+            $scope.showprice = {};
+            $scope.setShowPriceData();
+
+            $scope.arr_cart_data = {};
+            $scope.arr_cart_data.products = [];
+            $scope.arr_cart_data.summary = [];
+            $scope.error_msg = '';
+		}
+
+		$scope.submitAddToCart = function(is_order_now)
+        {
+            $scope.frm._token = angular.element('#add_to_cart__token').val();
+
+            if($scope.is_variant){
+                $scope.frm.varian_option = $scope.varian_option_selected;
+            }
+
+            product_data.add_item_to_cart($scope.frm).then(function onSuccess(response){
+                // closeDomWindow();
+
+                if(response.data.status==true){
+                    $scope.arr_cart_data = response.data.arr_cart_data;
+                    $scope.error_msg='';
+
+                    //redirect to cart
+                    if(is_order_now==1){
+                        $(location).attr('href', '{{url('cart')}}');
+                    }else{
+
+                        if($scope.arr_cart_data.summary.total){
+							angular.element($( ".cart_summary_item_count_sub" ).html('('+$scope.arr_cart_data.summary.item_count+')'));
+                            // angular.element($( ".cart_summary_item_count" ).html('<span class="cart-item">'+$scope.arr_cart_data.summary.item_count+'</span>'));
+                            // angular.element($( "#cart_summary_total" ).html(numeral( $scope.arr_cart_data.summary.total).format('0,0') ));
+                        }
+
+                        // if($scope.arr_cart_data.products){
+                        //     angular.element($( "#cart_list_products_item" ).html(''));
+                        //     $scope.arr_cart_data.products.forEach(function(element) {
+                        //         updateCartBoxData(element);
+                        //     });
+                        // }
+
+                        // angular.element($( "#cart_list_products" ).fadeIn('fast'));
+						// angular.element($( "#cart_list_products" ).css({'display':'block'}));
+                    }
+                }else{
+                    $scope.error_msg = response.data.error_msg;
+                }
+
+            }).catch(function onError(response) {
+                // closeDomWindow();
+            });
+        }
+
+		$scope.setVariantSelectedData = function()
+        {
+            if($scope.arr_sku_variant_data.variant_data.length>0){
+                var key_name = $scope.getVariantKeyName($scope.arr_sku_variant_data.variant_data, 'object_selected');
+                $scope.varian_option_selected = $scope.arr_variant_option_data['variant_option_data'][key_name];
+            }
+            $scope.setShowPriceData();
+        }
+
+		$scope.getVariantKeyName = function(data, type)
+        {
+            var arr_data = [];
+            data.forEach(function(element) {
+                if(type=='array'){
+                    arr_data.push(element); //when initial
+                }else if(type=='object_selected'){
+                    arr_data.push(element.selected); //when change variants
+                }
+            });
+            var tmp_key_name = arr_data.join('-');
+            return tmp_key_name;
+        }
+
+		$scope.setShowPriceData = function()
+        {
+            if($scope.is_variant){
+                $scope.showprice.price = $scope.varian_option_selected.price;
+                $scope.showprice.compare_at_price = $scope.varian_option_selected.compare_at_price;
+            }else{
+                $scope.showprice.price = '{{product.price}}';
+                $scope.showprice.compare_at_price = '{{product.compareAtPrice}}';
+            }
+
+            //calculate total price with quantity
+            if($scope.frm.quantity>1){
+                $scope.showprice.total_price = ($scope.showprice.price * $scope.frm.quantity);
+                $scope.showprice.total_compare_at_price = ($scope.showprice.compare_at_price * $scope.frm.quantity);
+            }else{
+                $scope.showprice.total_price = ($scope.showprice.price);
+                $scope.showprice.total_compare_at_price = ($scope.showprice.compare_at_price);
+            }
+        }
+		$scope.updateProductQuantity = function(mode) {
+			var is_update = true;
+			if(mode=='increase'){
+				$scope.frm.quantity++;
+			}else if (mode=='decrease'){
+				if ($scope.frm.quantity > 1){
+					$scope.frm.quantity--;
+				}else{
+					is_update = false;
+				}
+			}
+			if(is_update){
+				$scope.setShowPriceData();
+			}
+		}
+	}]);
+
+
+	app.filter('capitalize', function() {
+		return function(input) {
+			return (angular.isString(input) && input.length > 0) ? input.charAt(0).toUpperCase() + input.substr(1).toLowerCase() : input;
+		}
+	});
+
+</script>
+{% endblock %}

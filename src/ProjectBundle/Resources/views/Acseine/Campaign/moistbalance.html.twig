@@ -1,0 +1,216 @@
+{% extends "ProjectBundle:"~ view_layout ~":layout_campaign.html.twig" %}
+
+{% block title %}มอยเจอร์ไรเซอร์สำหรับผิวแห้ง บำรุงผิวขาดน้ำเพื่อผิวนุ่มชุ่มชื่น | {{ parent() }}{% endblock %}
+{% block html_description %}มอยเจอร์ไรเซอร์บำรุงผิวเพื่อผิวนุ่มชุ่มชื่น ใช้ได้ทุกสภาพผิว เหมาะสำหรับผิวแห้งขาดน้ำ เติมความชุ่มชื้นเข้าสู่ผิวด้วยผลิตภัณฑ์จาก ACSEINE ดูแลผิวสวยสุขภาพดี{% endblock %}
+{% block html_keywords %}มอยเจอร์ไรเซอร์, ผลิตภัณฑ์ผิวนุ่มชุ่มชื่น, ผลิตภัณฑ์สำหรับผิวแห้ง, มอยเจอร์ไรเซอร์, มอยเจอร์ไรเซอร์ผิวแห้ง, มอยเจอร์ไรเซอร์สำหรับผิวแห้ง, Soft and moist skin products, Product for dryskin, Moisturizer, Moisturizer for dryskin, Moisturizer for dryskin{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="main-banner pro-banner">
+            <div class="item item1">
+                <a>
+                    <img src="{{asset('/acseine_campaign/images/banner/banner-moistbalance2.jpg')}}" class="pc" alt="Acseine Moistbalance Lotion Gel" />
+                    <img src="{{asset('/acseine_campaign/images/banner/banner-moistbalance2-m.jpg')}}" class="m" alt="Acseine Moistbalance Lotion Gel" />
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="moistbalance">
+        <div class="pad">
+            <div class="container">
+                <div class="section-title">
+                    <h1>ผลิตภัณฑ์ดูแลผิว เพื่มผิวนุ่มชุ่มชื่นตลอดทั้งวัน</h1>
+                </div>
+
+                <div class="pro-list">
+                    <!-- Item 1 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/pro1.png')}}" alt="Acseine Moistbalance Lotion" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail detail-lotion">
+                                <h3 class="text-blue">Moistbalance Lotion</h3>
+                                <h2>โลชั่นเพื่อผิวชุ่มชื้นตลอดทั้งวัน</h2>
+                                <hr />
+                                <p>
+                                    <b>สำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว</b>
+                                </p>
+                                <p>
+                                    เราไม่เพียงแต่ยึดติดกับ "คุณภาพ" ของความชุ่มชื้นแต่เรายังใส่ใจใน "ปริมาณ" เพื่อให้ได้โลชั่นที่ให้ความชุ่มชื่นพร้อมตอบสนองต่อปัญหาผิวแห้งของผู้หญิงสมัยใหม่
+                                </p>
+                                <p>
+                                    ทุกช่วงเวลาที่เนื้อโลชั่นสัมผัสผิว จะให้ความรู้สึกเหมือนเนื้อสัมผัส "กลายเป็นผิวจริงๆ" และแทรกซึมล้ำลึกเข้าสู่ผิวของคุณ ด้วยเนื้อโลชั่นละเอียดนุ่ม เบาสบาย ไม่เหนียวเหนอะหนะ ให้ความรู้สึกชุ่มชื้นอย่างต่อเนื่อง ผิวไม่รู้จักความแห้งกร้านเลยตลอดทั้งวัน
+                                </p>
+                                <p>
+                                    ACSEINE Moist Balance Lotion<br />
+                                    360ml 2,100 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'1','slug':'moistbalance-lotion'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'1','slug':'moistbalance-lotion'} %}
+
+                                <a href="#shoplist" class="button blue2 js_waveBtn link-click">Shop List</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="row">
+                        <div class="col-sm-6 col">
+                            <div class="img">
+                                <img src="{{asset('/acseine_campaign/images/product/pro2.png')}}" alt="Acseine Moistbalance Gel" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-5 col">
+                            <div class="detail">
+                                <h3 class="text-blue">Moistbalance Gel</h3>
+                                <h2>ช่วยปกป้องความชุ่มชื้นได้อย่างสมบูรณ์แบบ</h2>
+                                <hr />
+                                <p>
+                                    <b>เจลสำหรับผิวแพ้ง่าย-ขาดน้ำ ใช้ได้กับทุกสภาพผิว</b>
+                                </p>
+                                <p>
+                                    ไม่ใช่แค่การปกป้อง แต่ยังช่วยฟื้นบำรุงความชุ่มชื้นและความหยาบกร้าน
+                                    เพราะใส่ใจที่ "ความรู้สึก" เราจึงค้นคว้าวิจัยเพื่อสร้างความรู้สึก "แสนสบาย" เพียงเริ่มใช้
+                                </p>
+                                <p>
+                                    เมื่อเจลเนื้อนุ่มสัมผัสลงบนผิว จะแทรกซึมและละลายเข้าสู่ผิวอย่างรวดเร็วล้ำลึก มาพร้อมผิวดูที่แลดูสวยสุขภาพดี คงความชุ่มชื้นยาวนานตลอดทั้งวัน
+                                </p>
+                                <p>
+                                    Moistbalance Gel<br />
+                                    50g 2,100 บาท (รวมภาษี)<br />
+                                    95g 3,200 บาท (รวมภาษี)
+                                </p>
+                                <br />
+                                {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_btn_request_tester.html.twig" %}#}
+
+                                {#<a href="{{path('product_detail',{'id':'2','slug':'moistbalance-gel'})}}" target="_blank" class="button red js_waveBtn">
+                                    ORDER NOW
+                                </a>#}
+
+                                {% include "ProjectBundle:"~ view_acseine_campaign ~":_order_now.html.twig" with {'id':'2','slug':'moistbalance-gel'} %}
+
+                                <a href="#shoplist" class="button blue2 js_waveBtn link-click">Shop List</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pad moist-howto">
+            <div class="container">
+                <div class="section-title">
+                    <h2>วิธีการใช้</h2>
+                </div>
+                <div class="tb">
+                    <div class="tr lotion">
+                        <div class="td img">
+                            <img src="{{asset('/acseine_campaign/images/product/moistbalance/dorp-water.png')}}" alt="วิธีการใช้ MOISTBALANCE LOTION" />
+                        </div>
+
+                        <div class="td detail">
+                            <h4>MOISTBALANCE LOTION</h4>
+                            หลังจากการล้างหน้า เทโลชั่นปริมาณเหรียญ 10 บาท 2-3 ครั้ง และทาให้ทั่วใบหน้าและลำคอ
+                        </div>
+                    </div>
+                    <div class="tr gel">
+                        <div class="td img">
+                            <img src="{{asset('/acseine_campaign/images/product/moistbalance/dorp-water2.png')}}" alt="วิธีการใช้ MOISTBALANCE GEL" />
+                        </div>
+
+                        <div class="td detail">
+                            <h4>MOISTBALANCE GEL</h4>
+                            ล้างหน้าให้สะอาด จากนั้นใช้เจลในปริมาณเท่าเม็ดไข่มุก 2 -3 เม็ด ทาให้ทั่วบริเวณใบหน้าไปจนถึงลำคอ
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="pad">
+                <div class="section-title">
+                    <h2 style="text-transform: uppercase;">OUR TECHNOLOGY</h2>
+                </div>
+
+                <p class="text-blue">
+                    สิ่งสำคัญคือต้องระลึกไว้เสมอว่า "การรักษาความชุ่มชื้น" เพื่อรักษาปัญหาสุขภาพผิว อาจไม่เพียงพอที่จะให้ความชุ่มชื้นแก่ผิว  เราจึงมีคำตอบที่ว่า “พลังการแทรกซึม" และ “การเกาะตัว" มีความสำคัญ  เราจึงได้พัฒนาโลชั่นที่ให้ความชุ่มชื้นได้อย่างยั่งยืน
+                </p>
+
+                <div class="ideal-box">
+                    <div class="ideal ideal1">
+                        <h4>ผิวชุ่มชื้น</h4>
+                        <div class="text-center">
+                            <img src="{{asset('/acseine_campaign/images/product/moistbalance/box01.jpg')}}" alt="Ideal skin, filled with moisture" />
+                        </div>
+                        <div class="ideal-content">
+                            ในชั้นผิวหนัง corneum ไขมันระหว่างเซลล์จะเก็บความชุ่มชื้นยึดเซลล์เข้าไว้ด้วยกัน  โดย sebum membrane จะได้รับการปกป้องจากสิ่งเร้าต่างๆ ทั้งความชื้นและปริมาณน้ำมันให้อยู่ในสมดุลที่ดี เพื่อผิวที่นุ่มและเรียบเนียน
+                        </div>
+                    </div>
+                    <div class="ideal ideal2">
+                        <h4>ผิวแห้งและแพ้ง่าย</h4>
+                        <div class="text-center">
+                            <img src="{{asset('/acseine_campaign/images/product/moistbalance/box02.jpg')}}" alt="Skin that has dried out and become sensitive" />
+                        </div>
+                        <div class="ideal-content">
+                            การขาดไขมันระหว่างเซลล์ทำให้เกิดการคายน้ำในชั้นผิวหนัง corneum ที่เต็มไปด้วยช่องว่าง จนทำให้ผิวอ่อนแอลงและถูกกระตุ้นโดยสิ่งเร้าภายนอกได้ง่าย เนื่องจากปริมาณความชื้นและน้ำมันไม่เพียงพอ จึงทำให้ปราการผิวทำงานได้อย่างไม่มีมีประสิทธิภาพ ผิวจึงถูกรบกวนและง่ายต่อการเกิดระคายเคือง
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="moist-tips">
+                <h2 class="text-center">3 เคล็ดลับ ที่ช่วยรักษาความชุ่มชื้นในขณะที่ครีมสัมผัสผิว</h2>
+                <div class="tb">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/moistbalance/tips1.png')}}" alt="แทรกซึมอย่างสบาย" />
+                    </div>
+                    <div class="td detail">
+                        <h4>1. ซึมซาบเร็ว เบาสบาย</h4>
+                        <p>
+                            เมื่อเจลแรกสัมผัสกับผิว จะเปลี่ยนสภาพเสมือนกับน้ำ เพื่อละลายและส่งความชุ่มชื้นสู่ผิวชั้นบนเพื่อให้ผิวผู้ใช้อิ่มน้ำ
+                        </p>
+                    </div>
+                </div>
+                <div class="tb">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/moistbalance/tips2.png')}}" alt="สร้างน้ำเคลือบผิว a moisture veil" />
+                    </div>
+                    <div class="td detail">
+                        <h4>2. สร้างน้ำเคลือบผิว (a moisture veil)</h4>
+                        <p>
+                            การก่อตัวของน้ำเคลือบผิว ช่วยมอบความชุ่มชื้นให้กับชั้น corneum อย่างช้า ๆ และต่อเนื่อง
+                        </p>
+                    </div>
+                </div>
+                <div class="tb">
+                    <div class="td img">
+                        <img src="{{asset('/acseine_campaign/images/product/moistbalance/tips3.png')}}" alt="ช่วยดูแลผิวให้ชุ่มชื้นเป็นธรรมชาติ" />
+                    </div>
+                    <div class="td detail">
+                        <h4>3. ช่วยดูแลผิวให้ชุ่มชื้นเป็นธรรมชาติ</h4>
+                        <p>
+                            CERAMIDE FACTOR จะส่งเสริมการทำงานของเซราไมด์ในชั้น corneum ที่เปรียบเสมือนปราการผิวให้กลับมาสมดุล ช่วยให้ผิวของคุณชุ่มชื้น อ่อนนุ่ม กระจ่างใส “ตามธรรมชาติ”
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    {#{% include "ProjectBundle:"~ view_acseine_campaign ~":_sample.html.twig" %}#}
+
+{% endblock %}

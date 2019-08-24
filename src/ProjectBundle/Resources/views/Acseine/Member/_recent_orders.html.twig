@@ -1,0 +1,58 @@
+<div class="member-box panel panel-default fos-order">
+    <div class="panel-heading">
+        <h4 class="panel-title">
+            {% trans %}member.recent.orders{% endtrans %}
+            <small class="fw-n tt-u"><a href="{{path('member_orders')}}"><span class="label label-warning">{% trans %}see.more{% endtrans %}</span></a></small>
+        </h4>
+    </div>
+    <div class="panel-body">
+    <div class="table-responsive">
+    <table class="table table-bordered">
+        <th>
+            <b>{% trans %}order.txt{% endtrans %} #</b>
+        </th>
+        <th class="col-sm-2">
+            <b>{% trans %}order.placed.on{% endtrans %}</b>
+        </th>
+        <th class="col-sm-2">
+            <b>{% trans %}order.items{% endtrans %}</b>
+        </th>
+        <th class="col-sm-2">
+            <b>{% trans %}order.total{% endtrans %}</b>
+        </th>
+        <th>
+            <b></b>
+        </th>
+
+    {% for order in orders %}
+     <tr>
+        <td>
+            {# <b class="order-no">{% trans %}order.txt{% endtrans %} #</b> #}
+            {{order.orderNumber}}
+        </td>
+        <td>
+            {#<b class="placed-on">{% trans %}order.placed.on{% endtrans %}</b>#}
+            {{ order.orderDate |date('d/m/Y')}}
+        </td>
+        <td>
+            {#<b class="items">{% trans %}order.items{% endtrans %}</b>#}
+            {{order.itemCount}}
+        </td>
+        <td>
+            ฿{{order.totalPrice|number_format(2, '.', ',') }}
+        </td>
+        <td>
+            <a href="{{path('track',{'no':order.orderNumber})}}" class="manage">{% trans %}order.manage{% endtrans %}</a>
+        </td>
+    </tr>
+    {% else %}
+    <tr>
+        <td colspan="4" class="text-center">
+            {% trans %}order.none{% endtrans %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+    </div>
+    </div>
+</div>

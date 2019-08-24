@@ -1,0 +1,260 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="telephone=no" name="format-detection">
+    <title></title>
+
+    <!--[if (mso 16)]>
+<style type="text/css">
+a {text-decoration: none;}
+</style>
+<![endif]-->
+<!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]-->
+<!--[if !mso]><!-- -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+<!--<![endif]-->
+
+</head>
+<style media="screen">
+    .container{max-width: 650px;position:relative;margin:0 auto;}
+    .panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+.panel-body {
+    padding: 15px;
+}
+.panel-default {
+    border-color: #ddd;
+}
+.col-left {
+    float: left;
+    width: 49%;
+}
+.col-right {
+    float: right;
+    width: 49%;
+}
+.group:after {
+    content:"";
+    display: table;
+    clear: both;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+@media screen and (max-width: 480px) {
+    .col-left,
+    .col-right {
+        float: none;
+        width: auto;
+    }
+}
+</style>
+<body>
+    <div class="container">
+        <!--[if gte mso 9]>
+			<v:background xmlns:v="urn:schemas-microsoft-com:vml" fill="t">
+				<v:fill type="tile" color="#eeeeee"></v:fill>
+			</v:background>
+		<![endif]-->
+        <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+                <tr>
+                    <td colspan="3" class="esd-stripe" style="background-color: #414141;text-align:center;" height="75" >
+                        <a target="_blank" href="{{absolute_url(path('homepage'))}}" class="menuzord-brand">
+                            <img src="{{absolute_url(asset('acseine/original/common/images/logo.png'))}}" alt="" />
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3" class="esd-block-image es-p25t es-p25b es-p35r es-p35l">
+                        <br/>
+                        {% trans from "messages" into tran_locale %}track.email_dear{% endtrans %} {{user.firstName}} {{user.Lastname}},
+                        <br/>
+
+                        <h3>{% trans from "messages" into tran_locale %}track.email_has_been_shipped1{% endtrans %}</h3>
+                        {% trans from "messages" into tran_locale %}track.email_has_been_shipped2{% endtrans %}
+                        <br/><br/><br/>
+                    </td>
+                </tr>
+
+                {#
+                <tr>
+                    <td colspan="3" class="esd-block-text es-p15t es-p20b" align="left">
+                        Order Number #{{ order.ordernumber }}<br/>
+                    </td>
+                </tr>
+                #}
+                <tr style="background-color:#D3D3D3;">
+                    <td colspan="2" align="center">
+                        <h4>{% trans from "messages" into tran_locale %}order.items{% endtrans %} ({% trans from "messages" into tran_locale %}cart.qty{% endtrans %})</h4>
+                    </td>
+                    <td >
+                        <h4>{% trans from "messages" into tran_locale %}order.price{% endtrans %}</h4>
+                    </td>
+                </tr>
+                {% for order_item in order_items %}
+                    <tr>
+                        <td width="16%" style="padding: 5px 10px 5px 0" >
+                            <p>
+                                {% if order_item.image %}
+                                    <img src="{{order_item.image|imagine_filter('img_product_small')}}" alt="" style="" width="50px;"/>
+                                {% endif %}
+                            </p>
+                        </td>
+                        <td  align="left">
+                            <p>
+                                {{order_item.productTitle}} ({{order_item.quantity}})
+                                {% if order_item.skuTitle|length > 0 %}
+                                    <br/><small>{{ order_item.skuTitle|join(' · ') }}</small>
+                                {% endif %}
+                            </p>
+                        </td>
+                        <td width="20%" style="padding: 5px 0"  align="left">
+                            <p>฿{{order_item.amount|number_format(2, '.', ',')}}</p>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                {% if order.discountAmount %}
+                    <tr>
+                        <td colspan="2" style="padding: 5px 10px 5px 0" align="left">
+                            <p>Discount {% if order.discountCode %} Code: {{order.discountCode}}{% endif %}</p>
+                        </td>
+                        <td style="padding: 5px 0" align="left">
+                            <p>- ฿{{order.discountAmount|number_format(2, '.', ',') }}</p>
+                        </td>
+                    </tr>
+                {% endif %}
+
+                <tr>
+                    <td colspan="2" style="padding: 5px 10px 5px 0"  align="left">
+                        <p>{% trans from "messages" into tran_locale %}cart.shipping_free{% endtrans %}</p>
+                    </td>
+                    <td style="padding: 5px 0" align="left">
+                        <p>
+                            {% if order.shippingCost > 0 %}
+                                ฿{{order.shippingCost|number_format(2, '.', ',') }}
+                            {% else %}
+                                {% trans from "messages" into tran_locale %}cart.free{% endtrans %}
+                            {% endif %}
+                        </p>
+                    </td>
+                </tr>
+
+                <tr style="border-top: 3px solid rgb(238, 238, 238); border-bottom: 3px solid rgb(238, 238, 238);">
+                    <td colspan="2" style="border-top: 3px solid rgb(238, 238, 238); border-bottom: 3px solid rgb(238, 238, 238);">
+                        <h4>{% trans from "messages" into tran_locale %}cart.grand_total_vat_incl{% endtrans %}</h4>
+                    </td>
+                    <td style="border-top: 3px solid rgb(238, 238, 238); border-bottom: 3px solid rgb(238, 238, 238);">
+                        <h4>฿{{order.totalPrice|number_format(2, '.', ',') }}</h4>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="3">
+                        <div class="group">
+                            <div class="col-left">
+                                <h4>{% trans from "messages" into tran_locale %}cart.shipping_address{% endtrans %}</h4>
+                                {% for orderDeliverys in order.customerOrderDeliverys %}
+                                    {% if orderDeliverys.addressType == 1 %}
+                                        <p>
+                                            {{orderDeliverys.firstName}} {{orderDeliverys.lastName}}
+                                            {% if orderDeliverys.companyName %}<br />{{orderDeliverys.companyName}}{% endif %}
+                                            {% if orderDeliverys.headOffice %}&nbsp;&nbsp;({{orderDeliverys.headOffice}}){% endif %}<br/><br/>
+                                            {{orderDeliverys.address}}, {{orderDeliverys.district}}{% if orderDeliverys.amphure %}, {{orderDeliverys.amphure}}{% endif %}<br />
+                                            {{orderDeliverys.province}} {{orderDeliverys.postCode}}<br />
+                                            Phone {{orderDeliverys.phone}}
+                                        </p>
+                                    {% endif %}
+                                {% else %}
+    	                            No data
+    	                        {% endfor %}
+                            </div>
+                            <div class="col-right">
+                                <h4>{% trans from "messages" into tran_locale %}track.your_order{% endtrans %}</h4>
+                                <p>
+                                    {% trans from "messages" into tran_locale %}track.shipment_by{% endtrans %}: {{shipping_carrier.name}}<br/>
+                                    {% trans from "messages" into tran_locale %}track.tracking_number{% endtrans %}: <a href="{{getTrackingURL(shipping_carrier.trackingUrl, tracking_number)}}">{{tracking_number}}</a><br/>
+                                </p>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <div class="group">
+                            <div class="col-left">
+                                 <h4>{% trans from "messages" into tran_locale %}payment.method.title{% endtrans %}</h4>
+                                 <div class="panel panel-default">
+                                     <div class="panel-body" align="center">
+                                        {% if order.paymentOption == payment_bank_transfer_code %}
+                                                <h5> {{order.paymentOptionTitle|trans({}, 'messages', tran_locale)}} </h5>
+                                            {% if order.paid == 0 %}
+                                                <h3 class="text-warning">{{payment_status_awaiting_payment|trans({}, 'messages', tran_locale)}}</h3>
+                                            {% else %}
+                                                <h3 class="text-success">{{payment_status_paid|trans({}, 'messages', tran_locale)}}</h3>
+                                            {% endif %}
+
+                                        {% elseif order.paymentOption == payment_omise_code %}
+                                            <!-- CRDT -->
+                                            {% set payment_omise = order.customerPaymentOmise %}
+
+                                            <h5> {{order.paymentOptionTitle|trans({}, 'messages', tran_locale)}} </h5>
+                                            {% if payment_omise.status == payment_status_failed  %}
+                                                <h3 class="text-warning">{{payment_status_failed|trans({}, 'messages', tran_locale)}}</h3>
+                                            {% else %}
+                                            <h3 class="text-success">{{payment_status_paid|trans({}, 'messages', tran_locale)}}</h3>
+                                            {% endif %}
+                                        {% endif %}
+                                </div>
+                                 </div>
+                             </div>
+                             <div class="col-right">
+                                 {% if order.shipDate %}
+                                 <h4>{% trans from "messages" into tran_locale %}order.estimated.delivered.on{% endtrans %}</h4>
+                                 <div class="panel panel-default">
+                                     <div class="panel-body" align="center">
+                                         <h5>&nbsp;</h5>
+                                         <h3 class="text-warning">{{ order.shipDate|date("d") }} {{ order.shipDate|date("F")|trans({}, 'messages', tran_locale) }} {{ order.shipDate|date("Y") }}</h3>
+                                     </div>
+                                 </div>
+                                 {% endif %}
+                             </div>
+                         </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3" class="esd-block-text es-p10b" align="left">
+                        <p><small>{% trans from "messages" into tran_locale %}order.auto_generated_email{% endtrans %}</small></p>
+                    </td>
+                </tr>
+
+            </tbody>
+            <tfoot>
+                <tr style="background-color:#414141;color:#ffffff;">
+                    <td colspan="3"   style="background-color:#414141;color:#ffffff;" align="center" height="75">
+                        <p><strong>PITH Beauty Pro Co., Ltd. Exchange Tower, Unit 3801</strong></p>
+                        <p><strong>388 Sukhumvit Road, Klongtoey, Bangkok 10110</strong></p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+
+</html>
